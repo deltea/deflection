@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://dlfa7daaklqxk"]
+[gd_scene load_steps=15 format=3 uid="uid://dlfa7daaklqxk"]
 
+[ext_resource type="Script" path="res://scripts/arena.gd" id="1_7g2yt"]
 [ext_resource type="PackedScene" uid="uid://brrr7qsj7budm" path="res://player.tscn" id="1_r5hwi"]
 [ext_resource type="Shader" path="res://shaders/swirl_background.gdshader" id="2_5obaw"]
+[ext_resource type="Texture2D" uid="uid://jmni87fcmmst" path="res://assets/square.png" id="3_ka4cv"]
 [ext_resource type="Texture2D" uid="uid://ogckd3hcjecc" path="res://assets/background.png" id="3_xxcna"]
 [ext_resource type="Script" path="res://scripts/floor.gd" id="4_pgy43"]
 [ext_resource type="Shader" path="res://shaders/nine_slice.gdshader" id="4_usrmf"]
 [ext_resource type="Texture2D" uid="uid://chko5146pj7cu" path="res://assets/platform-border.png" id="5_sg4k6"]
-[ext_resource type="Texture2D" uid="uid://bykimo37ykl1b" path="res://assets/platform-background.png" id="6_ghfk3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wqgdq"]
 shader = ExtResource("2_5obaw")
@@ -18,7 +19,7 @@ shader_parameter/size = 20.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70o8y"]
 shader = ExtResource("4_usrmf")
-shader_parameter/scale = Vector2(18, 10)
+shader_parameter/scale = Vector2(18, 12)
 shader_parameter/right = 8
 shader_parameter/top = 8
 shader_parameter/left = 8
@@ -36,11 +37,13 @@ normal = Vector2(0, 1)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n2gvw"]
 
 [node name="Arena" type="Node2D"]
+script = ExtResource("1_7g2yt")
 metadata/_edit_horizontal_guides_ = [135.0, 270.0]
 metadata/_edit_vertical_guides_ = [240.0, 480.0]
 
 [node name="Player" parent="." instance=ExtResource("1_r5hwi")]
 position = Vector2(240, 135)
+walk_tilt = 5.0
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -50
@@ -59,13 +62,15 @@ speed = 50.0
 magnitude = 1.0
 
 [node name="Background" type="Sprite2D" parent="Walls"]
-material = SubResource("ShaderMaterial_70o8y")
-scale = Vector2(18, 10)
-texture = ExtResource("6_ghfk3")
+self_modulate = Color(0.152941, 0.160784, 0.27451, 1)
+z_index = -10
+position = Vector2(-1.78814e-05, 7.15256e-07)
+scale = Vector2(26.5, 17.5)
+texture = ExtResource("3_ka4cv")
 
 [node name="Border" type="Sprite2D" parent="Walls"]
 material = SubResource("ShaderMaterial_70o8y")
-scale = Vector2(18, 10)
+scale = Vector2(18, 12)
 texture = ExtResource("5_sg4k6")
 
 [node name="LeftWall" type="CollisionShape2D" parent="Walls"]
