@@ -15,7 +15,9 @@ motion_mode = 1
 script = ExtResource("1_52jmm")
 
 [node name="Sprite" parent="." instance=ExtResource("2_ema6y")]
+position = Vector2(0, 5)
 texture = ExtResource("3_ralyu")
+offset = Vector2(0, -5)
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 Globals="*res://autoloads/Globals.gd"
 ColorPalette="*res://autoloads/color_palette.tscn"
 Stats="*res://autoloads/stats.tscn"
+Dynamics="*res://autoloads/Dynamics.gd"
 Clock="*res://autoloads/Clock.gd"
 
 [display]
