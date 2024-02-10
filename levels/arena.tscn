@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://dlfa7daaklqxk"]
+[gd_scene load_steps=2 format=3 uid="uid://dlfa7daaklqxk"]
+
+[ext_resource type="PackedScene" uid="uid://brrr7qsj7budm" path="res://player.tscn" id="1_r5hwi"]
 
 [node name="Arena" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [135.0]
+metadata/_edit_vertical_guides_ = [240.0]
+
+[node name="Player" parent="." instance=ExtResource("1_r5hwi")]
+position = Vector2(240, 135)
