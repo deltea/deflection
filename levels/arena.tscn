@@ -1,10 +1,85 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlfa7daaklqxk"]
+[gd_scene load_steps=14 format=3 uid="uid://dlfa7daaklqxk"]
 
 [ext_resource type="PackedScene" uid="uid://brrr7qsj7budm" path="res://player.tscn" id="1_r5hwi"]
+[ext_resource type="Shader" path="res://shaders/swirl_background.gdshader" id="2_5obaw"]
+[ext_resource type="Texture2D" uid="uid://ogckd3hcjecc" path="res://assets/background.png" id="3_xxcna"]
+[ext_resource type="Script" path="res://scripts/floor.gd" id="4_pgy43"]
+[ext_resource type="Shader" path="res://shaders/nine_slice.gdshader" id="4_usrmf"]
+[ext_resource type="Texture2D" uid="uid://chko5146pj7cu" path="res://assets/platform-border.png" id="5_sg4k6"]
+[ext_resource type="Texture2D" uid="uid://bykimo37ykl1b" path="res://assets/platform-background.png" id="6_ghfk3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wqgdq"]
+shader = ExtResource("2_5obaw")
+shader_parameter/color_1 = Color(0.152941, 0.160784, 0.27451, 1)
+shader_parameter/color_2 = Color(0.929412, 0.627451, 0.192157, 1)
+shader_parameter/swirl_speed = 0.4
+shader_parameter/arms = 5
+shader_parameter/size = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_70o8y"]
+shader = ExtResource("4_usrmf")
+shader_parameter/scale = Vector2(18, 10)
+shader_parameter/right = 8
+shader_parameter/top = 8
+shader_parameter/left = 8
+shader_parameter/bottom = 8
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fns0u"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vfj7r"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jnuq7"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n2gvw"]
 
 [node name="Arena" type="Node2D"]
-metadata/_edit_horizontal_guides_ = [135.0]
-metadata/_edit_vertical_guides_ = [240.0]
+metadata/_edit_horizontal_guides_ = [135.0, 270.0]
+metadata/_edit_vertical_guides_ = [240.0, 480.0]
 
 [node name="Player" parent="." instance=ExtResource("1_r5hwi")]
 position = Vector2(240, 135)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -50
+material = SubResource("ShaderMaterial_wqgdq")
+position = Vector2(-282.667, -159)
+scale = Vector2(2.17778, 2.17778)
+texture = ExtResource("3_xxcna")
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+z_index = -40
+position = Vector2(240, 135)
+collision_mask = 0
+script = ExtResource("4_pgy43")
+speed = 50.0
+magnitude = 1.0
+
+[node name="Background" type="Sprite2D" parent="Walls"]
+material = SubResource("ShaderMaterial_70o8y")
+scale = Vector2(18, 10)
+texture = ExtResource("6_ghfk3")
+
+[node name="Border" type="Sprite2D" parent="Walls"]
+material = SubResource("ShaderMaterial_70o8y")
+scale = Vector2(18, 10)
+texture = ExtResource("5_sg4k6")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-213, 0)
+shape = SubResource("WorldBoundaryShape2D_fns0u")
+
+[node name="RightWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(213, 0)
+shape = SubResource("WorldBoundaryShape2D_vfj7r")
+
+[node name="TopWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, -117)
+shape = SubResource("WorldBoundaryShape2D_jnuq7")
+
+[node name="BottomWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 117)
+shape = SubResource("WorldBoundaryShape2D_n2gvw")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://brrr7qsj7budm"]
+[gd_scene load_steps=7 format=3 uid="uid://brrr7qsj7budm"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_52jmm"]
 [ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="2_ema6y"]
 [ext_resource type="Texture2D" uid="uid://cjgq7gxxdo60o" path="res://assets/player.png" id="3_ralyu"]
+[ext_resource type="PackedScene" uid="uid://b2d6fj5ct4bqv" path="res://camera.tscn" id="4_0rxrs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0m3x6"]
 size = Vector2(8, 5)
@@ -11,13 +12,16 @@ size = Vector2(8, 5)
 radius = 3.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 10
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_52jmm")
 
-[node name="Sprite" parent="." instance=ExtResource("2_ema6y")]
-position = Vector2(0, 5)
+[node name="Camera" parent="." instance=ExtResource("4_0rxrs")]
+
+[node name="SpritePlus" parent="." instance=ExtResource("2_ema6y")]
 texture = ExtResource("3_ralyu")
-offset = Vector2(0, -5)
+shadow_offset = Vector2(0, 10)
 shadow_scale = Vector2(0.5, 0.4)
 
 [node name="Collider" type="CollisionShape2D" parent="."]
@@ -25,6 +29,8 @@ position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_0m3x6")
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 12
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_du8ss")

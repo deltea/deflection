@@ -19,9 +19,10 @@ var k3: float
 var T: float
 
 func _ready() -> void:
-	f = dynamics.f
-	z = dynamics.z
-	r = dynamics.r
+	if dynamics:
+		f = dynamics.f
+		z = dynamics.z
+		r = dynamics.r
 
 	k1 = z / (PI * f)
 	k2 = 1 / ((2 * PI * f) * (2 * PI * f))

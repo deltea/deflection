@@ -4,7 +4,7 @@ class_name Player extends CharacterBody2D
 @export var walk_tilt = 15.0
 @export var walk_tilt_speed = 1000.0
 
-@onready var sprite: Sprite = $Sprite
+@onready var sprite: Sprite = $SpritePlus
 
 func _ready() -> void:
 	pass
