@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyqqq11wm7sxl"]
+
+[ext_resource type="Script" path="res://autoloads/ColorPalette.gd" id="1_1riih"]
+[ext_resource type="Script" path="res://scripts/color_palette_resource.gd" id="2_vv6l4"]
+
+[sub_resource type="Resource" id="Resource_e67ia"]
+script = ExtResource("2_vv6l4")
+accent = Color(1, 0, 0, 1)
+dark = Color(0, 0, 0, 1)
+light = Color(1, 1, 1, 1)
+
+[node name="ColorPalette" type="Node"]
+script = ExtResource("1_1riih")
+color_palette = SubResource("Resource_e67ia")
