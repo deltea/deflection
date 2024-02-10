@@ -6,7 +6,10 @@ class_name Sprite extends Sprite2D
 
 @export_group("Shadow")
 @export var use_shadow = false
-@export var shadow_color: Color = Color.BLACK
+@export var shadow_texture: Texture2D
+@export var shadow_offset = Vector2(0, 0)
+@export var shadow_scale = Vector2.ONE
+@export var shadow_ordering = -20
 
 var target_scale = Vector2.ONE
 var target_rotation_degrees = 0.0
@@ -14,10 +17,28 @@ var target_rotation_degrees = 0.0
 var scale_dynamics_solver: DynamicsSolverVector
 var rotation_dynamics_solver: DynamicsSolver
 
+var shadow: Sprite2D
+
 func _ready() -> void:
 	scale_dynamics_solver = Dynamics.create_dynamics_vector(scale_dynamics)
 	rotation_dynamics_solver = Dynamics.create_dynamics(rotation_dynamics)
 
-func _process(delta: float) -> void:
+	if use_shadow:
+		shadow = Sprite2D.new()
+		shadow.top_level = true
+		shadow.texture = shadow_texture
+		shadow.self_modulate = ColorPalette.colors.accent
+		shadow.offset = shadow_offset
+		shadow.global_scale = shadow_scale
+		shadow.z_index = shadow_ordering
+		shadow.flip_h = flip_h
+		shadow.flip_v = flip_v
+		shadow.scale = shadow_scale
+		add_child(shadow)
+
+func _process(_delta: float) -> void:
 	global_scale = scale_dynamics_solver.update(target_scale)
 	global_rotation_degrees = rotation_dynamics_solver.update(target_rotation_degrees)
+
+	if use_shadow:
+		shadow.global_position = global_position

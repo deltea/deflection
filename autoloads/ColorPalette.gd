@@ -1,3 +1,3 @@
 extends Node
 
-@export var color_palette: ColorPaletteResource
+@export var colors: ColorPaletteResource
