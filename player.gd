@@ -45,3 +45,5 @@ func swing_bat():
 	var bullets = parry_area.get_overlapping_areas().filter(func(area): return area is Bullet)
 	for bullet in bullets:
 		bullet.switch_to_player()
+	if len(bullets) > 0:
+		Clock.hitstop(0.03)

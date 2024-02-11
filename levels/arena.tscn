@@ -5,8 +5,8 @@
 [ext_resource type="Shader" path="res://shaders/swirl_background.gdshader" id="2_5obaw"]
 [ext_resource type="Texture2D" uid="uid://jmni87fcmmst" path="res://assets/square.png" id="3_ka4cv"]
 [ext_resource type="Texture2D" uid="uid://ogckd3hcjecc" path="res://assets/background.png" id="3_xxcna"]
-[ext_resource type="Script" path="res://scripts/floor.gd" id="4_pgy43"]
 [ext_resource type="Shader" path="res://shaders/nine_slice.gdshader" id="4_usrmf"]
+[ext_resource type="Script" path="res://scripts/wall.gd" id="5_5lryr"]
 [ext_resource type="Texture2D" uid="uid://chko5146pj7cu" path="res://assets/platform-border.png" id="5_sg4k6"]
 [ext_resource type="PackedScene" uid="uid://ckdckwwcaci3j" path="res://enemies/rotating_turret_enemy.tscn" id="9_m3bor"]
 
@@ -39,25 +39,19 @@ normal = Vector2(0, 1)
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_7g2yt")
-metadata/_edit_horizontal_guides_ = [135.0, 270.0]
-metadata/_edit_vertical_guides_ = [240.0, 480.0]
 
 [node name="Player" parent="." instance=ExtResource("1_r5hwi")]
-position = Vector2(240, 135)
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -50
 material = SubResource("ShaderMaterial_wqgdq")
-position = Vector2(-282.667, -159)
 scale = Vector2(2.17778, 2.17778)
 texture = ExtResource("3_xxcna")
-centered = false
 
 [node name="Walls" type="StaticBody2D" parent="."]
 z_index = -40
-position = Vector2(240, 135)
 collision_mask = 0
-script = ExtResource("4_pgy43")
+script = ExtResource("5_5lryr")
 speed = 50.0
 magnitude = 1.0
 
@@ -90,6 +84,4 @@ position = Vector2(0, 140)
 shape = SubResource("WorldBoundaryShape2D_n2gvw")
 
 [node name="RotatingTurretEnemy" parent="." instance=ExtResource("9_m3bor")]
-position = Vector2(68, 40)
-collision_layer = 1
-collision_mask = 1
+position = Vector2(-151, -70)
