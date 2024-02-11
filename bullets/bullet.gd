@@ -1,8 +1,17 @@
 class_name Bullet extends Area2D
 
+@export var texture_1: Texture2D
+@export var texture_2: Texture2D
+
+@onready var sprite: Sprite2D = $Sprite
+
 var is_player_bullet = false
 var speed = 0.0
 var health = 1
+
+func _ready() -> void:
+	sprite.material.set_shader_parameter("new_color", ColorPalette.colors.accent)
+
 
 func _physics_process(delta: float) -> void:
 	position += Vector2.from_angle(rotation) * speed * delta
@@ -23,3 +32,11 @@ func _on_body_entered(body: Node2D) -> void:
 		health -= 1
 		if health <= 0: destroy()
 		else: bounce(Vector2.ONE)
+
+func _on_blink_timer_timeout() -> void:
+	if not texture_1 or not texture_2: return
+
+	if sprite.texture == texture_1:
+		sprite.texture = texture_2
+	else:
+		sprite.texture = texture_1
