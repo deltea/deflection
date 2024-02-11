@@ -3,7 +3,7 @@ class_name Bullet extends Area2D
 @export var texture_1: Texture2D
 @export var texture_2: Texture2D
 
-@onready var sprite: Sprite2D = $Sprite
+@onready var sprite: Sprite = $SpritePlus
 
 var is_player_bullet = false
 var speed = 0.0
@@ -12,7 +12,6 @@ var health = 1
 func _ready() -> void:
 	sprite.material.set_shader_parameter("new_color", ColorPalette.colors.accent)
 
-
 func _physics_process(delta: float) -> void:
 	position += Vector2.from_angle(rotation) * speed * delta
 
@@ -20,6 +19,7 @@ func switch_to_player():
 	is_player_bullet = true
 	rotation = (get_global_mouse_position() - global_position).angle()
 	speed = Stats.stats.bullet_speed
+	sprite.impact_expand(1.5)
 
 func destroy():
 	queue_free()

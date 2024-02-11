@@ -54,3 +54,4 @@ func swing_bat():
 		bullet.switch_to_player()
 		Clock.hitstop(0.04)
 		knockback(position - get_global_mouse_position(), 200)
+		bat_sprite.impact_expand(1.5)

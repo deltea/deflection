@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://brrr7qsj7budm"]
+[gd_scene load_steps=13 format=3 uid="uid://brrr7qsj7budm"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_52jmm"]
 [ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="2_ema6y"]
@@ -22,6 +22,12 @@ radius = 3.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8ah2"]
 size = Vector2(62, 35)
+
+[sub_resource type="Resource" id="Resource_hal72"]
+script = ExtResource("5_5ev3i")
+f = 4.0
+z = 0.4
+r = 2.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
@@ -63,5 +69,6 @@ shape = SubResource("RectangleShape2D_s8ah2")
 [node name="BatSprite" parent="Bat" instance=ExtResource("2_ema6y")]
 position = Vector2(0, -22)
 texture = ExtResource("5_tfdqe")
+scale_dynamics = SubResource("Resource_hal72")
 rotation_dynamics = ExtResource("7_vncb5")
 use_shadow = false
