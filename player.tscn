@@ -20,7 +20,7 @@ size = Vector2(8, 5)
 radius = 3.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8ah2"]
-size = Vector2(62, 30)
+size = Vector2(62, 35)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
@@ -54,7 +54,7 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape" type="CollisionShape2D" parent="ParryArea"]
-position = Vector2(0, -20)
+position = Vector2(0, -17.5)
 shape = SubResource("RectangleShape2D_s8ah2")
 
 [node name="Bat" type="Node2D" parent="."]
