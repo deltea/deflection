@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckdckwwcaci3j"]
+
+[ext_resource type="PackedScene" uid="uid://g2f6mwxx5irq" path="res://enemies/enemy.tscn" id="1_so2bv"]
+[ext_resource type="Texture2D" uid="uid://g7nuipekwkkh" path="res://assets/enemies/rotating-turret.png" id="2_aj4yd"]
+[ext_resource type="Script" path="res://enemies/rotating_turret_enemy.gd" id="2_tldh5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jyyev"]
+radius = 4.0
+
+[node name="RotatingTurretEnemy" instance=ExtResource("1_so2bv")]
+script = ExtResource("2_tldh5")
+bullet_speed = 100.0
+speed = 2.0
+bullet_offset = 16.0
+
+[node name="SpritePlus" parent="." index="0"]
+texture = ExtResource("2_aj4yd")
+shadow_offset = Vector2(0, 24)
+shadow_scale = Vector2(0.8, 0.5)
+
+[node name="CollisionShape" parent="." index="1"]
+shape = SubResource("CircleShape2D_jyyev")

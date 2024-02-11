@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://g2f6mwxx5irq"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_jfmhy"]
+[ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="1_ucv0w"]
+
+[node name="Enemy" type="Area2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_jfmhy")
+
+[node name="SpritePlus" parent="." instance=ExtResource("1_ucv0w")]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

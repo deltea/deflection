@@ -20,7 +20,7 @@ size = Vector2(8, 5)
 radius = 3.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8ah2"]
-size = Vector2(16, 34)
+size = Vector2(62, 30)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
@@ -49,16 +49,16 @@ collision_mask = 12
 shape = SubResource("CircleShape2D_du8ss")
 debug_color = Color(0.701961, 0, 0, 0.419608)
 
+[node name="ParryArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape" type="CollisionShape2D" parent="ParryArea"]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_s8ah2")
+
 [node name="Bat" type="Node2D" parent="."]
 
 [node name="BatSprite" type="Sprite2D" parent="Bat"]
 position = Vector2(0, -22)
 texture = ExtResource("5_tfdqe")
-
-[node name="ParryArea" type="Area2D" parent="Bat"]
-collision_layer = 0
-collision_mask = 8
-
-[node name="CollisionShape" type="CollisionShape2D" parent="Bat/ParryArea"]
-position = Vector2(0, -22)
-shape = SubResource("RectangleShape2D_s8ah2")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dlfa7daaklqxk"]
+[gd_scene load_steps=16 format=3 uid="uid://dlfa7daaklqxk"]
 
 [ext_resource type="Script" path="res://scripts/arena.gd" id="1_7g2yt"]
 [ext_resource type="PackedScene" uid="uid://brrr7qsj7budm" path="res://player.tscn" id="1_r5hwi"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/floor.gd" id="4_pgy43"]
 [ext_resource type="Shader" path="res://shaders/nine_slice.gdshader" id="4_usrmf"]
 [ext_resource type="Texture2D" uid="uid://chko5146pj7cu" path="res://assets/platform-border.png" id="5_sg4k6"]
+[ext_resource type="PackedScene" uid="uid://ckdckwwcaci3j" path="res://enemies/rotating_turret_enemy.tscn" id="9_m3bor"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wqgdq"]
 shader = ExtResource("2_5obaw")
@@ -19,7 +20,7 @@ shader_parameter/size = 20.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70o8y"]
 shader = ExtResource("4_usrmf")
-shader_parameter/scale = Vector2(18, 12)
+shader_parameter/scale = Vector2(22, 12)
 shader_parameter/right = 8
 shader_parameter/top = 8
 shader_parameter/left = 8
@@ -64,20 +65,20 @@ magnitude = 1.0
 self_modulate = Color(0.152941, 0.160784, 0.27451, 1)
 z_index = -10
 position = Vector2(-1.78814e-05, 7.15256e-07)
-scale = Vector2(26.5, 17.5)
+scale = Vector2(32.5, 17.5)
 texture = ExtResource("3_ka4cv")
 
 [node name="Border" type="Sprite2D" parent="Walls"]
 material = SubResource("ShaderMaterial_70o8y")
-scale = Vector2(18, 12)
+scale = Vector2(22, 12)
 texture = ExtResource("5_sg4k6")
 
 [node name="LeftWall" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-213, 0)
+position = Vector2(-260, 0)
 shape = SubResource("WorldBoundaryShape2D_fns0u")
 
 [node name="RightWall" type="CollisionShape2D" parent="Walls"]
-position = Vector2(213, 0)
+position = Vector2(260, 0)
 shape = SubResource("WorldBoundaryShape2D_vfj7r")
 
 [node name="TopWall" type="CollisionShape2D" parent="Walls"]
@@ -87,3 +88,8 @@ shape = SubResource("WorldBoundaryShape2D_jnuq7")
 [node name="BottomWall" type="CollisionShape2D" parent="Walls"]
 position = Vector2(0, 140)
 shape = SubResource("WorldBoundaryShape2D_n2gvw")
+
+[node name="RotatingTurretEnemy" parent="." instance=ExtResource("9_m3bor")]
+position = Vector2(68, 40)
+collision_layer = 1
+collision_mask = 1

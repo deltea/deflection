@@ -8,6 +8,7 @@ class_name Player extends CharacterBody2D
 
 @onready var sprite: Sprite = $SpritePlus
 @onready var bat: Node2D = $Bat
+@onready var parry_area: Area2D = $ParryArea
 
 var bat_rotation = 0.0
 var bat_rotation_dynamics_solver: DynamicsSolver
@@ -22,6 +23,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var mouse_angle = get_angle_to(get_global_mouse_position()) + PI/2
 	bat.rotation = mouse_angle + bat_rotation_dynamics_solver.update(deg_to_rad(bat_rotation))
+	parry_area.rotation = mouse_angle
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -33,6 +35,13 @@ func _physics_process(delta: float) -> void:
 		sprite.target_rotation_degrees = 0
 
 	if Input.is_action_just_pressed("lmb"):
-		bat_rotation = -bat_rotation
+		swing_bat()
 
 	move_and_slide()
+
+func swing_bat():
+	bat_rotation = -bat_rotation
+
+	var bullets = parry_area.get_overlapping_areas().filter(func(area): return area is Bullet)
+	for bullet in bullets:
+		bullet.switch_to_player()
