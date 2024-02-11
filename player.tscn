@@ -34,6 +34,7 @@ z_index = 10
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_52jmm")
+bat_rotation_offset = 125.0
 bat_rotation_dynamics = SubResource("Resource_1fuvc")
 
 [node name="Camera" parent="." instance=ExtResource("4_0rxrs")]

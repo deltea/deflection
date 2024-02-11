@@ -49,6 +49,7 @@ func swing_bat():
 
 	var bullets = parry_area.get_overlapping_areas().filter(func(area): return area is Bullet)
 	for bullet in bullets:
+		if not bullet: continue
 		var distance = bullet.position.distance_to(bat_sprite.global_position)
 		await Clock.wait(distance / 1000)
 		bullet.switch_to_player()
