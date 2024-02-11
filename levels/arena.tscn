@@ -43,7 +43,6 @@ metadata/_edit_vertical_guides_ = [240.0, 480.0]
 
 [node name="Player" parent="." instance=ExtResource("1_r5hwi")]
 position = Vector2(240, 135)
-walk_tilt = 5.0
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -50
@@ -82,9 +81,9 @@ position = Vector2(213, 0)
 shape = SubResource("WorldBoundaryShape2D_vfj7r")
 
 [node name="TopWall" type="CollisionShape2D" parent="Walls"]
-position = Vector2(0, -117)
+position = Vector2(0, -140)
 shape = SubResource("WorldBoundaryShape2D_jnuq7")
 
 [node name="BottomWall" type="CollisionShape2D" parent="Walls"]
-position = Vector2(0, 117)
+position = Vector2(0, 140)
 shape = SubResource("WorldBoundaryShape2D_n2gvw")

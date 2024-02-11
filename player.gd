@@ -19,7 +19,7 @@ func _ready() -> void:
 	bat_rotation = bat_rotation_offset
 	bat_rotation_dynamics_solver = Dynamics.create_dynamics(bat_rotation_dynamics)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var mouse_angle = get_angle_to(get_global_mouse_position()) + PI/2
 	bat.rotation = mouse_angle + bat_rotation_dynamics_solver.update(deg_to_rad(bat_rotation))
 
