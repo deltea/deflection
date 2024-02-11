@@ -8,6 +8,7 @@ class_name Player extends CharacterBody2D
 
 @onready var sprite: Sprite = $SpritePlus
 @onready var bat: Node2D = $Bat
+@onready var bat_sprite: Sprite2D = $Bat/BatSprite
 @onready var parry_area: Area2D = $ParryArea
 
 var bat_rotation = 0.0
@@ -44,6 +45,7 @@ func swing_bat():
 
 	var bullets = parry_area.get_overlapping_areas().filter(func(area): return area is Bullet)
 	for bullet in bullets:
+		var distance = bullet.position.distance_to(bat_sprite.position)
+		await Clock.wait(distance / 1000)
 		bullet.switch_to_player()
-	if len(bullets) > 0:
 		Clock.hitstop(0.03)
