@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://brrr7qsj7budm"]
+[gd_scene load_steps=14 format=3 uid="uid://brrr7qsj7budm"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_52jmm"]
 [ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="2_ema6y"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="5_5ev3i"]
 [ext_resource type="Texture2D" uid="uid://bnaj3dqoiplpt" path="res://assets/bat.png" id="5_tfdqe"]
 [ext_resource type="Resource" uid="uid://72g4joepn8g7" path="res://dynamics/rigid.tres" id="7_vncb5"]
+[ext_resource type="Texture2D" uid="uid://fh1rsxndkauh" path="res://assets/arrow.png" id="8_ycsct"]
 
 [sub_resource type="Resource" id="Resource_1fuvc"]
 script = ExtResource("5_5ev3i")
@@ -60,6 +61,10 @@ debug_color = Color(0.701961, 0, 0, 0.419608)
 [node name="ParryArea" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
+
+[node name="Arrow" type="Sprite2D" parent="ParryArea"]
+position = Vector2(0, -17)
+texture = ExtResource("8_ycsct")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="ParryArea"]
 position = Vector2(0, -17.5)
