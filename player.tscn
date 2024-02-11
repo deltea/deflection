@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://brrr7qsj7budm"]
+[gd_scene load_steps=12 format=3 uid="uid://brrr7qsj7budm"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_52jmm"]
 [ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="2_ema6y"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b2d6fj5ct4bqv" path="res://camera.tscn" id="4_0rxrs"]
 [ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="5_5ev3i"]
 [ext_resource type="Texture2D" uid="uid://bnaj3dqoiplpt" path="res://assets/bat.png" id="5_tfdqe"]
+[ext_resource type="Resource" uid="uid://72g4joepn8g7" path="res://dynamics/rigid.tres" id="7_vncb5"]
 
 [sub_resource type="Resource" id="Resource_1fuvc"]
 script = ExtResource("5_5ev3i")
@@ -59,6 +60,8 @@ shape = SubResource("RectangleShape2D_s8ah2")
 
 [node name="Bat" type="Node2D" parent="."]
 
-[node name="BatSprite" type="Sprite2D" parent="Bat"]
+[node name="BatSprite" parent="Bat" instance=ExtResource("2_ema6y")]
 position = Vector2(0, -22)
 texture = ExtResource("5_tfdqe")
+rotation_dynamics = ExtResource("7_vncb5")
+use_shadow = false
