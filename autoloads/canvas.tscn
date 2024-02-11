@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://mq20s8qn5s33"]
+
+[ext_resource type="Script" path="res://autoloads/canvas.gd" id="1_io8xs"]
+[ext_resource type="Texture2D" uid="uid://ck83hx5d6dsk" path="res://assets/mouse.png" id="2_w8wht"]
+
+[node name="Canvas" type="CanvasLayer"]
+script = ExtResource("1_io8xs")
+
+[node name="Mouse" type="TextureRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("2_w8wht")
+stretch_mode = 3
