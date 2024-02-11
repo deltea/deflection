@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 
 func switch_to_player():
 	is_player_bullet = true
-	rotation = Globals.player.get_angle_to(get_global_mouse_position())
+	rotation = (get_global_mouse_position() - global_position).angle()
 	speed = Stats.stats.bullet_speed
 
 func destroy():
