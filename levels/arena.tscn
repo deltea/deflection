@@ -85,6 +85,3 @@ shape = SubResource("WorldBoundaryShape2D_n2gvw")
 
 [node name="RotatingTurretEnemy" parent="." instance=ExtResource("9_m3bor")]
 position = Vector2(-151, -70)
-
-[node name="RotatingTurretEnemy2" parent="." instance=ExtResource("9_m3bor")]
-position = Vector2(120, 74)
