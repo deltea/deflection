@@ -5,13 +5,14 @@ class_name Player extends CharacterBody2D
 @export var bat_rotation_offset = 125.0
 @export var bat_rotation_dynamics: DynamicsResource
 @export var impulse_damping = 500.0
-@export var dash_impulse_damping = 2000.0
-@export var dash_force = 500.0
+@export var dash_impulse_damping = 5000.0
+@export var dash_force = 1000.0
 
 @onready var sprite: Sprite = $SpritePlus
 @onready var bat: Node2D = $Bat
 @onready var bat_sprite: Sprite = $Bat/BatSprite
 @onready var parry_area: Area2D = $ParryArea
+@onready var hitbox: Area2D = $Hitbox
 
 var bat_rotation = 0.0
 var bat_rotation_dynamics_solver: DynamicsSolver
