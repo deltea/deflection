@@ -8,6 +8,7 @@ class_name Player extends CharacterBody2D
 @export var impulse_damping = 500.0
 @export var dash_impulse_damping = 7000.0
 @export var dash_force = 1000.0
+@export var dash_duration = 0.8
 
 @onready var sprite: Sprite = $SpritePlus
 @onready var bat: Node2D = $Bat
@@ -15,12 +16,14 @@ class_name Player extends CharacterBody2D
 @onready var parry_area: Area2D = $ParryArea
 @onready var hitbox: Area2D = $Hitbox
 
+var mouse_angle: float
 var bat_rotation = 0.0
 var bat_rotation_dynamics_solver: DynamicsSolver
 var bat_position_dynamics_solver: DynamicsSolverVector
 var impulse_velocity = Vector2.ZERO
 var dash_impulse_velocity = Vector2.ZERO
-var mouse_angle: float
+var dash_timer = 0
+var is_dashing = false
 
 func _enter_tree() -> void:
 	Globals.player = self
@@ -30,12 +33,18 @@ func _ready() -> void:
 	bat_rotation_dynamics_solver = Dynamics.create_dynamics(bat_rotation_dynamics)
 	bat_position_dynamics_solver = Dynamics.create_dynamics_vector(bat_position_dynamics)
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	mouse_angle = get_angle_to(get_global_mouse_position()) + PI/2
 	bat.position = bat_position_dynamics_solver.update(global_position)
 	bat.rotation = mouse_angle + bat_rotation_dynamics_solver.update(deg_to_rad(bat_rotation))
 	parry_area.rotation = mouse_angle
 	bat_sprite.target_rotation_degrees = bat.rotation_degrees
+
+	if dash_timer >= dash_duration:
+		toggle_dash(false)
+		dash_timer = 0.0
+	else:
+		dash_timer += delta
 
 func _physics_process(delta: float) -> void:
 	var input = Input.get_vector("left", "right", "up", "down")
@@ -71,4 +80,25 @@ func swing_bat():
 		bat_sprite.impact_expand(1.5)
 
 func dash():
+	toggle_dash(true)
 	dash_impulse_velocity = (get_global_mouse_position() - position).normalized() * dash_force
+
+func toggle_dash(value: bool):
+	print(value)
+	is_dashing = value
+	hitbox.monitoring = not value
+
+func get_hurt(bullet: Bullet):
+	bullet.destroy()
+	Clock.hitstop(0.1)
+	Globals.camera.shake(0.05, 2)
+	Globals.camera.impact()
+	knockback(position - bullet.position, 100)
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area is Bullet:
+		var bullet = area as Bullet
+		if bullet.is_player_bullet: return
+
+		Events.player_hit.emit()
+		get_hurt(bullet)

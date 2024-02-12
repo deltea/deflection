@@ -90,3 +90,5 @@ texture = ExtResource("5_tfdqe")
 scale_dynamics = SubResource("Resource_hal72")
 rotation_dynamics = ExtResource("7_vncb5")
 use_shadow = false
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
