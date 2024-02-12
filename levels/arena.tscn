@@ -53,7 +53,7 @@ texture = ExtResource("3_xxcna")
 collision_mask = 0
 script = ExtResource("5_5lryr")
 speed = 50.0
-magnitude = 1.0
+magnitude = 0.0
 
 [node name="Background" type="Sprite2D" parent="Walls"]
 self_modulate = Color(0.152941, 0.160784, 0.27451, 1)

@@ -5,7 +5,7 @@ class_name TurretEnemy extends Enemy
 @export var bullet_delay = 0.3
 @export var bullet_offset = 16.0
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	sprite.target_rotation_degrees = rad_to_deg(get_angle_to(Globals.player.position))
 
 func _on_fire_timer_timeout() -> void:

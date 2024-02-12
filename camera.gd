@@ -2,6 +2,7 @@ class_name Camera extends Camera2D
 
 @export var zoom_speed = 3.0
 @export var mouse_strength = 0.05
+@export var player_x_strength = 0.005
 @export var rotation_speed = 5.0
 @export var impact_rotation = 5.0
 @export var shake_damping_speed = 1.0
@@ -19,8 +20,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	offset = (get_global_mouse_position() - global_position) * mouse_strength
-	rotation_degrees = lerp(rotation_degrees, 0.0, rotation_speed * delta)
 	zoom = lerp(zoom, target_zoom, zoom_speed * delta)
+	var player_x_tilt = 0 - Globals.player.position.x * player_x_strength
+	rotation_degrees = lerp(rotation_degrees, 0.0 + player_x_tilt, rotation_speed * delta)
 
 	if shake_duration > 0:
 		position = original_pos + random_direction() * shake_magnitude
