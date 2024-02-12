@@ -5,6 +5,8 @@ class_name Player extends CharacterBody2D
 @export var bat_rotation_offset = 125.0
 @export var bat_rotation_dynamics: DynamicsResource
 @export var impulse_damping = 500.0
+@export var dash_impulse_damping = 2000.0
+@export var dash_force = 500.0
 
 @onready var sprite: Sprite = $SpritePlus
 @onready var bat: Node2D = $Bat
@@ -14,6 +16,7 @@ class_name Player extends CharacterBody2D
 var bat_rotation = 0.0
 var bat_rotation_dynamics_solver: DynamicsSolver
 var impulse_velocity = Vector2.ZERO
+var dash_impulse_velocity = Vector2.ZERO
 var mouse_angle: float
 
 func _enter_tree() -> void:
@@ -31,12 +34,16 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	var input = Input.get_vector("left", "right", "up", "down")
-	velocity = input * Stats.stats.movement_speed * delta + impulse_velocity
+	velocity = input * Stats.stats.movement_speed * delta + impulse_velocity + dash_impulse_velocity
 	impulse_velocity = impulse_velocity.move_toward(Vector2.ZERO, impulse_damping * delta)
+	dash_impulse_velocity = dash_impulse_velocity.move_toward(Vector2.ZERO, dash_impulse_damping * delta)
 	sprite.target_rotation_degrees = sin(Clock.time * walk_tilt_speed * delta) * walk_tilt if input else 0.0
 
 	if Input.is_action_just_pressed("lmb"):
 		swing_bat()
+
+	if Input.is_action_just_pressed("rmb"):
+		dash()
 
 	move_and_slide()
 
@@ -56,3 +63,6 @@ func swing_bat():
 		Clock.hitstop(0.05)
 		knockback(position - get_global_mouse_position(), 200)
 		bat_sprite.impact_expand(1.5)
+
+func dash():
+	dash_impulse_velocity = (get_global_mouse_position() - position).normalized() * dash_force
