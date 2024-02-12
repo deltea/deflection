@@ -9,6 +9,7 @@ class_name Bullet extends Area2D
 var is_player_bullet = false
 var speed = 0.0
 var health = 1
+var combo = 0
 
 func _ready() -> void:
 	sprite.material.set_shader_parameter("new_color", ColorPalette.colors.accent)
@@ -28,6 +29,9 @@ func destroy():
 
 func bounce(normal: Vector2):
 	rotation = Vector2.from_angle(rotation).bounce(normal).angle()
+
+func hit_enemy():
+	combo += 1
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Wall:

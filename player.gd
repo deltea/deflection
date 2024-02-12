@@ -99,7 +99,6 @@ func dash():
 	dash_impulse_velocity = (get_global_mouse_position() - position).normalized() * dash_force
 
 func toggle_dash(value: bool):
-	print(value)
 	is_dashing = value
 	hitbox.monitoring = not value
 

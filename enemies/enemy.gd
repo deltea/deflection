@@ -14,6 +14,7 @@ func get_hurt():
 
 func die():
 	Events.enemy_die.emit(self)
+	monitoring = false
 
 	await Clock.hitstop(0.04)
 	await sprite.impact_expand(1.5, 0.05)
@@ -24,4 +25,5 @@ func _on_area_entered(area: Area2D) -> void:
 	if area is Bullet:
 		var bullet = area as Bullet
 		if bullet.is_player_bullet:
+			bullet.hit_enemy()
 			get_hurt()

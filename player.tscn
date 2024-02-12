@@ -25,7 +25,7 @@ r = 2.0
 size = Vector2(8, 4)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_du8ss"]
-radius = 2.0
+radius = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8ah2"]
 size = Vector2(62, 42)
@@ -64,6 +64,7 @@ collision_layer = 0
 collision_mask = 12
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
+z_index = 10
 shape = SubResource("CircleShape2D_du8ss")
 debug_color = Color(0.701961, 0, 0, 0.419608)
 
