@@ -4,8 +4,9 @@ class_name Player extends CharacterBody2D
 @export var walk_tilt_speed = 1500.0
 @export var bat_rotation_offset = 125.0
 @export var bat_rotation_dynamics: DynamicsResource
+@export var bat_position_dynamics: DynamicsResource
 @export var impulse_damping = 500.0
-@export var dash_impulse_damping = 5000.0
+@export var dash_impulse_damping = 7000.0
 @export var dash_force = 1000.0
 
 @onready var sprite: Sprite = $SpritePlus
@@ -16,6 +17,7 @@ class_name Player extends CharacterBody2D
 
 var bat_rotation = 0.0
 var bat_rotation_dynamics_solver: DynamicsSolver
+var bat_position_dynamics_solver: DynamicsSolverVector
 var impulse_velocity = Vector2.ZERO
 var dash_impulse_velocity = Vector2.ZERO
 var mouse_angle: float
@@ -26,9 +28,11 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	bat_rotation = bat_rotation_offset
 	bat_rotation_dynamics_solver = Dynamics.create_dynamics(bat_rotation_dynamics)
+	bat_position_dynamics_solver = Dynamics.create_dynamics_vector(bat_position_dynamics)
 
 func _process(_delta: float) -> void:
 	mouse_angle = get_angle_to(get_global_mouse_position()) + PI/2
+	bat.position = bat_position_dynamics_solver.update(global_position)
 	bat.rotation = mouse_angle + bat_rotation_dynamics_solver.update(deg_to_rad(bat_rotation))
 	parry_area.rotation = mouse_angle
 	bat_sprite.target_rotation_degrees = bat.rotation_degrees

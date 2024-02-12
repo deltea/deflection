@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://brrr7qsj7budm"]
+[gd_scene load_steps=15 format=3 uid="uid://brrr7qsj7budm"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_52jmm"]
 [ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="2_ema6y"]
@@ -13,6 +13,12 @@
 script = ExtResource("5_5ev3i")
 f = 4.0
 z = 0.4
+r = 2.0
+
+[sub_resource type="Resource" id="Resource_jptxf"]
+script = ExtResource("5_5ev3i")
+f = 7.0
+z = 1.0
 r = 2.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0m3x6"]
@@ -36,6 +42,7 @@ collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_52jmm")
 bat_rotation_dynamics = SubResource("Resource_1fuvc")
+bat_position_dynamics = SubResource("Resource_jptxf")
 
 [node name="Camera" parent="." instance=ExtResource("4_0rxrs")]
 top_level = true
@@ -71,6 +78,7 @@ position = Vector2(0, -17.5)
 shape = SubResource("RectangleShape2D_s8ah2")
 
 [node name="Bat" type="Node2D" parent="."]
+top_level = true
 
 [node name="BatSprite" parent="Bat" instance=ExtResource("2_ema6y")]
 position = Vector2(0, -22)
