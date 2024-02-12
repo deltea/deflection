@@ -3,6 +3,7 @@ extends CanvasLayer
 @export var mouse_rotate_speed = 10.0
 
 @onready var mouse: TextureRect = $Mouse
+@onready var player_health: TextureProgressBar = $PlayerHealth
 
 var mouse_target_rotation = 0.0
 
@@ -17,3 +18,5 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("lmb"):
 		mouse_target_rotation += 180 * (1 if mouse_target_rotation < 0 else -1)
+
+	player_health.value = Globals.player.health

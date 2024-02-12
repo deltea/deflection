@@ -2,6 +2,7 @@ class_name Bullet extends Area2D
 
 @export var texture_1: Texture2D
 @export var texture_2: Texture2D
+@export var player_bullet_texture: Texture2D
 
 @onready var sprite: Sprite = $SpritePlus
 
@@ -20,6 +21,7 @@ func switch_to_player():
 	rotation = (get_global_mouse_position() - global_position).angle()
 	speed = Stats.stats.bullet_speed
 	sprite.impact_expand(1.5)
+	sprite.texture = player_bullet_texture
 
 func destroy():
 	queue_free()
@@ -34,7 +36,7 @@ func _on_body_entered(body: Node2D) -> void:
 		else: bounce(Vector2.ONE)
 
 func _on_blink_timer_timeout() -> void:
-	if not texture_1 or not texture_2: return
+	if not texture_1 or not texture_2 or is_player_bullet: return
 
 	if sprite.texture == texture_1:
 		sprite.texture = texture_2

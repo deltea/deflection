@@ -17,6 +17,8 @@ class_name Player extends CharacterBody2D
 @onready var hitbox: Area2D = $Hitbox
 
 var mouse_angle: float
+var can_move = true
+var is_dead = false
 var bat_rotation = 0.0
 var bat_rotation_dynamics_solver: DynamicsSolver
 var bat_position_dynamics_solver: DynamicsSolverVector
@@ -24,6 +26,9 @@ var impulse_velocity = Vector2.ZERO
 var dash_impulse_velocity = Vector2.ZERO
 var dash_timer = 0
 var is_dashing = false
+var health = 100.0:
+	set(value):
+		health = 100.0 if value > 100.0 else value
 
 func _enter_tree() -> void:
 	Globals.player = self
@@ -32,6 +37,8 @@ func _ready() -> void:
 	bat_rotation = bat_rotation_offset
 	bat_rotation_dynamics_solver = Dynamics.create_dynamics(bat_rotation_dynamics)
 	bat_position_dynamics_solver = Dynamics.create_dynamics_vector(bat_position_dynamics)
+
+	Events.enemy_die.connect(_on_enemy_die)
 
 func _process(delta: float) -> void:
 	mouse_angle = get_angle_to(get_global_mouse_position()) + PI/2
@@ -46,17 +53,25 @@ func _process(delta: float) -> void:
 	else:
 		dash_timer += delta
 
+	health -= Stats.stats.health_decrease * delta
+	if health <= 0 and not is_dead:
+		die()
+
 func _physics_process(delta: float) -> void:
 	var input = Input.get_vector("left", "right", "up", "down")
-	velocity = input * Stats.stats.movement_speed * delta + impulse_velocity + dash_impulse_velocity
 	impulse_velocity = impulse_velocity.move_toward(Vector2.ZERO, impulse_damping * delta)
 	dash_impulse_velocity = dash_impulse_velocity.move_toward(Vector2.ZERO, dash_impulse_damping * delta)
 	sprite.target_rotation_degrees = sin(Clock.time * walk_tilt_speed * delta) * walk_tilt if input else 0.0
 
-	if Input.is_action_just_pressed("lmb"):
+	if can_move:
+		velocity = input * Stats.stats.movement_speed * delta + impulse_velocity + dash_impulse_velocity
+	else:
+		velocity = Vector2.ZERO
+
+	if Input.is_action_just_pressed("lmb") and can_move:
 		swing_bat()
 
-	if Input.is_action_just_pressed("rmb"):
+	if Input.is_action_just_pressed("rmb") and can_move:
 		dash()
 
 	move_and_slide()
@@ -91,14 +106,21 @@ func toggle_dash(value: bool):
 func get_hurt(bullet: Bullet):
 	bullet.destroy()
 	Clock.hitstop(0.1)
-	Globals.camera.shake(0.05, 2)
+	Globals.camera.shake(0.05, 3)
 	Globals.camera.impact()
 	knockback(position - bullet.position, 100)
+	health -= Stats.stats.hurt_health_decrease
+
+func die():
+	is_dead = true
+	can_move = false
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area is Bullet:
 		var bullet = area as Bullet
 		if bullet.is_player_bullet: return
 
-		Events.player_hit.emit()
 		get_hurt(bullet)
+
+func _on_enemy_die(enemy: Enemy):
+	health += Stats.stats.enemy_kill_health_increase

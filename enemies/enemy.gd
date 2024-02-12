@@ -17,7 +17,7 @@ func die():
 
 	await Clock.hitstop(0.04)
 	await sprite.impact_expand(1.5, 0.05)
-	Globals.camera.shake(0.15, 3)
+	Globals.camera.shake(0.05, 2)
 	queue_free()
 
 func _on_area_entered(area: Area2D) -> void:

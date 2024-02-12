@@ -1,4 +1,4 @@
 extends Node
 
 signal enemy_die(enemy: Enemy)
-signal player_hit
+signal player_die
