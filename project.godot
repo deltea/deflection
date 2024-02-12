@@ -17,12 +17,14 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Globals="*res://autoloads/Globals.gd"
 ColorPalette="*res://autoloads/color_palette.tscn"
 Stats="*res://autoloads/stats.tscn"
-Dynamics="*res://autoloads/Dynamics.gd"
 Canvas="*res://autoloads/canvas.tscn"
+WaveManager="*res://autoloads/wave_manager.tscn"
+Dynamics="*res://autoloads/Dynamics.gd"
 Clock="*res://autoloads/Clock.gd"
+Globals="*res://autoloads/Globals.gd"
+Events="*res://autoloads/Events.gd"
 
 [display]
 

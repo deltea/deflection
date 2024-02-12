@@ -12,7 +12,7 @@ z = 1.0
 r = 2.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0khsc"]
-size = Vector2(24, 16)
+size = Vector2(30, 20)
 
 [node name="TurretEnemy" instance=ExtResource("1_s86gg")]
 script = ExtResource("2_fha0l")
@@ -31,7 +31,7 @@ shadow_scale = Vector2(0.8, 0.6)
 shape = SubResource("RectangleShape2D_0khsc")
 
 [node name="FireTimer" type="Timer" parent="." index="2"]
-wait_time = 1.5
+wait_time = 2.5
 autostart = true
 
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]

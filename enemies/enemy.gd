@@ -13,6 +13,8 @@ func get_hurt():
 		die()
 
 func die():
+	Events.enemy_die.emit(self)
+
 	await Clock.hitstop(0.04)
 	await sprite.impact_expand(1.5, 0.05)
 	Globals.camera.shake(0.15, 3)

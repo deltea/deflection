@@ -23,7 +23,7 @@ func fire() -> void:
 	for i in range(4):
 		var bullet = bullet_scene.instantiate() as Bullet
 		bullet.rotation = sprite.rotation + PI/2 * i
-		bullet.position = position + Vector2.from_angle(bullet.rotation) * bullet_offset
+		bullet.position = global_position + Vector2.from_angle(bullet.rotation) * bullet_offset
 		bullet.speed = bullet_speed
 		Globals.arena.add_child(bullet)
 

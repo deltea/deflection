@@ -1,12 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://mq20s8qn5s33"]
+[gd_scene load_steps=5 format=3 uid="uid://mq20s8qn5s33"]
 
 [ext_resource type="Script" path="res://autoloads/canvas.gd" id="1_io8xs"]
 [ext_resource type="Texture2D" uid="uid://ck83hx5d6dsk" path="res://assets/mouse.png" id="2_w8wht"]
+[ext_resource type="Shader" path="res://shaders/color_replace.gdshader" id="2_xu0lq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4kpr6"]
+shader = ExtResource("2_xu0lq")
+shader_parameter/old_color = null
+shader_parameter/new_color = Color(1, 0, 0, 1)
 
 [node name="Canvas" type="CanvasLayer"]
 script = ExtResource("1_io8xs")
 
 [node name="Mouse" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_4kpr6")
 offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0

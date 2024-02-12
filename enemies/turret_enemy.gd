@@ -13,7 +13,7 @@ func _on_fire_timer_timeout() -> void:
 		sprite.impact_expand(1.2, 0.05)
 		var bullet = bullet_scene.instantiate() as Bullet
 		bullet.rotation = sprite.rotation
-		bullet.position = position + Vector2.from_angle(bullet.rotation) * bullet_offset
+		bullet.position = global_position + Vector2.from_angle(bullet.rotation) * bullet_offset
 		bullet.speed = bullet_speed
 		Globals.arena.add_child(bullet)
 		await Clock.wait(bullet_delay)
