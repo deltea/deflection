@@ -35,16 +35,16 @@ z_index = 10
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_52jmm")
-bat_rotation_offset = 125.0
 bat_rotation_dynamics = SubResource("Resource_1fuvc")
 
 [node name="Camera" parent="." instance=ExtResource("4_0rxrs")]
+top_level = true
 
 [node name="SpritePlus" parent="." instance=ExtResource("2_ema6y")]
 position = Vector2(0, 5)
 texture = ExtResource("3_ralyu")
 offset = Vector2(0, -5)
-shadow_scale = Vector2(0.5, 0.4)
+shadow_scale = Vector2(0.4, 0.3)
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)

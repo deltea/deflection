@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 @export var walk_tilt = 5.0
 @export var walk_tilt_speed = 1500.0
-@export var bat_rotation_offset = 90.0
+@export var bat_rotation_offset = 125.0
 @export var bat_rotation_dynamics: DynamicsResource
 @export var impulse_damping = 500.0
 
@@ -53,6 +53,6 @@ func swing_bat():
 		var distance = bullet.position.distance_to(bat_sprite.global_position)
 		await Clock.wait(distance / 1000)
 		bullet.switch_to_player()
-		Clock.hitstop(0.04)
+		Clock.hitstop(0.05)
 		knockback(position - get_global_mouse_position(), 200)
 		bat_sprite.impact_expand(1.5)

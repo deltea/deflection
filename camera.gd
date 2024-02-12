@@ -1,7 +1,7 @@
 class_name Camera extends Camera2D
 
 @export var zoom_speed = 3.0
-@export var mouse_strength = 0.1
+@export var mouse_strength = 0.05
 @export var rotation_speed = 5.0
 @export var impact_rotation = 5.0
 @export var shake_damping_speed = 1.0

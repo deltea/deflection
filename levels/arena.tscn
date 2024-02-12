@@ -20,7 +20,7 @@ shader_parameter/size = 20.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_70o8y"]
 shader = ExtResource("4_usrmf")
-shader_parameter/scale = Vector2(22, 12)
+shader_parameter/scale = Vector2(18, 9.5)
 shader_parameter/right = 8
 shader_parameter/top = 8
 shader_parameter/left = 8
@@ -49,7 +49,6 @@ scale = Vector2(2.17778, 2.17778)
 texture = ExtResource("3_xxcna")
 
 [node name="Walls" type="StaticBody2D" parent="."]
-z_index = -40
 collision_mask = 0
 script = ExtResource("5_5lryr")
 speed = 50.0
@@ -57,30 +56,31 @@ magnitude = 1.0
 
 [node name="Background" type="Sprite2D" parent="Walls"]
 self_modulate = Color(0.152941, 0.160784, 0.27451, 1)
-z_index = -10
+z_index = -50
 position = Vector2(-1.78814e-05, 7.15256e-07)
-scale = Vector2(32.5, 17.5)
+scale = Vector2(26.5, 13.75)
 texture = ExtResource("3_ka4cv")
 
 [node name="Border" type="Sprite2D" parent="Walls"]
+z_index = 20
 material = SubResource("ShaderMaterial_70o8y")
-scale = Vector2(22, 12)
+scale = Vector2(18, 9.5)
 texture = ExtResource("5_sg4k6")
 
 [node name="LeftWall" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-260, 0)
+position = Vector2(-212, 0)
 shape = SubResource("WorldBoundaryShape2D_fns0u")
 
 [node name="RightWall" type="CollisionShape2D" parent="Walls"]
-position = Vector2(260, 0)
+position = Vector2(212, 0)
 shape = SubResource("WorldBoundaryShape2D_vfj7r")
 
 [node name="TopWall" type="CollisionShape2D" parent="Walls"]
-position = Vector2(0, -140)
+position = Vector2(0, -110)
 shape = SubResource("WorldBoundaryShape2D_jnuq7")
 
 [node name="BottomWall" type="CollisionShape2D" parent="Walls"]
-position = Vector2(0, 140)
+position = Vector2(0, 110)
 shape = SubResource("WorldBoundaryShape2D_n2gvw")
 
 [node name="RotatingTurretEnemy" parent="." instance=ExtResource("9_m3bor")]
