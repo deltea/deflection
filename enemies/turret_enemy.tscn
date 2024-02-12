@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv4xxy35v1qe5"]
+
+[ext_resource type="PackedScene" uid="uid://g2f6mwxx5irq" path="res://enemies/enemy.tscn" id="1_s86gg"]
+[ext_resource type="Texture2D" uid="uid://dxyy644tmjnos" path="res://assets/enemies/turret.png" id="2_61vsm"]
+[ext_resource type="Script" path="res://enemies/turret_enemy.gd" id="2_fha0l"]
+[ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="3_jl21p"]
+
+[sub_resource type="Resource" id="Resource_lbygh"]
+script = ExtResource("3_jl21p")
+f = 4.0
+z = 1.0
+r = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0khsc"]
+size = Vector2(24, 16)
+
+[node name="TurretEnemy" instance=ExtResource("1_s86gg")]
+script = ExtResource("2_fha0l")
+bullet_speed = 100.0
+bullet_num = 3
+bullet_delay = 0.3
+bullet_offset = 16.0
+
+[node name="SpritePlus" parent="." index="0"]
+texture = ExtResource("2_61vsm")
+rotation_dynamics = SubResource("Resource_lbygh")
+shadow_offset = Vector2(0, 16)
+shadow_scale = Vector2(0.8, 0.6)
+
+[node name="CollisionShape" parent="." index="1"]
+shape = SubResource("RectangleShape2D_0khsc")
+
+[node name="FireTimer" type="Timer" parent="." index="2"]
+wait_time = 1.5
+autostart = true
+
+[connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]

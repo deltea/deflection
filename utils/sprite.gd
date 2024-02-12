@@ -42,6 +42,7 @@ func _process(_delta: float) -> void:
 
 	if use_shadow:
 		shadow.global_position = global_position
+		shadow.global_scale = global_scale * shadow_scale
 
 func impact_expand(size: float, duration: float = 0.1):
 	target_scale = Vector2.ONE * size

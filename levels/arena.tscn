@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dlfa7daaklqxk"]
+[gd_scene load_steps=17 format=3 uid="uid://dlfa7daaklqxk"]
 
 [ext_resource type="Script" path="res://scripts/arena.gd" id="1_7g2yt"]
 [ext_resource type="PackedScene" uid="uid://brrr7qsj7budm" path="res://player.tscn" id="1_r5hwi"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/wall.gd" id="5_5lryr"]
 [ext_resource type="Texture2D" uid="uid://chko5146pj7cu" path="res://assets/platform-border.png" id="5_sg4k6"]
 [ext_resource type="PackedScene" uid="uid://ckdckwwcaci3j" path="res://enemies/rotating_turret_enemy.tscn" id="9_m3bor"]
+[ext_resource type="PackedScene" uid="uid://cv4xxy35v1qe5" path="res://enemies/turret_enemy.tscn" id="10_7m584"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wqgdq"]
 shader = ExtResource("2_5obaw")
@@ -85,3 +86,6 @@ shape = SubResource("WorldBoundaryShape2D_n2gvw")
 
 [node name="RotatingTurretEnemy" parent="." instance=ExtResource("9_m3bor")]
 position = Vector2(-151, -70)
+
+[node name="TurretEnemy" parent="." instance=ExtResource("10_7m584")]
+position = Vector2(137, -65)
