@@ -69,7 +69,6 @@ shape = SubResource("CircleShape2D_du8ss")
 debug_color = Color(0.701961, 0, 0, 0.419608)
 
 [node name="ParryArea" type="Area2D" parent="."]
-z_index = -10
 collision_layer = 0
 collision_mask = 8
 
@@ -78,12 +77,14 @@ position = Vector2(0, -17)
 texture = ExtResource("8_ycsct")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="ParryArea"]
+z_index = -1
 position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_s8ah2")
 debug_color = Color(0, 0.701961, 0.0313726, 0.419608)
 
 [node name="Bat" type="Node2D" parent="."]
 top_level = true
+z_index = 10
 
 [node name="BatSprite" parent="Bat" instance=ExtResource("2_ema6y")]
 position = Vector2(0, -22)

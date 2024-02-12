@@ -33,6 +33,8 @@ material = SubResource("ShaderMaterial_3hlit")
 texture = ExtResource("2_01sm2")
 scale_dynamics = SubResource("Resource_h23an")
 use_shadow = false
+shadow_offset = Vector2(0, 16)
+shadow_scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gh6fu")

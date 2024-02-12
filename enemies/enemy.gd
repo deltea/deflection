@@ -7,6 +7,13 @@ var health = 1
 # Bullets
 var bullet_scene = preload("res://bullets/bullet.tscn")
 
+func _ready() -> void:
+	await Clock.wait(1.0)
+	start()
+
+func start():
+	pass
+
 func get_hurt():
 	health -= 1
 	if health <= 0:
