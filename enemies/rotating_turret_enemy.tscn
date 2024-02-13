@@ -10,7 +10,7 @@ radius = 14.0
 [node name="RotatingTurretEnemy" instance=ExtResource("1_so2bv")]
 script = ExtResource("2_tldh5")
 bullet_speed = 100.0
-speed = 3.0
+speed = 4.0
 bullet_offset = 16.0
 
 [node name="SpritePlus" parent="." index="0"]

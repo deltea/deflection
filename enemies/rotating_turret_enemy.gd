@@ -7,9 +7,6 @@ class_name RotatingTurretEnemy extends Enemy
 var fire_timer = 0.0
 var rotate_timer = speed / 4
 
-func start() -> void:
-	fire_timer = randf_range(0, speed)
-
 func _process(delta: float) -> void:
 	if fire_timer >= speed / 2:
 		fire_timer = 0.0

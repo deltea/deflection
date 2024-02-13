@@ -17,8 +17,8 @@ size = Vector2(30, 20)
 [node name="TurretEnemy" instance=ExtResource("1_s86gg")]
 script = ExtResource("2_fha0l")
 bullet_speed = 100.0
-bullet_num = 3
-bullet_delay = 0.3
+bullet_num = 1
+bullet_delay = 0.0
 bullet_offset = 16.0
 
 [node name="SpritePlus" parent="." index="0"]
@@ -31,6 +31,5 @@ shadow_scale = Vector2(0.8, 0.6)
 shape = SubResource("RectangleShape2D_0khsc")
 
 [node name="FireTimer" type="Timer" parent="." index="2"]
-wait_time = 2.5
 
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
