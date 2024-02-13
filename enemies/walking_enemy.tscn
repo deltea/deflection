@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://4fb63hrmnp5k"]
+
+[ext_resource type="PackedScene" uid="uid://g2f6mwxx5irq" path="res://enemies/enemy.tscn" id="1_rvlli"]
+[ext_resource type="Texture2D" uid="uid://b8l0l3i8g58i3" path="res://assets/enemies/walking.png" id="2_1kxfp"]
+[ext_resource type="Script" path="res://enemies/walking_enemy.gd" id="2_pdbts"]
+[ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="4_12suk"]
+
+[sub_resource type="Resource" id="Resource_j25ow"]
+script = ExtResource("4_12suk")
+f = 4.0
+z = 1.0
+r = 2.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kh88g"]
+radius = 8.0
+height = 22.0
+
+[node name="WalkingEnemy" instance=ExtResource("1_rvlli")]
+collision_mask = 9
+script = ExtResource("2_pdbts")
+speed = 100.0
+
+[node name="SpritePlus" parent="." index="0"]
+texture = ExtResource("2_1kxfp")
+rotation_dynamics = SubResource("Resource_j25ow")
+shadow_offset = Vector2(0, 9)
+shadow_scale = Vector2(0.8, 0.6)
+
+[node name="CollisionShape" parent="." index="1"]
+position = Vector2(1, 0)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_kh88g")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
