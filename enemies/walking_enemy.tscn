@@ -18,7 +18,7 @@ height = 22.0
 [node name="WalkingEnemy" instance=ExtResource("1_rvlli")]
 collision_mask = 9
 script = ExtResource("2_pdbts")
-speed = 100.0
+speed = 80.0
 bullet_speed = 50.0
 bullet_offset = -16.0
 

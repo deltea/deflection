@@ -15,7 +15,6 @@ var combo = 0
 func _ready() -> void:
 	sprite.material.set_shader_parameter("new_color", ColorPalette.colors.accent)
 	reset_health()
-	blink_timer.wait_time = speed / 500
 
 func _physics_process(delta: float) -> void:
 	position += Vector2.from_angle(rotation) * speed * delta
