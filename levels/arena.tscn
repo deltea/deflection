@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlfa7daaklqxk"]
+[gd_scene load_steps=15 format=3 uid="uid://dlfa7daaklqxk"]
 
 [ext_resource type="Script" path="res://scripts/arena.gd" id="1_7g2yt"]
+[ext_resource type="Shader" path="res://shaders/mask.gdshader" id="1_qxgbe"]
 [ext_resource type="PackedScene" uid="uid://brrr7qsj7budm" path="res://player.tscn" id="1_r5hwi"]
 [ext_resource type="Shader" path="res://shaders/swirl_background.gdshader" id="2_5obaw"]
 [ext_resource type="Texture2D" uid="uid://jmni87fcmmst" path="res://assets/square.png" id="3_ka4cv"]
@@ -8,6 +9,9 @@
 [ext_resource type="Shader" path="res://shaders/nine_slice.gdshader" id="4_usrmf"]
 [ext_resource type="Script" path="res://scripts/wall.gd" id="5_5lryr"]
 [ext_resource type="Texture2D" uid="uid://chko5146pj7cu" path="res://assets/platform-border.png" id="5_sg4k6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e5mm4"]
+shader = ExtResource("1_qxgbe")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wqgdq"]
 shader = ExtResource("2_5obaw")
@@ -27,7 +31,11 @@ shader_parameter/bottom = 8
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nw1fn"]
 
-[node name="Arena" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_drx63"]
+shader = ExtResource("1_qxgbe")
+
+[node name="Arena" type="BackBufferCopy"]
+material = SubResource("ShaderMaterial_e5mm4")
 script = ExtResource("1_7g2yt")
 metadata/_edit_vertical_guides_ = [-212.0, 212.0]
 metadata/_edit_horizontal_guides_ = [-110.0, 110.0]
@@ -91,3 +99,31 @@ script = ExtResource("5_5lryr")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Floor/BottomWall"]
 shape = SubResource("WorldBoundaryShape2D_nw1fn")
+
+[node name="LeftWallMask" type="Sprite2D" parent="."]
+z_index = 1000
+material = SubResource("ShaderMaterial_drx63")
+position = Vector2(-240, 0)
+scale = Vector2(3, 14.25)
+texture = ExtResource("3_ka4cv")
+
+[node name="RightWallMask" type="Sprite2D" parent="."]
+z_index = 1000
+material = SubResource("ShaderMaterial_drx63")
+position = Vector2(240, 0)
+scale = Vector2(3, 14.25)
+texture = ExtResource("3_ka4cv")
+
+[node name="TopWallMask" type="Sprite2D" parent="."]
+z_index = 1000
+material = SubResource("ShaderMaterial_drx63")
+position = Vector2(1.52588e-05, -139.5)
+scale = Vector2(32.875, 3.1875)
+texture = ExtResource("3_ka4cv")
+
+[node name="BottomWallMask" type="Sprite2D" parent="."]
+z_index = 1000
+material = SubResource("ShaderMaterial_drx63")
+position = Vector2(0, 139.5)
+scale = Vector2(32.875, 3.1875)
+texture = ExtResource("3_ka4cv")
