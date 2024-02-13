@@ -16,7 +16,7 @@ func next_wave():
 	for i in range(enemy_num):
 		var random_enemy_scene = enemy_scenes.pick_random()
 		var enemy = random_enemy_scene.instantiate()
-		var random_pos = Vector2(randf_range(-212, 212), randf_range(-110, 110))
+		var random_pos = Vector2(randf_range(-196, 196), randf_range(-94, 94))
 		enemy.global_position = random_pos
 		enemies.push_back(enemy)
 		Globals.arena.add_child(enemy)

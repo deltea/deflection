@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwpx3sxj8dsue"]
+[gd_scene load_steps=5 format=3 uid="uid://bwpx3sxj8dsue"]
 
 [ext_resource type="Script" path="res://autoloads/wave_manager.gd" id="1_0b84j"]
+[ext_resource type="PackedScene" uid="uid://cv4xxy35v1qe5" path="res://enemies/turret_enemy.tscn" id="3_2vc7v"]
+[ext_resource type="PackedScene" uid="uid://ckdckwwcaci3j" path="res://enemies/rotating_turret_enemy.tscn" id="4_m3luy"]
 [ext_resource type="PackedScene" uid="uid://4fb63hrmnp5k" path="res://enemies/walking_enemy.tscn" id="4_w442v"]
 
 [node name="WaveManager" type="Node"]
 script = ExtResource("1_0b84j")
-enemy_scenes = Array[PackedScene]([ExtResource("4_w442v")])
+enemy_scenes = Array[PackedScene]([ExtResource("4_w442v"), ExtResource("3_2vc7v"), ExtResource("4_m3luy")])

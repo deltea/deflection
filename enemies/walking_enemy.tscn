@@ -19,6 +19,8 @@ height = 22.0
 collision_mask = 9
 script = ExtResource("2_pdbts")
 speed = 100.0
+bullet_speed = 50.0
+bullet_offset = -16.0
 
 [node name="SpritePlus" parent="." index="0"]
 texture = ExtResource("2_1kxfp")
@@ -31,4 +33,8 @@ position = Vector2(1, 0)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_kh88g")
 
+[node name="FireTimer" type="Timer" parent="." index="2"]
+wait_time = 2.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
