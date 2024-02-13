@@ -1,6 +1,6 @@
 class_name Arena extends Node2D
 
-@onready var background: Sprite2D = $Background
+@onready var background: Sprite2D = $SwirlyBackground
 
 func _enter_tree() -> void:
 	Globals.arena = self

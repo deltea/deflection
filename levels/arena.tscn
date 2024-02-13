@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dlfa7daaklqxk"]
+[gd_scene load_steps=12 format=3 uid="uid://dlfa7daaklqxk"]
 
 [ext_resource type="Script" path="res://scripts/arena.gd" id="1_7g2yt"]
 [ext_resource type="PackedScene" uid="uid://brrr7qsj7budm" path="res://player.tscn" id="1_r5hwi"]
@@ -25,16 +25,7 @@ shader_parameter/top = 8
 shader_parameter/left = 8
 shader_parameter/bottom = 8
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fns0u"]
-normal = Vector2(1, 0)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vfj7r"]
-normal = Vector2(-1, 0)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jnuq7"]
-normal = Vector2(0, 1)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n2gvw"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nw1fn"]
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_7g2yt")
@@ -43,43 +34,60 @@ metadata/_edit_horizontal_guides_ = [-110.0, 110.0]
 
 [node name="Player" parent="." instance=ExtResource("1_r5hwi")]
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="SwirlyBackground" type="Sprite2D" parent="."]
 z_index = -50
 material = SubResource("ShaderMaterial_wqgdq")
+position = Vector2(1, 6)
 scale = Vector2(2.17778, 2.17778)
 texture = ExtResource("3_xxcna")
 
-[node name="Walls" type="StaticBody2D" parent="."]
-collision_mask = 0
-script = ExtResource("5_5lryr")
-speed = 50.0
-magnitude = 0.0
+[node name="Floor" type="Node2D" parent="."]
 
-[node name="Background" type="Sprite2D" parent="Walls"]
+[node name="ArenaBackground" type="Sprite2D" parent="Floor"]
 self_modulate = Color(0.152941, 0.160784, 0.27451, 1)
 z_index = -40
 position = Vector2(-1.78814e-05, 7.15256e-07)
 scale = Vector2(26.5, 13.75)
 texture = ExtResource("3_ka4cv")
 
-[node name="Border" type="Sprite2D" parent="Walls"]
+[node name="Border" type="Sprite2D" parent="Floor"]
 z_index = 20
 material = SubResource("ShaderMaterial_70o8y")
 scale = Vector2(18, 9.5)
 texture = ExtResource("5_sg4k6")
 
-[node name="LeftWall" type="CollisionShape2D" parent="Walls"]
+[node name="LeftWall" type="StaticBody2D" parent="Floor"]
 position = Vector2(-212, 0)
-shape = SubResource("WorldBoundaryShape2D_fns0u")
+rotation = 1.5708
+collision_mask = 0
+script = ExtResource("5_5lryr")
 
-[node name="RightWall" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape" type="CollisionShape2D" parent="Floor/LeftWall"]
+shape = SubResource("WorldBoundaryShape2D_nw1fn")
+
+[node name="RightWall" type="StaticBody2D" parent="Floor"]
 position = Vector2(212, 0)
-shape = SubResource("WorldBoundaryShape2D_vfj7r")
+rotation = 4.71238
+collision_mask = 0
+script = ExtResource("5_5lryr")
 
-[node name="TopWall" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape" type="CollisionShape2D" parent="Floor/RightWall"]
+shape = SubResource("WorldBoundaryShape2D_nw1fn")
+
+[node name="TopWall" type="StaticBody2D" parent="Floor"]
 position = Vector2(0, -110)
-shape = SubResource("WorldBoundaryShape2D_jnuq7")
+rotation = 3.14159
+collision_mask = 0
+script = ExtResource("5_5lryr")
 
-[node name="BottomWall" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape" type="CollisionShape2D" parent="Floor/TopWall"]
+shape = SubResource("WorldBoundaryShape2D_nw1fn")
+
+[node name="BottomWall" type="StaticBody2D" parent="Floor"]
 position = Vector2(0, 110)
-shape = SubResource("WorldBoundaryShape2D_n2gvw")
+rotation = 6.28318
+collision_mask = 0
+script = ExtResource("5_5lryr")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Floor/BottomWall"]
+shape = SubResource("WorldBoundaryShape2D_nw1fn")

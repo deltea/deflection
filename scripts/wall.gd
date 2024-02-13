@@ -1,1 +1,1 @@
-class_name Wall extends Wobble
+class_name Wall extends StaticBody2D
