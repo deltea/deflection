@@ -42,8 +42,7 @@ func reset_health():
 func _on_body_entered(body: Node2D) -> void:
 	if body is Wall:
 		health -= 1
-		if health <= 0: destroy()
-		else: bounce(Vector2.from_angle(body.rotation - PI/2))
+		if health > 0: bounce(Vector2.from_angle(body.rotation - PI/2))
 
 func _on_blink_timer_timeout() -> void:
 	if not texture_1 or not texture_2 or is_player_bullet: return
@@ -52,3 +51,6 @@ func _on_blink_timer_timeout() -> void:
 		sprite.texture = texture_2
 	else:
 		sprite.texture = texture_1
+
+func _on_visible_on_screen_notifier_screen_exited() -> void:
+	destroy()
