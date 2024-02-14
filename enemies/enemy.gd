@@ -26,7 +26,7 @@ func die():
 
 	await Clock.hitstop(0.04)
 	await sprite.impact_expand(1.5, 0.05)
-	Globals.camera.shake(0.05, 2)
+	Globals.camera.shake(0.05, 1.0)
 
 	var explosion = explosion_scene.instantiate() as CPUParticles2D
 	explosion.position = position
@@ -40,5 +40,6 @@ func _on_area_entered(area: Area2D) -> void:
 	if area is Bullet:
 		var bullet = area as Bullet
 		if bullet.is_player_bullet:
+			Globals.camera.jerk_direction(bullet.position - position, 5.0)
 			bullet.hit_enemy()
 			get_hurt()
