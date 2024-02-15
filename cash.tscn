@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://beixccx0gmk7s"]
+
+[ext_resource type="Script" path="res://cash.gd" id="1_b21sb"]
+[ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="2_vqfvt"]
+[ext_resource type="Shader" path="res://shaders/color_replace.gdshader" id="3_3qirg"]
+[ext_resource type="Texture2D" uid="uid://ba5sutp1gkm81" path="res://assets/cash.png" id="3_q35rx"]
+[ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="5_cb30y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hasg2"]
+shader = ExtResource("3_3qirg")
+shader_parameter/old_color = null
+shader_parameter/new_color = Color(1, 0, 0, 1)
+
+[sub_resource type="Resource" id="Resource_foiu5"]
+script = ExtResource("5_cb30y")
+f = 10.0
+z = 1.0
+r = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ocv8e"]
+radius = 5.0
+
+[node name="Cash" type="Area2D"]
+script = ExtResource("1_b21sb")
+
+[node name="SpritePlus" parent="." instance=ExtResource("2_vqfvt")]
+material = SubResource("ShaderMaterial_hasg2")
+texture = ExtResource("3_q35rx")
+rotation_dynamics = SubResource("Resource_foiu5")
+use_shadow = false
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ocv8e")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

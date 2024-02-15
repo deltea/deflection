@@ -122,5 +122,10 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 
 		get_hurt(bullet)
 
-func _on_enemy_die(enemy: Enemy):
+func _on_enemy_die(_enemy: Enemy):
 	health += Stats.stats.enemy_kill_health_increase
+
+func _on_pickup_area_area_entered(area: Area2D) -> void:
+	if area is Cash:
+		var cash = area as Cash
+		cash.pick_up()

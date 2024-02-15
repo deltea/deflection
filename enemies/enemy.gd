@@ -1,11 +1,13 @@
 class_name Enemy extends Area2D
 
+@export_range(0.0, 1.0) var cash_drop_chance = 0.4
+
 @onready var sprite: Sprite = $SpritePlus
 
 var health = 1
 
 var explosion_scene = preload("res://particles/explosion.tscn")
-# Bullets
+var cash_scene = preload("res://cash.tscn")
 var bullet_scene = preload("res://bullets/bullet.tscn")
 
 func _ready() -> void:
@@ -34,7 +36,15 @@ func die():
 	explosion.finished.connect(explosion.queue_free)
 	Globals.arena.add_child(explosion)
 
+	if randf() <= cash_drop_chance: drop_cash()
+
 	queue_free()
+
+func drop_cash():
+	var cash = cash_scene.instantiate() as Cash
+	cash.position = position
+	cash.starting_direction = Vector2.from_angle(randf_range(0, PI*2))
+	Globals.arena.add_child(cash)
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is Bullet:
