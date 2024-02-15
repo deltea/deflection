@@ -1,10 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwpx3sxj8dsue"]
+[gd_scene load_steps=4 format=3 uid="uid://bwpx3sxj8dsue"]
 
 [ext_resource type="Script" path="res://autoloads/wave_manager.gd" id="1_0b84j"]
-[ext_resource type="PackedScene" uid="uid://cv4xxy35v1qe5" path="res://enemies/turret_enemy.tscn" id="3_2vc7v"]
-[ext_resource type="PackedScene" uid="uid://ckdckwwcaci3j" path="res://enemies/rotating_turret_enemy.tscn" id="4_m3luy"]
-[ext_resource type="PackedScene" uid="uid://4fb63hrmnp5k" path="res://enemies/walking_enemy.tscn" id="4_w442v"]
+[ext_resource type="PackedScene" uid="uid://cjv71jtlrw5fo" path="res://wave-formations/crossfire_formation.tscn" id="2_gruh6"]
+[ext_resource type="PackedScene" uid="uid://cxsfew3dmpq6b" path="res://wave-formations/diamond_formation.tscn" id="3_3e0kd"]
 
 [node name="WaveManager" type="Node"]
 script = ExtResource("1_0b84j")
-enemy_scenes = Array[PackedScene]([ExtResource("4_w442v"), ExtResource("3_2vc7v"), ExtResource("4_m3luy")])
+formation_scenes = Array[PackedScene]([ExtResource("2_gruh6"), ExtResource("3_3e0kd")])

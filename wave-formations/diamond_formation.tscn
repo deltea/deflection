@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxsfew3dmpq6b"]
+
+[ext_resource type="PackedScene" uid="uid://dcm73ntjp052v" path="res://wave-formations/wave_formation.tscn" id="1_x41vu"]
+[ext_resource type="PackedScene" uid="uid://ckdckwwcaci3j" path="res://enemies/rotating_turret_enemy.tscn" id="2_hdequ"]
+
+[node name="DiamondFormation" instance=ExtResource("1_x41vu")]
+
+[node name="RotatingTurretEnemy" parent="." index="0" instance=ExtResource("2_hdequ")]
+position = Vector2(-108, 0)
+
+[node name="RotatingTurretEnemy2" parent="." index="1" instance=ExtResource("2_hdequ")]
+position = Vector2(108, 0)
+
+[node name="RotatingTurretEnemy3" parent="." index="2" instance=ExtResource("2_hdequ")]
+position = Vector2(0, -55)
+
+[node name="RotatingTurretEnemy4" parent="." index="3" instance=ExtResource("2_hdequ")]
+position = Vector2(0, 55)

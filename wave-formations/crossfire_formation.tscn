@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjv71jtlrw5fo"]
+
+[ext_resource type="PackedScene" uid="uid://dcm73ntjp052v" path="res://wave-formations/wave_formation.tscn" id="1_naixe"]
+[ext_resource type="PackedScene" uid="uid://cv4xxy35v1qe5" path="res://enemies/turret_enemy.tscn" id="2_34dut"]
+
+[node name="CrossfireFormation" instance=ExtResource("1_naixe")]
+
+[node name="TurretEnemy" parent="." index="0" instance=ExtResource("2_34dut")]
+position = Vector2(-180, -85)
+
+[node name="TurretEnemy2" parent="." index="1" instance=ExtResource("2_34dut")]
+position = Vector2(-180, 85)
+
+[node name="TurretEnemy3" parent="." index="2" instance=ExtResource("2_34dut")]
+position = Vector2(180, 85)
+
+[node name="TurretEnemy4" parent="." index="3" instance=ExtResource("2_34dut")]
+position = Vector2(180, -85)

@@ -1,10 +1,9 @@
 extends Node
 
-@export var enemy_scenes: Array[PackedScene]
+@export var formation_scenes: Array[PackedScene]
 
 var wave = 0
 var enemy_num = 3
-var enemies: Array[Enemy] = []
 
 func _ready() -> void:
 	Events.enemy_die.connect(_on_enemy_die)
@@ -12,18 +11,14 @@ func _ready() -> void:
 	next_wave()
 
 func next_wave():
-	enemy_num += 1
-	for i in range(enemy_num):
-		var random_enemy_scene = enemy_scenes.pick_random()
-		var enemy = random_enemy_scene.instantiate()
-		var random_pos = Vector2(randf_range(-196, 196), randf_range(-94, 94))
-		enemy.global_position = random_pos
-		enemies.push_back(enemy)
-		Globals.arena.add_child(enemy)
+	wave += 1
 
-func _on_enemy_die(enemy: Enemy):
-	var index = enemies.find(enemy)
-	if index != -1:
-		enemies.remove_at(index)
-		if len(enemies) <= 0:
-			next_wave()
+	var random_formation_scene = formation_scenes.pick_random()
+	var formation = random_formation_scene.instantiate() as WaveFormation
+	formation.global_position = Vector2.ZERO
+	Globals.arena.add_child(formation)
+	enemy_num = formation.get_child_count()
+
+func _on_enemy_die(_enemy: Enemy):
+	enemy_num -= 1
+	if enemy_num <= 0: next_wave()
