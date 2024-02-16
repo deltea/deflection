@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dlfa7daaklqxk"]
+[gd_scene load_steps=14 format=3 uid="uid://dlfa7daaklqxk"]
 
 [ext_resource type="Script" path="res://scripts/arena.gd" id="1_7g2yt"]
 [ext_resource type="Shader" path="res://shaders/mask.gdshader" id="1_qxgbe"]
@@ -9,9 +9,6 @@
 [ext_resource type="Shader" path="res://shaders/nine_slice.gdshader" id="4_usrmf"]
 [ext_resource type="Script" path="res://scripts/wall.gd" id="5_5lryr"]
 [ext_resource type="Texture2D" uid="uid://chko5146pj7cu" path="res://assets/platform-border.png" id="5_sg4k6"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e5mm4"]
-shader = ExtResource("1_qxgbe")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wqgdq"]
 shader = ExtResource("2_5obaw")
@@ -35,7 +32,6 @@ shader_parameter/bottom = 8
 shader = ExtResource("1_qxgbe")
 
 [node name="Arena" type="BackBufferCopy"]
-material = SubResource("ShaderMaterial_e5mm4")
 copy_mode = 2
 script = ExtResource("1_7g2yt")
 metadata/_edit_vertical_guides_ = [-212.0]

@@ -6,6 +6,7 @@ class_name Bullet extends Area2D
 
 @onready var sprite: Sprite = $SpritePlus
 @onready var blink_timer: Timer = $BlinkTimer
+@onready var trail: Trail = $Trail
 
 var is_player_bullet = false
 var speed = 0.0
@@ -15,6 +16,7 @@ var combo = 0
 func _ready() -> void:
 	sprite.material.set_shader_parameter("new_color", ColorPalette.colors.accent)
 	reset_health()
+	trail.emitting = false
 
 func _physics_process(delta: float) -> void:
 	position += Vector2.from_angle(rotation) * speed * delta
@@ -25,6 +27,7 @@ func switch_to_player(autoaim):
 		target_direction = autoaim.global_position - global_position
 
 	is_player_bullet = true
+	trail.emitting = true
 	rotation = target_direction.angle()
 	speed = Stats.stats.bullet_speed
 	sprite.impact_expand(1.5)

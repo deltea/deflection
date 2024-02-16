@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bg74kocmu55jk"]
+[gd_scene load_steps=12 format=3 uid="uid://bg74kocmu55jk"]
 
 [ext_resource type="Script" path="res://bullets/bullet.gd" id="1_0ovip"]
 [ext_resource type="Texture2D" uid="uid://cvxdcwlds6a77" path="res://assets/bullets/bullet1.png" id="2_01sm2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://8vkwimxuljt7" path="res://assets/bullets/player-bullet.png" id="4_tig0x"]
 [ext_resource type="Shader" path="res://shaders/color_replace.gdshader" id="4_y6ksb"]
 [ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="6_jm4nj"]
+[ext_resource type="PackedScene" uid="uid://d0vw7prgwjdul" path="res://utils/trail.tscn" id="8_lg4jq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3hlit"]
 shader = ExtResource("4_y6ksb")
@@ -29,6 +30,7 @@ texture_2 = ExtResource("3_nsr7v")
 player_bullet_texture = ExtResource("4_tig0x")
 
 [node name="SpritePlus" parent="." instance=ExtResource("4_jwqki")]
+z_index = 10
 material = SubResource("ShaderMaterial_3hlit")
 texture = ExtResource("2_01sm2")
 scale_dynamics = SubResource("Resource_h23an")
@@ -44,6 +46,11 @@ wait_time = 0.2
 autostart = true
 
 [node name="VisibleOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Trail" parent="." instance=ExtResource("8_lg4jq")]
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 16.0
+length = 5
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]

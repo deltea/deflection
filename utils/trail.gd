@@ -1,24 +1,18 @@
 class_name Trail extends Line2D
 
-@export var point_removal_delay = 0.5
+@export var emitting = true
+@export var length = 10
 
-@onready var curve: Curve2D = Curve2D.new()
+var queue: Array[Vector2]
 
-var target_position: Vector2
-var point_removal_timer = 0.0
+func _process(_delta: float) -> void:
+	if not emitting: return
 
-func _process(delta: float) -> void:
-	if not target_position: return
+	queue.push_front(get_parent().global_position)
 
-	if point_removal_timer >= point_removal_delay:
-		if curve.get_baked_points().size() > 0: curve.remove_point(0)
-		point_removal_timer = point_removal_delay
-	else:
-		point_removal_timer += delta
+	if queue.size() > length:
+		queue.pop_back()
 
-	curve.add_point(target_position)
-	points = curve.get_baked_points()
-
-func reset():
-	curve.clear_points()
-	# clear_points()
+	clear_points()
+	for point in queue:
+		add_point(point)
