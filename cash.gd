@@ -1,7 +1,7 @@
 class_name Cash extends Area2D
 
-@export var starting_rotation_velocity = 100.0
-@export var rotation_damping = 50.0
+@export var starting_rotation_velocity = 500.0
+@export var rotation_damping = 200.0
 @export var starting_velocity = 100.0
 @export var velocity_damping = 50.0
 
@@ -14,7 +14,7 @@ var starting_direction = Vector2.ZERO
 func _ready() -> void:
 	sprite.material.set_shader_parameter("new_color", ColorPalette.colors.accent)
 	velocity = starting_velocity * starting_direction
-	rotation_velocity = starting_rotation_velocity * randf_range(0, PI*2)
+	rotation_velocity = starting_rotation_velocity * (1 if randf() > 0.5 else -1)
 
 func _process(delta: float) -> void:
 	rotation_velocity = move_toward(rotation_velocity, 0.0, rotation_damping * delta)
