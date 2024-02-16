@@ -21,8 +21,8 @@ func _physics_process(delta: float) -> void:
 
 func switch_to_player(autoaim):
 	var target_direction = get_global_mouse_position() - global_position
-	if autoaim is Enemy:
-		target_direction = autoaim.position - global_position
+	if is_instance_valid(autoaim) and autoaim is AutoaimArea:
+		target_direction = autoaim.global_position - global_position
 
 	is_player_bullet = true
 	rotation = target_direction.angle()
