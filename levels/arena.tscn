@@ -42,6 +42,13 @@ metadata/_edit_vertical_guides_ = [-212.0]
 metadata/_edit_horizontal_guides_ = [-110.0]
 
 [node name="Player" parent="." instance=ExtResource("1_r5hwi")]
+walk_tilt = 5.0
+walk_tilt_speed = 1500.0
+bat_rotation_offset = 125.0
+impulse_damping = 500.0
+dash_impulse_damping = 7000.0
+dash_force = 1000.0
+dash_duration = 0.8
 
 [node name="SwirlyBackground" type="Sprite2D" parent="."]
 z_index = -50

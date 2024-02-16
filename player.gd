@@ -15,6 +15,7 @@ class_name Player extends CharacterBody2D
 @onready var bat_sprite: Sprite = $Bat/BatSprite
 @onready var parry_area: Area2D = $ParryArea
 @onready var hitbox: Area2D = $Hitbox
+@onready var auto_aim_ray: RayCast2D = $ParryArea/AutoAimRay
 
 var mouse_angle: float
 var can_move = true
@@ -85,15 +86,7 @@ func swing_bat():
 
 	var bullets = parry_area.get_overlapping_areas().filter(func(area): return area is Bullet)
 	for bullet in bullets:
-		if not is_instance_valid(bullet): continue
-		var distance = bullet.position.distance_to(bat_sprite.global_position)
-		await Clock.wait(distance / 1000)
-		if not is_instance_valid(bullet): continue
-		bullet.switch_to_player()
-		Clock.hitstop(0.05)
-		knockback(position - get_global_mouse_position(), 200.0)
-		Globals.camera.jerk_direction(position - get_global_mouse_position(), 5.0)
-		bat_sprite.impact_expand(1.5)
+		deflect_bullet(bullet)
 
 func dash():
 	toggle_dash(true)
@@ -114,6 +107,21 @@ func get_hurt(bullet: Bullet):
 func die():
 	is_dead = true
 	can_move = false
+
+func deflect_bullet(bullet: Bullet):
+	if not is_instance_valid(bullet): return
+
+	var distance = bullet.position.distance_to(bat_sprite.global_position)
+	var auto_aim_enemy = auto_aim_ray.get_collider()
+	await Clock.wait(distance / 1000)
+
+	if not is_instance_valid(bullet): return
+
+	bullet.switch_to_player(auto_aim_enemy)
+	Clock.hitstop(0.05)
+	knockback(position - get_global_mouse_position(), 200.0)
+	Globals.camera.jerk_direction(position - get_global_mouse_position(), 5.0)
+	bat_sprite.impact_expand(1.5)
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area is Bullet:

@@ -19,9 +19,13 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position += Vector2.from_angle(rotation) * speed * delta
 
-func switch_to_player():
+func switch_to_player(autoaim):
+	var target_direction = get_global_mouse_position() - global_position
+	if autoaim is Enemy:
+		target_direction = autoaim.position - global_position
+
 	is_player_bullet = true
-	rotation = (get_global_mouse_position() - global_position).angle()
+	rotation = target_direction.angle()
 	speed = Stats.stats.bullet_speed
 	sprite.impact_expand(1.5)
 	sprite.texture = player_bullet_texture
