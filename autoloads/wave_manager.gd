@@ -3,7 +3,7 @@ extends Node
 @export var formation_scenes: Array[PackedScene]
 
 var wave = 0
-var enemy_num = 3
+var enemy_num = 0
 
 func _ready() -> void:
 	Events.enemy_die.connect(_on_enemy_die)
@@ -21,4 +21,7 @@ func next_wave():
 
 func _on_enemy_die(_enemy: Enemy):
 	enemy_num -= 1
-	if enemy_num <= 0: next_wave()
+	if enemy_num <= 0:
+		await Clock.wait(0.5)
+		enemy_num = 1000
+		next_wave()

@@ -11,7 +11,7 @@ var cash_scene = preload("res://cash.tscn")
 var bullet_scene = preload("res://bullets/bullet.tscn")
 
 func _ready() -> void:
-	await Clock.wait(1.0)
+	await Clock.wait(0.5)
 	start()
 
 func start():
