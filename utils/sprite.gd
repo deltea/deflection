@@ -11,6 +11,10 @@ class_name Sprite extends Sprite2D
 @export var shadow_scale = Vector2.ONE
 @export var shadow_ordering = -20
 
+@onready var flash_timer: Timer = $FlashTimer
+
+signal flash_finished
+
 var target_scale = Vector2.ONE
 var target_rotation_degrees = 0.0
 
@@ -48,3 +52,17 @@ func impact_expand(size: float, duration: float = 0.1):
 	target_scale = Vector2.ONE * size
 	await Clock.wait(duration)
 	target_scale = Vector2.ONE
+
+func flash(interval: float = 0.1, duration = 0):
+	flash_timer.wait_time = interval
+	flash_timer.start()
+	if duration > 0:
+		await Clock.wait(duration)
+		stop_flash()
+
+func stop_flash():
+	flash_finished.emit()
+	flash_timer.stop()
+
+func _on_flash_timer_timeout() -> void:
+	visible = not visible

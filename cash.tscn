@@ -32,4 +32,7 @@ use_shadow = false
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ocv8e")
 
+[node name="DisappearTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]

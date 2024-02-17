@@ -10,3 +10,7 @@ scale_dynamics = ExtResource("2_15wdv")
 rotation_dynamics = ExtResource("2_15wdv")
 use_shadow = true
 shadow_texture = ExtResource("3_hdqnv")
+
+[node name="FlashTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
