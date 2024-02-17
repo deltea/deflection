@@ -8,8 +8,12 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hasg2"]
 shader = ExtResource("3_3qirg")
-shader_parameter/old_color = null
-shader_parameter/new_color = Color(1, 0, 0, 1)
+shader_parameter/old_color_dark = Color(0, 0, 0, 1)
+shader_parameter/old_color_light = Color(1, 1, 1, 1)
+shader_parameter/old_color_accent = Color(1, 0, 0, 1)
+shader_parameter/new_color_dark = Color(0, 0, 0, 1)
+shader_parameter/new_color_light = Color(1, 1, 1, 1)
+shader_parameter/new_color_accent = Color(1, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_foiu5"]
 script = ExtResource("5_cb30y")

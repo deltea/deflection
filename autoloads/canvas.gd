@@ -9,7 +9,12 @@ var mouse_target_rotation = 0.0
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
-	mouse.material.set_shader_parameter("new_color", ColorPalette.colors.accent)
+	player_health.tint_progress = ColorPalette.colors.accent
+
+	ColorPalette.set_color_palette_replace(mouse.material)
+
+	player_health.tint_under = ColorPalette.colors.dark
+	player_health.tint_over = ColorPalette.colors.light
 	player_health.tint_progress = ColorPalette.colors.accent
 
 func _process(delta: float) -> void:

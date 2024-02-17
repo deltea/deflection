@@ -1,18 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bg74kocmu55jk"]
+[gd_scene load_steps=10 format=3 uid="uid://bg74kocmu55jk"]
 
 [ext_resource type="Script" path="res://bullets/bullet.gd" id="1_0ovip"]
 [ext_resource type="Texture2D" uid="uid://cvxdcwlds6a77" path="res://assets/bullets/bullet1.png" id="2_01sm2"]
 [ext_resource type="Texture2D" uid="uid://enbu7s1mncu7" path="res://assets/bullets/bullet2.png" id="3_nsr7v"]
 [ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="4_jwqki"]
 [ext_resource type="Texture2D" uid="uid://8vkwimxuljt7" path="res://assets/bullets/player-bullet.png" id="4_tig0x"]
-[ext_resource type="Shader" path="res://shaders/color_replace.gdshader" id="4_y6ksb"]
 [ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="6_jm4nj"]
 [ext_resource type="PackedScene" uid="uid://d0vw7prgwjdul" path="res://utils/trail.tscn" id="8_lg4jq"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3hlit"]
-shader = ExtResource("4_y6ksb")
-shader_parameter/old_color = null
-shader_parameter/new_color = Color(0.929412, 0.627451, 0.192157, 1)
 
 [sub_resource type="Resource" id="Resource_h23an"]
 script = ExtResource("6_jm4nj")
@@ -31,7 +25,6 @@ player_bullet_texture = ExtResource("4_tig0x")
 
 [node name="SpritePlus" parent="." instance=ExtResource("4_jwqki")]
 z_index = 10
-material = SubResource("ShaderMaterial_3hlit")
 texture = ExtResource("2_01sm2")
 scale_dynamics = SubResource("Resource_h23an")
 use_shadow = false

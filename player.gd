@@ -16,6 +16,7 @@ class_name Player extends CharacterBody2D
 @onready var parry_area: Area2D = $ParryArea
 @onready var hitbox: Area2D = $Hitbox
 @onready var auto_aim_ray: RayCast2D = $ParryArea/AutoAimRay
+@onready var aim_arrow: Sprite2D = $ParryArea/Arrow
 
 var mouse_angle: float
 var can_move = true
@@ -40,6 +41,8 @@ func _ready() -> void:
 	bat_position_dynamics_solver = Dynamics.create_dynamics_vector(bat_position_dynamics)
 
 	Events.enemy_die.connect(_on_enemy_die)
+
+	ColorPalette.set_color_palette_replace(aim_arrow.material)
 
 func _process(delta: float) -> void:
 	mouse_angle = get_angle_to(get_global_mouse_position()) + PI/2

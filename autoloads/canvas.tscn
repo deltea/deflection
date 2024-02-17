@@ -8,8 +8,12 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4kpr6"]
 shader = ExtResource("2_xu0lq")
-shader_parameter/old_color = null
-shader_parameter/new_color = Color(0.929412, 0.627451, 0.192157, 1)
+shader_parameter/old_color_dark = Color(0, 0, 0, 1)
+shader_parameter/old_color_light = Color(1, 1, 1, 1)
+shader_parameter/old_color_accent = Color(1, 0, 0, 1)
+shader_parameter/new_color_dark = Color(0, 0, 0, 1)
+shader_parameter/new_color_light = Color(1, 1, 1, 1)
+shader_parameter/new_color_accent = Color(1, 0, 0, 1)
 
 [node name="Canvas" type="CanvasLayer"]
 script = ExtResource("1_io8xs")

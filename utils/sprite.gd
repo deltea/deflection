@@ -40,6 +40,9 @@ func _ready() -> void:
 		shadow.scale = shadow_scale
 		add_child(shadow)
 
+	# Specific to 3-color palette
+	ColorPalette.set_color_palette_replace(material)
+
 func _process(_delta: float) -> void:
 	global_scale = scale_dynamics_solver.update(target_scale)
 	global_rotation_degrees = rotation_dynamics_solver.update(target_rotation_degrees)
