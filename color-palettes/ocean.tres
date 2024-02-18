@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_ps0qx")
 accent = Color(0, 0.596078, 0.858824, 1)
-dark = Color(0.152941, 0.160784, 0.27451, 1)
+dark = Color(0.215686, 0.129412, 0.203922, 1)
 light = Color(0.905882, 1, 0.933333, 1)

@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_i00o2")
-accent = Color(0.93, 0.5301, 0.5301, 1)
-dark = Color(0.3192, 0.33592, 0.57, 1)
-light = Color(1, 1, 1, 1)
+accent = Color(1, 0.490196, 0.431373, 1)
+dark = Color(0.129412, 0.462745, 0.8, 1)
+light = Color(0.909804, 0.905882, 0.796078, 1)

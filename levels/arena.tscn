@@ -56,6 +56,7 @@ scale = Vector2(26.5, 13.75)
 texture = ExtResource("3_ka4cv")
 
 [node name="Border" parent="Floor" instance=ExtResource("8_06rcv")]
+z_index = 100
 texture = ExtResource("5_sg4k6")
 scale_dynamics = SubResource("Resource_yq708")
 use_shadow = false
