@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ColorPaletteResource" load_steps=2 format=3 uid="uid://b74gv3hif0hms"]
+
+[ext_resource type="Script" path="res://scripts/color_palette_resource.gd" id="1_030nm"]
+
+[resource]
+script = ExtResource("1_030nm")
+accent = Color(0.811765, 0.0352941, 0.384314, 1)
+dark = Color(0.156863, 0.027451, 0.203922, 1)
+light = Color(0.972549, 1, 0.968627, 1)

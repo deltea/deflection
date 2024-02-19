@@ -1,8 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyqqq11wm7sxl"]
+[gd_scene load_steps=4 format=3 uid="uid://dyqqq11wm7sxl"]
 
 [ext_resource type="Script" path="res://autoloads/ColorPalette.gd" id="1_1riih"]
-[ext_resource type="Resource" uid="uid://rq7vsucaojoj" path="res://color-palettes/bittersweet.tres" id="2_l1txk"]
+[ext_resource type="Script" path="res://scripts/color_palette_resource.gd" id="2_ewfrf"]
+
+[sub_resource type="Resource" id="Resource_3ligw"]
+script = ExtResource("2_ewfrf")
+accent = Color(0.643137, 0.552941, 0.415686, 1)
+dark = Color(0.321569, 0.282353, 0.223529, 1)
+light = Color(0.901961, 0.807843, 0.67451, 1)
 
 [node name="ColorPalette" type="Node"]
 script = ExtResource("1_1riih")
-colors = ExtResource("2_l1txk")
+colors = SubResource("Resource_3ligw")
