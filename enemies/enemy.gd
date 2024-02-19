@@ -33,6 +33,7 @@ func die():
 	var explosion = explosion_scene.instantiate() as CPUParticles2D
 	explosion.position = position
 	explosion.emitting = true
+	ColorPalette.set_color_palette_replace(explosion.material)
 	explosion.finished.connect(explosion.queue_free)
 	Globals.arena.add_child(explosion)
 
