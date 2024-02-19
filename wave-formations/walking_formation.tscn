@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://wxs580xiagis"]
+
+[ext_resource type="PackedScene" uid="uid://dcm73ntjp052v" path="res://wave-formations/wave_formation.tscn" id="1_htpj6"]
+[ext_resource type="PackedScene" uid="uid://4fb63hrmnp5k" path="res://enemies/walking_enemy.tscn" id="2_qrllj"]
+
+[node name="WalkingFormation" instance=ExtResource("1_htpj6")]
+
+[node name="WalkingEnemy" parent="." index="0" instance=ExtResource("2_qrllj")]
+position = Vector2(-180, -77)
+rotation = -2.35619
+
+[node name="WalkingEnemy2" parent="." index="1" instance=ExtResource("2_qrllj")]
+position = Vector2(180, -77)
+rotation = -0.785397
+
+[node name="WalkingEnemy3" parent="." index="2" instance=ExtResource("2_qrllj")]
+position = Vector2(180, 75)
+rotation = 0.785397
+
+[node name="WalkingEnemy4" parent="." index="3" instance=ExtResource("2_qrllj")]
+position = Vector2(-180, 75)
+rotation = 2.35619

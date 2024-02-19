@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://4fb63hrmnp5k"]
+[gd_scene load_steps=8 format=3 uid="uid://4fb63hrmnp5k"]
 
 [ext_resource type="PackedScene" uid="uid://g2f6mwxx5irq" path="res://enemies/enemy.tscn" id="1_rvlli"]
 [ext_resource type="Texture2D" uid="uid://b8l0l3i8g58i3" path="res://assets/enemies/walking.png" id="2_1kxfp"]
@@ -10,6 +10,9 @@ script = ExtResource("4_12suk")
 f = 4.0
 z = 1.0
 r = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xymnr"]
+radius = 24.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kh88g"]
 radius = 8.0
@@ -28,13 +31,16 @@ rotation_dynamics = SubResource("Resource_j25ow")
 shadow_offset = Vector2(0, 9)
 shadow_scale = Vector2(0.8, 0.6)
 
-[node name="CollisionShape" parent="." index="1"]
-position = Vector2(1, 0)
-rotation = 1.57079
-shape = SubResource("CapsuleShape2D_kh88g")
+[node name="CollisionShape" parent="AutoaimArea" index="0"]
+shape = SubResource("CircleShape2D_xymnr")
 
 [node name="FireTimer" type="Timer" parent="." index="2"]
 wait_time = 2.0
+
+[node name="CollisionShape" parent="." index="3"]
+position = Vector2(1, 0)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_kh88g")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]

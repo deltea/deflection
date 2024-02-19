@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func start():
 	set_physics_process(true)
-	target_rotation = randf_range(0, PI*2)
+	target_rotation = rotation#randf_range(0, PI*2)
 
 func _physics_process(delta: float) -> void:
 	sprite.target_rotation_degrees = rad_to_deg(target_rotation)
