@@ -4,7 +4,7 @@ class_name Cash extends Area2D
 @export var rotation_damping = 200.0
 @export var starting_velocity = 100.0
 @export var velocity_damping = 50.0
-@export var disappear_delay = 2.0
+@export var disappear_delay = 5.0
 @export var flash_duration = 2.0
 
 @onready var sprite: Sprite = $SpritePlus
