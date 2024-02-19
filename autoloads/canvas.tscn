@@ -29,9 +29,9 @@ texture = ExtResource("2_w8wht")
 stretch_mode = 3
 
 [node name="PlayerHealth" type="TextureProgressBar" parent="."]
-offset_left = 6.0
+offset_left = 24.0
 offset_top = 6.0
-offset_right = 474.0
+offset_right = 456.0
 offset_bottom = 22.0
 step = 0.1
 value = 86.0
