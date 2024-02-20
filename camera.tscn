@@ -5,3 +5,4 @@
 [node name="Camera" type="Camera2D"]
 ignore_rotation = false
 script = ExtResource("1_ryjp0")
+player_x_strength = 0.006

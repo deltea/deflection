@@ -66,6 +66,7 @@ func flash(interval: float = 0.1, duration = 0):
 func stop_flash():
 	flash_finished.emit()
 	flash_timer.stop()
+	visible = true
 
 func _on_flash_timer_timeout() -> void:
 	visible = not visible

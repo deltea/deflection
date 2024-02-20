@@ -59,7 +59,7 @@ bat_position_dynamics = SubResource("Resource_jptxf")
 
 [node name="Camera" parent="." instance=ExtResource("4_0rxrs")]
 top_level = true
-position = Vector2(0, -9)
+position = Vector2(-1, -9)
 
 [node name="SpritePlus" parent="." instance=ExtResource("2_ema6y")]
 position = Vector2(0, 5)

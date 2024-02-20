@@ -1,6 +1,6 @@
 class_name Enemy extends Area2D
 
-@export_range(0.0, 1.0) var cash_drop_chance = 0.4
+@export_range(0.0, 1.0) var cash_drop_chance = 1#0.4
 
 @onready var sprite: Sprite = $SpritePlus
 

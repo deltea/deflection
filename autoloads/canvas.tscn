@@ -15,10 +15,14 @@ shader_parameter/new_color_dark = Color(0, 0, 0, 1)
 shader_parameter/new_color_light = Color(1, 1, 1, 1)
 shader_parameter/new_color_accent = Color(1, 0, 0, 1)
 
-[node name="Canvas" type="CanvasLayer"]
+[node name="Canvases" type="Node"]
 script = ExtResource("1_io8xs")
+metadata/_edit_horizontal_guides_ = [-144.0, 144.0]
+metadata/_edit_vertical_guides_ = [-240.0, 240.0]
 
-[node name="Mouse" type="TextureRect" parent="."]
+[node name="Canvas" type="CanvasLayer" parent="."]
+
+[node name="Mouse" type="TextureRect" parent="Canvas"]
 material = SubResource("ShaderMaterial_4kpr6")
 offset_left = -11.0
 offset_top = -11.0
@@ -28,11 +32,14 @@ pivot_offset = Vector2(11, 11)
 texture = ExtResource("2_w8wht")
 stretch_mode = 3
 
-[node name="PlayerHealth" type="TextureProgressBar" parent="."]
-offset_left = 24.0
-offset_top = 6.0
-offset_right = 456.0
-offset_bottom = 22.0
+[node name="CameraCanvas" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="PlayerHealth" type="TextureProgressBar" parent="CameraCanvas"]
+offset_left = -216.0
+offset_top = -137.0
+offset_right = 216.0
+offset_bottom = -121.0
 step = 0.1
 value = 86.0
 nine_patch_stretch = true

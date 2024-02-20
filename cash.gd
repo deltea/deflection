@@ -13,6 +13,7 @@ class_name Cash extends Area2D
 var velocity = Vector2.ZERO
 var rotation_velocity = 0
 var starting_direction = Vector2.ZERO
+var picked_up = false
 
 func _ready() -> void:
 	sprite.material.set_shader_parameter("new_color", ColorPalette.colors.accent)
@@ -30,6 +31,12 @@ func _process(delta: float) -> void:
 	velocity = velocity.move_toward(Vector2.ZERO, velocity_damping * delta)
 
 func pick_up():
+	picked_up = true
+	sprite.impact_expand(2, 0.2)
+	sprite.stop_flash()
+
+	await Clock.wait(0.3)
+
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
@@ -39,4 +46,5 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_disappear_timer_timeout() -> void:
 	sprite.flash(0.1, flash_duration)
 	await sprite.flash_finished
+	if picked_up: return
 	queue_free()

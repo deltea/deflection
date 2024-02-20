@@ -1,9 +1,9 @@
-extends CanvasLayer
+extends Node
 
 @export var mouse_rotate_speed = 10.0
 
-@onready var mouse: TextureRect = $Mouse
-@onready var player_health: TextureProgressBar = $PlayerHealth
+@onready var mouse: TextureRect = $Canvas/Mouse
+@onready var player_health: TextureProgressBar = $CameraCanvas/PlayerHealth
 
 var mouse_target_rotation = 0.0
 
