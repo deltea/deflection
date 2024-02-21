@@ -47,10 +47,13 @@ func drop_cash():
 	cash.starting_direction = Vector2.from_angle(randf_range(0, PI*2))
 	Globals.arena.add_child(cash)
 
+func get_hit_by_bullet(bullet: Bullet):
+	Globals.camera.jerk_direction(bullet.position - position, 5.0)
+	bullet.hit_enemy()
+	get_hurt()
+
 func _on_area_entered(area: Area2D) -> void:
 	if area is Bullet:
 		var bullet = area as Bullet
 		if bullet.is_player_bullet:
-			Globals.camera.jerk_direction(bullet.position - position, 5.0)
-			bullet.hit_enemy()
-			get_hurt()
+			get_hit_by_bullet(bullet)
