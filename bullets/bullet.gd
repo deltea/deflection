@@ -36,7 +36,6 @@ func switch_to_player(autoaim):
 
 	# Just in case an enemy is touching a bullet
 	var enemies_touching = get_overlapping_areas().filter(func(area): return area is Enemy)
-	print(enemies_touching.size())
 	for enemy in enemies_touching:
 		enemy.get_hit_by_bullet(self)
 
