@@ -82,6 +82,7 @@ collision_mask = 5
 collide_with_areas = true
 
 [node name="Arrow" type="Sprite2D" parent="ParryArea"]
+visible = false
 material = SubResource("ShaderMaterial_n13rj")
 position = Vector2(0, -17)
 texture = ExtResource("8_ycsct")
