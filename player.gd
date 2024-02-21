@@ -9,6 +9,7 @@ class_name Player extends CharacterBody2D
 @export var dash_impulse_damping = 7000.0
 @export var dash_force = 1000.0
 @export var dash_duration = 0.8
+@export var swing_cooldown = 0.2
 
 @onready var sprite: Sprite = $SpritePlus
 @onready var bat: Node2D = $Bat
@@ -28,6 +29,8 @@ var impulse_velocity = Vector2.ZERO
 var dash_impulse_velocity = Vector2.ZERO
 var dash_timer = 0
 var is_dashing = false
+var swing_cooldown_timer = 0
+var can_swing = true
 var health = 100.0:
 	set(value):
 		health = 100.0 if value > 100.0 else value
@@ -57,6 +60,11 @@ func _process(delta: float) -> void:
 	else:
 		dash_timer += delta
 
+	if swing_cooldown_timer >= swing_cooldown:
+		can_swing = true
+	else:
+		swing_cooldown_timer += delta
+
 	health -= Stats.stats.health_decrease * delta
 	if health <= 0 and not is_dead:
 		die()
@@ -72,7 +80,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = Vector2.ZERO
 
-	if Input.is_action_just_pressed("lmb") and can_move:
+	if Input.is_action_just_pressed("lmb") and can_move and can_swing:
 		swing_bat()
 
 	if Input.is_action_just_pressed("rmb") and can_move:
@@ -84,6 +92,9 @@ func knockback(direction: Vector2, force: float):
 	impulse_velocity = direction.normalized() * force
 
 func swing_bat():
+	can_swing = false
+	swing_cooldown_timer = 0.0
+
 	bat_rotation = -bat_rotation
 	knockback(position - get_global_mouse_position(), 100)
 

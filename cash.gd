@@ -38,6 +38,7 @@ func pick_up():
 	await Clock.wait(0.3)
 
 	queue_free()
+	Events.get_cash.emit()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Wall:
