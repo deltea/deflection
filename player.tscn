@@ -59,7 +59,6 @@ bat_position_dynamics = SubResource("Resource_jptxf")
 
 [node name="Camera" parent="." instance=ExtResource("4_0rxrs")]
 top_level = true
-position = Vector2(0, -12)
 
 [node name="SpritePlus" parent="." instance=ExtResource("2_ema6y")]
 position = Vector2(0, 5)
@@ -82,7 +81,6 @@ collision_mask = 5
 collide_with_areas = true
 
 [node name="Arrow" type="Sprite2D" parent="ParryArea"]
-visible = false
 material = SubResource("ShaderMaterial_n13rj")
 position = Vector2(0, -17)
 texture = ExtResource("8_ycsct")

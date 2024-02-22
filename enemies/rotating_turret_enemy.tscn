@@ -3,9 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://g2f6mwxx5irq" path="res://enemies/enemy.tscn" id="1_so2bv"]
 [ext_resource type="Texture2D" uid="uid://g7nuipekwkkh" path="res://assets/enemies/rotating-turret.png" id="2_aj4yd"]
 [ext_resource type="Script" path="res://enemies/rotating_turret_enemy.gd" id="2_tldh5"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1dnj8"]
-radius = 24.0
+[ext_resource type="Shape2D" uid="uid://jvv35w3yv33o" path="res://autoaim-shape.tres" id="4_cv42p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyyev"]
 radius = 16.0
@@ -22,7 +20,7 @@ shadow_offset = Vector2(0, 24)
 shadow_scale = Vector2(0.8, 0.5)
 
 [node name="CollisionShape" parent="AutoaimArea" index="0"]
-shape = SubResource("CircleShape2D_1dnj8")
+shape = ExtResource("4_cv42p")
 
 [node name="CollisionShape" parent="." index="2"]
 shape = SubResource("CircleShape2D_jyyev")

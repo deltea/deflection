@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://dyqqq11wm7sxl"]
 
 [ext_resource type="Script" path="res://autoloads/ColorPalette.gd" id="1_1riih"]
-[ext_resource type="Resource" uid="uid://dakkbburjrvag" path="res://color-palettes/brulee.tres" id="2_cdkxf"]
+[ext_resource type="Resource" uid="uid://bd0uwnqe0yter" path="res://color-palettes/lavender.tres" id="2_7n70l"]
 
 [node name="ColorPalette" type="Node"]
 script = ExtResource("1_1riih")
-colors = ExtResource("2_cdkxf")
+colors = ExtResource("2_7n70l")

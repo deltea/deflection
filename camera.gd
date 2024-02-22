@@ -1,5 +1,6 @@
 class_name Camera extends Camera2D
 
+@export var base_offset: Vector2 = Vector2.ZERO
 @export var zoom_speed = 3.0
 @export var mouse_strength = 0.05
 @export var player_x_strength = 0.01
@@ -22,7 +23,7 @@ func _ready() -> void:
 	original_pos = position
 
 func _process(delta: float) -> void:
-	offset = (get_global_mouse_position() - global_position) * mouse_strength + jerk
+	offset = base_offset + (get_global_mouse_position() - global_position) * mouse_strength + jerk
 	zoom = lerp(zoom, target_zoom, zoom_speed * delta)
 	var player_x_tilt = 0 - Globals.player.position.x * player_x_strength
 	rotation_degrees = lerp(rotation_degrees, 0.0 + player_x_tilt, rotation_speed * delta)

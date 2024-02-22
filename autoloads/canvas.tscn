@@ -17,17 +17,22 @@ shader_parameter/new_color_accent = Color(1, 0, 0, 1)
 
 [node name="Canvases" type="Node"]
 script = ExtResource("1_io8xs")
-metadata/_edit_horizontal_guides_ = [-144.0, 144.0]
-metadata/_edit_vertical_guides_ = [-240.0, 240.0]
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 
 [node name="Mouse" type="TextureRect" parent="Canvas"]
 material = SubResource("ShaderMaterial_4kpr6")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -11.0
 offset_top = -11.0
 offset_right = 11.0
 offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(11, 11)
 texture = ExtResource("2_w8wht")
 stretch_mode = 3
@@ -36,12 +41,40 @@ stretch_mode = 3
 follow_viewport_enabled = true
 
 [node name="PlayerHealth" type="TextureProgressBar" parent="CameraCanvas"]
-offset_left = -216.0
-offset_top = -137.0
-offset_right = 216.0
-offset_bottom = -121.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -227.0
+offset_top = 43.0
+offset_right = -201.0
+offset_bottom = 260.0
+grow_horizontal = 2
 step = 0.1
 value = 86.0
+fill_mode = 3
+nine_patch_stretch = true
+stretch_margin_left = 8
+stretch_margin_top = 8
+stretch_margin_right = 8
+stretch_margin_bottom = 8
+texture_under = ExtResource("4_u2ag1")
+texture_over = ExtResource("5_nhfwc")
+texture_progress = ExtResource("4_u2ag1")
+tint_under = Color(0.152941, 0.160784, 0.27451, 1)
+tint_progress = Color(0.929412, 0.627451, 0.192157, 1)
+
+[node name="DashBar" type="TextureProgressBar" parent="CameraCanvas"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -125.0
+offset_right = 39.0
+offset_bottom = -98.0
+grow_vertical = 2
+step = 0.1
+value = 86.0
+fill_mode = 4
 nine_patch_stretch = true
 stretch_margin_left = 8
 stretch_margin_top = 8

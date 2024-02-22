@@ -4,15 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://b8l0l3i8g58i3" path="res://assets/enemies/walking.png" id="2_1kxfp"]
 [ext_resource type="Script" path="res://enemies/walking_enemy.gd" id="2_pdbts"]
 [ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="4_12suk"]
+[ext_resource type="Shape2D" uid="uid://jvv35w3yv33o" path="res://autoaim-shape.tres" id="5_qh85s"]
 
 [sub_resource type="Resource" id="Resource_j25ow"]
 script = ExtResource("4_12suk")
 f = 4.0
 z = 1.0
 r = 2.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_xymnr"]
-radius = 24.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kh88g"]
 radius = 8.0
@@ -32,7 +30,7 @@ shadow_offset = Vector2(0, 9)
 shadow_scale = Vector2(0.8, 0.6)
 
 [node name="CollisionShape" parent="AutoaimArea" index="0"]
-shape = SubResource("CircleShape2D_xymnr")
+shape = ExtResource("5_qh85s")
 
 [node name="FireTimer" type="Timer" parent="." index="2"]
 wait_time = 2.0

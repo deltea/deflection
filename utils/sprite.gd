@@ -27,6 +27,9 @@ func _ready() -> void:
 	scale_dynamics_solver = Dynamics.create_dynamics_vector(scale_dynamics)
 	rotation_dynamics_solver = Dynamics.create_dynamics(rotation_dynamics)
 
+	target_scale = global_scale
+	target_rotation_degrees = global_rotation_degrees
+
 	if use_shadow:
 		shadow = Sprite2D.new()
 		shadow.top_level = true

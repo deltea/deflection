@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dlfa7daaklqxk"]
+[gd_scene load_steps=16 format=3 uid="uid://dlfa7daaklqxk"]
 
 [ext_resource type="Script" path="res://scripts/arena.gd" id="1_7g2yt"]
 [ext_resource type="Shader" path="res://shaders/mask.gdshader" id="1_qxgbe"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://jmni87fcmmst" path="res://assets/shapes/square.png" id="3_ka4cv"]
 [ext_resource type="Texture2D" uid="uid://ogckd3hcjecc" path="res://assets/background.png" id="3_xxcna"]
 [ext_resource type="Script" path="res://scripts/wall.gd" id="5_5lryr"]
-[ext_resource type="Texture2D" uid="uid://chko5146pj7cu" path="res://assets/platform-border.png" id="5_sg4k6"]
+[ext_resource type="Texture2D" uid="uid://bmxrw3ko53c70" path="res://assets/shapes/pixel.png" id="7_hs0xk"]
 [ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="8_06rcv"]
 [ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="8_qqko7"]
 
@@ -19,11 +19,17 @@ shader_parameter/swirl_speed = 0.4
 shader_parameter/arms = 5
 shader_parameter/size = 20.0
 
-[sub_resource type="Resource" id="Resource_yq708"]
+[sub_resource type="Resource" id="Resource_x57p2"]
 script = ExtResource("8_qqko7")
-f = 10.0
+f = 20.0
 z = 1.0
-r = 0.0
+r = 2.0
+
+[sub_resource type="Resource" id="Resource_blav2"]
+script = ExtResource("8_qqko7")
+f = 20.0
+z = 1.0
+r = 2.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nw1fn"]
 
@@ -50,47 +56,77 @@ metadata/_edit_group_ = true
 self_modulate = Color(0.152941, 0.160784, 0.27451, 1)
 z_index = -40
 position = Vector2(-1.78814e-05, 7.15256e-07)
-scale = Vector2(26.5, 13.75)
+scale = Vector2(25, 15)
 texture = ExtResource("3_ka4cv")
 
-[node name="Border" parent="Floor" instance=ExtResource("8_06rcv")]
-z_index = 100
-texture = ExtResource("5_sg4k6")
-scale_dynamics = SubResource("Resource_yq708")
-use_shadow = false
-
 [node name="LeftWall" type="StaticBody2D" parent="Floor"]
-position = Vector2(-212, 0)
+z_index = 1000
+position = Vector2(-200, 0)
 rotation = 1.5708
 collision_mask = 0
 script = ExtResource("5_5lryr")
+
+[node name="SpritePlus" parent="Floor/LeftWall" instance=ExtResource("8_06rcv")]
+z_index = 1000
+scale = Vector2(240, 4)
+texture = ExtResource("7_hs0xk")
+scale_dynamics = SubResource("Resource_x57p2")
+rotation_dynamics = SubResource("Resource_blav2")
+use_shadow = false
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Floor/LeftWall"]
 shape = SubResource("WorldBoundaryShape2D_nw1fn")
 
 [node name="RightWall" type="StaticBody2D" parent="Floor"]
-position = Vector2(212, 0)
+z_index = 1000
+position = Vector2(200, 0)
 rotation = 4.71238
 collision_mask = 0
 script = ExtResource("5_5lryr")
+
+[node name="SpritePlus" parent="Floor/RightWall" instance=ExtResource("8_06rcv")]
+z_index = 1000
+scale = Vector2(240, 4)
+texture = ExtResource("7_hs0xk")
+scale_dynamics = SubResource("Resource_x57p2")
+rotation_dynamics = SubResource("Resource_blav2")
+use_shadow = false
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Floor/RightWall"]
 shape = SubResource("WorldBoundaryShape2D_nw1fn")
 
 [node name="TopWall" type="StaticBody2D" parent="Floor"]
-position = Vector2(0, -110)
+z_index = 1000
+position = Vector2(0, -120)
 rotation = 3.14159
 collision_mask = 0
 script = ExtResource("5_5lryr")
+
+[node name="SpritePlus" parent="Floor/TopWall" instance=ExtResource("8_06rcv")]
+z_index = 1000
+scale = Vector2(400, 4)
+texture = ExtResource("7_hs0xk")
+scale_dynamics = SubResource("Resource_x57p2")
+rotation_dynamics = SubResource("Resource_blav2")
+use_shadow = false
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Floor/TopWall"]
 shape = SubResource("WorldBoundaryShape2D_nw1fn")
 
 [node name="BottomWall" type="StaticBody2D" parent="Floor"]
-position = Vector2(0, 110)
+z_index = 1000
+position = Vector2(0, 120)
 rotation = 6.28318
 collision_mask = 0
 script = ExtResource("5_5lryr")
+
+[node name="SpritePlus" parent="Floor/BottomWall" instance=ExtResource("8_06rcv")]
+z_index = 1000
+scale = Vector2(400, 4)
+texture = ExtResource("7_hs0xk")
+scale_dynamics = SubResource("Resource_x57p2")
+rotation_dynamics = SubResource("Resource_blav2")
+use_shadow = false
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Floor/BottomWall"]
 shape = SubResource("WorldBoundaryShape2D_nw1fn")
@@ -98,27 +134,27 @@ shape = SubResource("WorldBoundaryShape2D_nw1fn")
 [node name="LeftWallMask" type="Sprite2D" parent="."]
 z_index = 1000
 material = SubResource("ShaderMaterial_drx63")
-position = Vector2(-240, 0)
-scale = Vector2(3, 14.25)
+position = Vector2(-242, 0)
+scale = Vector2(5, 40)
 texture = ExtResource("3_ka4cv")
 
 [node name="RightWallMask" type="Sprite2D" parent="."]
 z_index = 1000
 material = SubResource("ShaderMaterial_drx63")
-position = Vector2(240, 0)
-scale = Vector2(3, 14.25)
+position = Vector2(242, 0)
+scale = Vector2(5, 40)
 texture = ExtResource("3_ka4cv")
 
 [node name="TopWallMask" type="Sprite2D" parent="."]
 z_index = 1000
 material = SubResource("ShaderMaterial_drx63")
-position = Vector2(1.52588e-05, -139.5)
-scale = Vector2(32.875, 3.1875)
+position = Vector2(1.52588e-05, -162)
+scale = Vector2(40, 5)
 texture = ExtResource("3_ka4cv")
 
 [node name="BottomWallMask" type="Sprite2D" parent="."]
 z_index = 1000
 material = SubResource("ShaderMaterial_drx63")
-position = Vector2(0, 139.5)
-scale = Vector2(32.875, 3.1875)
+position = Vector2(0, 162)
+scale = Vector2(40, 5)
 texture = ExtResource("3_ka4cv")
