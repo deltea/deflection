@@ -39,6 +39,8 @@ shader = ExtResource("1_qxgbe")
 [node name="Arena" type="BackBufferCopy"]
 copy_mode = 2
 script = ExtResource("1_7g2yt")
+metadata/_edit_vertical_guides_ = [-198.0, 198.0]
+metadata/_edit_horizontal_guides_ = [-118.0, 118.0]
 
 [node name="Player" parent="." instance=ExtResource("1_r5hwi")]
 
@@ -131,28 +133,28 @@ use_shadow = false
 [node name="CollisionShape" type="CollisionShape2D" parent="Floor/BottomWall"]
 shape = SubResource("WorldBoundaryShape2D_nw1fn")
 
-[node name="LeftWallMask" type="Sprite2D" parent="."]
+[node name="LeftWallMask" type="Sprite2D" parent="Floor"]
 z_index = 1000
 material = SubResource("ShaderMaterial_drx63")
 position = Vector2(-242, 0)
 scale = Vector2(5, 40)
 texture = ExtResource("3_ka4cv")
 
-[node name="RightWallMask" type="Sprite2D" parent="."]
+[node name="RightWallMask" type="Sprite2D" parent="Floor"]
 z_index = 1000
 material = SubResource("ShaderMaterial_drx63")
 position = Vector2(242, 0)
 scale = Vector2(5, 40)
 texture = ExtResource("3_ka4cv")
 
-[node name="TopWallMask" type="Sprite2D" parent="."]
+[node name="TopWallMask" type="Sprite2D" parent="Floor"]
 z_index = 1000
 material = SubResource("ShaderMaterial_drx63")
 position = Vector2(1.52588e-05, -162)
 scale = Vector2(40, 5)
 texture = ExtResource("3_ka4cv")
 
-[node name="BottomWallMask" type="Sprite2D" parent="."]
+[node name="BottomWallMask" type="Sprite2D" parent="Floor"]
 z_index = 1000
 material = SubResource("ShaderMaterial_drx63")
 position = Vector2(0, 162)

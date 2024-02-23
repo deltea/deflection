@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://mq20s8qn5s33"]
+[gd_scene load_steps=9 format=3 uid="uid://mq20s8qn5s33"]
 
 [ext_resource type="Script" path="res://autoloads/canvas.gd" id="1_io8xs"]
 [ext_resource type="Texture2D" uid="uid://ck83hx5d6dsk" path="res://assets/mouse.png" id="2_w8wht"]
 [ext_resource type="Shader" path="res://shaders/color_replace.gdshader" id="2_xu0lq"]
 [ext_resource type="Texture2D" uid="uid://d124cj3gl0w2m" path="res://assets/ui/progress-bar-background.png" id="4_u2ag1"]
 [ext_resource type="Texture2D" uid="uid://chdmdrykeo0ki" path="res://assets/ui/progress-bar-border.png" id="5_nhfwc"]
+[ext_resource type="Texture2D" uid="uid://unmtfbcces0r" path="res://assets/ui/circle-progress-4.png" id="7_iydlk"]
+[ext_resource type="Texture2D" uid="uid://0r1iw31bdaho" path="res://assets/ui/circle-progress-background.png" id="7_sqyxl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4kpr6"]
 shader = ExtResource("2_xu0lq")
@@ -41,14 +43,14 @@ stretch_mode = 3
 follow_viewport_enabled = true
 
 [node name="PlayerHealth" type="TextureProgressBar" parent="CameraCanvas"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -227.0
-offset_top = 43.0
-offset_right = -201.0
-offset_bottom = 260.0
-grow_horizontal = 2
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -120.0
+offset_right = 48.0
+offset_bottom = 120.0
+grow_vertical = 2
 step = 0.1
 value = 86.0
 fill_mode = 3
@@ -64,24 +66,20 @@ tint_under = Color(0.152941, 0.160784, 0.27451, 1)
 tint_progress = Color(0.929412, 0.627451, 0.192157, 1)
 
 [node name="DashBar" type="TextureProgressBar" parent="CameraCanvas"]
+visible = false
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 13.0
-offset_top = -125.0
-offset_right = 39.0
-offset_bottom = -98.0
+offset_left = 17.0
+offset_top = -121.0
+offset_right = 47.0
+offset_bottom = -91.0
 grow_vertical = 2
-step = 0.1
-value = 86.0
+value = 75.0
 fill_mode = 4
 nine_patch_stretch = true
-stretch_margin_left = 8
-stretch_margin_top = 8
-stretch_margin_right = 8
-stretch_margin_bottom = 8
-texture_under = ExtResource("4_u2ag1")
-texture_over = ExtResource("5_nhfwc")
-texture_progress = ExtResource("4_u2ag1")
+texture_under = ExtResource("7_sqyxl")
+texture_over = ExtResource("7_iydlk")
+texture_progress = ExtResource("7_sqyxl")
 tint_under = Color(0.152941, 0.160784, 0.27451, 1)
 tint_progress = Color(0.929412, 0.627451, 0.192157, 1)

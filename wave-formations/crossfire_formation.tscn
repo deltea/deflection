@@ -6,13 +6,13 @@
 [node name="CrossfireFormation" instance=ExtResource("1_naixe")]
 
 [node name="TurretEnemy" parent="." index="0" instance=ExtResource("2_34dut")]
-position = Vector2(-180, -85)
+position = Vector2(-156, -77)
 
 [node name="TurretEnemy2" parent="." index="1" instance=ExtResource("2_34dut")]
-position = Vector2(-180, 85)
+position = Vector2(-156, 75)
 
 [node name="TurretEnemy3" parent="." index="2" instance=ExtResource("2_34dut")]
-position = Vector2(180, 85)
+position = Vector2(156, 75)
 
 [node name="TurretEnemy4" parent="." index="3" instance=ExtResource("2_34dut")]
-position = Vector2(180, -85)
+position = Vector2(156, -77)

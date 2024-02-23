@@ -4,5 +4,5 @@
 
 [node name="WaveFormation" type="Node2D"]
 script = ExtResource("1_sepn8")
-metadata/_edit_vertical_guides_ = [-212.0, 212.0]
-metadata/_edit_horizontal_guides_ = [-110.0, 110.0]
+metadata/_edit_vertical_guides_ = [-198.0, 198.0]
+metadata/_edit_horizontal_guides_ = [-118.0, 118.0]
