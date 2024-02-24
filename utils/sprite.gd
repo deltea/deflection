@@ -34,7 +34,7 @@ func _ready() -> void:
 		shadow = Sprite2D.new()
 		shadow.top_level = true
 		shadow.texture = shadow_texture
-		shadow.self_modulate = ColorPalette.colors.accent
+		shadow.self_modulate = Color.RED
 		shadow.offset = shadow_offset
 		shadow.global_scale = shadow_scale
 		shadow.z_index = shadow_ordering
@@ -42,9 +42,6 @@ func _ready() -> void:
 		shadow.flip_v = flip_v
 		shadow.scale = shadow_scale
 		add_child(shadow)
-
-	# Specific to 3-color palette
-	ColorPalette.set_color_palette_replace(material)
 
 func _process(_delta: float) -> void:
 	global_scale = scale_dynamics_solver.update(target_scale)

@@ -8,14 +8,6 @@ class_name GameCanvas extends CanvasLayer
 var player_health_dynamics_solver: DynamicsSolverVector
 
 func _ready() -> void:
-	player_health.tint_under = ColorPalette.colors.dark
-	player_health.tint_over = ColorPalette.colors.light
-	player_health.tint_progress = ColorPalette.colors.accent
-
-	dash_bar.tint_under = ColorPalette.colors.dark
-	dash_bar.tint_over = ColorPalette.colors.dark
-	dash_bar.tint_progress = ColorPalette.colors.accent
-
 	var half_viewport = get_viewport().get_visible_rect().size / 2
 	offset = Globals.camera.base_offset - half_viewport
 

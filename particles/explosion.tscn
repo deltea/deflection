@@ -1,16 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://6yqre3er6upk"]
+[gd_scene load_steps=4 format=3 uid="uid://6yqre3er6upk"]
 
-[ext_resource type="Shader" path="res://shaders/color_replace.gdshader" id="1_n21oo"]
 [ext_resource type="Texture2D" uid="uid://c5qxqssf7b5aw" path="res://assets/shapes/circle-big.png" id="2_m2opa"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bxxsp"]
-shader = ExtResource("1_n21oo")
-shader_parameter/old_color_dark = Color(0, 0, 0, 1)
-shader_parameter/old_color_light = Color(1, 1, 1, 1)
-shader_parameter/old_color_accent = Color(1, 0, 0, 1)
-shader_parameter/new_color_dark = Color(0, 0, 0, 1)
-shader_parameter/new_color_light = Color(1, 1, 1, 1)
-shader_parameter/new_color_accent = Color(1, 0, 0, 1)
 
 [sub_resource type="Curve" id="Curve_1ip5u"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -21,7 +11,6 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.046, 0.503975), 0.0, 0.0, 0, 0
 point_count = 5
 
 [node name="Explosion" type="CPUParticles2D"]
-material = SubResource("ShaderMaterial_bxxsp")
 emitting = false
 amount = 5
 lifetime = 0.4

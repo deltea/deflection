@@ -14,7 +14,6 @@ var health = 1
 var combo = 0
 
 func _ready() -> void:
-	sprite.material.set_shader_parameter("new_color", ColorPalette.colors.accent)
 	reset_health()
 	trail.emitting = false
 

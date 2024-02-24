@@ -16,7 +16,6 @@ var starting_direction = Vector2.ZERO
 var picked_up = false
 
 func _ready() -> void:
-	sprite.material.set_shader_parameter("new_color", ColorPalette.colors.accent)
 	velocity = starting_velocity * starting_direction
 	rotation_velocity = starting_rotation_velocity * (1 if randf() > 0.5 else -1)
 

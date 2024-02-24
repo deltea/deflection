@@ -45,8 +45,6 @@ func _ready() -> void:
 
 	Events.enemy_die.connect(_on_enemy_die)
 
-	ColorPalette.set_color_palette_replace(aim_arrow.material)
-
 func _process(delta: float) -> void:
 	mouse_angle = get_angle_to(get_global_mouse_position()) + PI/2
 	bat.position = bat_position_dynamics_solver.update(global_position)

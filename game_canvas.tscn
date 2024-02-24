@@ -39,8 +39,8 @@ stretch_margin_bottom = 8
 texture_under = ExtResource("2_ucvlt")
 texture_over = ExtResource("3_ko61e")
 texture_progress = ExtResource("2_ucvlt")
-tint_under = Color(0.152941, 0.160784, 0.27451, 1)
-tint_progress = Color(0.929412, 0.627451, 0.192157, 1)
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(1, 0, 0, 1)
 
 [node name="DashBar" type="TextureProgressBar" parent="."]
 visible = false

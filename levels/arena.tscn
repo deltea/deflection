@@ -14,8 +14,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wqgdq"]
 shader = ExtResource("2_5obaw")
-shader_parameter/color_1 = Color(0.152941, 0.160784, 0.27451, 1)
-shader_parameter/color_2 = Color(0.929412, 0.627451, 0.192157, 1)
+shader_parameter/color_1 = Color(0, 0, 0, 1)
+shader_parameter/color_2 = Color(1, 0, 0, 1)
 shader_parameter/swirl_speed = 0.4
 shader_parameter/arms = 5
 shader_parameter/size = 20.0
@@ -58,7 +58,7 @@ texture = ExtResource("3_xxcna")
 metadata/_edit_group_ = true
 
 [node name="ArenaBackground" type="Sprite2D" parent="Floor"]
-self_modulate = Color(0.152941, 0.160784, 0.27451, 1)
+self_modulate = Color(0, 0, 0, 1)
 z_index = -40
 position = Vector2(-1.78814e-05, 7.15256e-07)
 scale = Vector2(25, 15)
