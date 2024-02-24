@@ -28,10 +28,7 @@ func _ready() -> void:
 	k2 = 1 / ((2 * PI * f) * (2 * PI * f))
 	k3 = r * z / (2 * PI * f)
 
-	xp = 0
-	xd = 0
-	y = 0
-	yd = 0
+	reset()
 
 func _process(delta: float) -> void:
 	T = delta
@@ -46,3 +43,13 @@ func update(x: float):
 	yd = yd + T * (x + k3 * xd - y - k1 * yd) / k2_stable
 
 	return y
+
+func reset():
+	xp = 0
+	xd = 0
+	y = 0
+	yd = 0
+
+func set_current(new_value: float):
+	reset()
+	y = new_value

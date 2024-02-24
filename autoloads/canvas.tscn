@@ -1,12 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://mq20s8qn5s33"]
+[gd_scene load_steps=11 format=3 uid="uid://mq20s8qn5s33"]
 
 [ext_resource type="Script" path="res://autoloads/canvas.gd" id="1_io8xs"]
 [ext_resource type="Texture2D" uid="uid://ck83hx5d6dsk" path="res://assets/mouse.png" id="2_w8wht"]
 [ext_resource type="Shader" path="res://shaders/color_replace.gdshader" id="2_xu0lq"]
+[ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="2_ymr8t"]
 [ext_resource type="Texture2D" uid="uid://d124cj3gl0w2m" path="res://assets/ui/progress-bar-background.png" id="4_u2ag1"]
 [ext_resource type="Texture2D" uid="uid://chdmdrykeo0ki" path="res://assets/ui/progress-bar-border.png" id="5_nhfwc"]
 [ext_resource type="Texture2D" uid="uid://unmtfbcces0r" path="res://assets/ui/circle-progress-4.png" id="7_iydlk"]
 [ext_resource type="Texture2D" uid="uid://0r1iw31bdaho" path="res://assets/ui/circle-progress-background.png" id="7_sqyxl"]
+
+[sub_resource type="Resource" id="Resource_4v8qf"]
+script = ExtResource("2_ymr8t")
+f = 4.0
+z = 0.2
+r = 2.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4kpr6"]
 shader = ExtResource("2_xu0lq")
@@ -19,6 +26,7 @@ shader_parameter/new_color_accent = Color(1, 0, 0, 1)
 
 [node name="Canvases" type="Node"]
 script = ExtResource("1_io8xs")
+player_health_dynamics = SubResource("Resource_4v8qf")
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 
@@ -51,6 +59,7 @@ offset_top = -120.0
 offset_right = 48.0
 offset_bottom = 120.0
 grow_vertical = 2
+pivot_offset = Vector2(15, 120)
 step = 0.1
 value = 86.0
 fill_mode = 3
