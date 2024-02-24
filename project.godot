@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 ColorPalette="*res://autoloads/color_palette.tscn"
 Stats="*res://autoloads/stats.tscn"
-Canvas="*res://autoloads/canvas.tscn"
+GlobalCanvas="*res://autoloads/global_canvas.tscn"
 WaveManager="*res://autoloads/wave_manager.tscn"
 Dynamics="*res://autoloads/Dynamics.gd"
 UpgradeManager="*res://autoloads/upgrade_manager.tscn"
