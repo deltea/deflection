@@ -9,7 +9,7 @@ class_name Player extends CharacterBody2D
 @export var dash_impulse_damping = 7000.0
 @export var dash_force = 1000.0
 @export var dash_duration = 0.8
-@export var swing_cooldown = 0.2
+@export var swing_cooldown = 0.15
 
 @onready var sprite: Sprite = $SpritePlus
 @onready var bat: Node2D = $Bat
