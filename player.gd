@@ -131,7 +131,7 @@ func deflect_bullet(bullet: Bullet):
 	if not is_instance_valid(bullet): return
 
 	bullet.switch_to_player(auto_aim_enemy)
-	Clock.hitstop(0.08)
+	Clock.hitstop(0.07)
 	knockback(position - get_global_mouse_position(), 200.0)
 	Globals.camera.jerk_direction(position - get_global_mouse_position(), 5.0)
 	bat_sprite.impact_expand(1.5)

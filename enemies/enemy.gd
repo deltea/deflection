@@ -26,7 +26,7 @@ func die():
 	Events.enemy_die.emit(self)
 	set_deferred("monitoring", false)
 
-	await Clock.hitstop(0.04)
+	Clock.slowmo()
 	await sprite.impact_expand(1.5, 0.05)
 	Globals.camera.shake(0.05, 1.0)
 
