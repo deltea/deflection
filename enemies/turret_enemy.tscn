@@ -27,6 +27,7 @@ bullet_offset = 16.0
 
 [node name="SpritePlus" parent="." index="0"]
 texture = ExtResource("2_61vsm")
+rotation_dynamics_enabled = false
 rotation_dynamics = SubResource("Resource_lbygh")
 shadow_offset = Vector2(0, 16)
 shadow_scale = Vector2(0.8, 0.6)
