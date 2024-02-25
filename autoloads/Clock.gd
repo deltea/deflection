@@ -9,7 +9,7 @@ var base_time_scale = 1.0
 func _process(delta: float) -> void:
 	time += delta
 	slowmo_amount = move_toward(slowmo_amount, 0.0, slowmo_smoothing)
-	Engine.time_scale = base_time_scale - slowmo_amount
+	Engine.time_scale = clamp(base_time_scale - slowmo_amount, 0, 1)
 
 func wait(duration: float):
 	await get_tree().create_timer(duration, false, false, true).timeout
