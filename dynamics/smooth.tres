@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="DynamicsResource" load_steps=2 format=3 uid="uid://s8qu58edufnt"]
-
-[ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="1_qtsyl"]
-
-[resource]
-script = ExtResource("1_qtsyl")
-f = 4.0
-z = 0.2
-r = 2.0

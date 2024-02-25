@@ -1,7 +1,9 @@
 class_name Sprite extends Sprite2D
 
 @export_group("Dynamics")
+@export var scale_dynamics_enabled = true
 @export var scale_dynamics: DynamicsResource
+@export var rotation_dynamics_enabled = true
 @export var rotation_dynamics: DynamicsResource
 
 @export_group("Shadow")
@@ -44,8 +46,15 @@ func _ready() -> void:
 		add_child(shadow)
 
 func _process(_delta: float) -> void:
-	global_scale = scale_dynamics_solver.update(target_scale)
-	global_rotation_degrees = rotation_dynamics_solver.update(target_rotation_degrees)
+	if scale_dynamics and scale_dynamics_enabled:
+		global_scale = scale_dynamics_solver.update(target_scale)
+	else:
+		global_scale = target_scale
+
+	if rotation_dynamics and rotation_dynamics_enabled:
+		global_rotation_degrees = rotation_dynamics_solver.update(target_rotation_degrees)
+	else:
+		global_rotation_degrees = target_rotation_degrees
 
 	if use_shadow:
 		shadow.global_position = global_position

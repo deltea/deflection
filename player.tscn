@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b2d6fj5ct4bqv" path="res://camera.tscn" id="4_0rxrs"]
 [ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="5_5ev3i"]
 [ext_resource type="Texture2D" uid="uid://bnaj3dqoiplpt" path="res://assets/bat.png" id="5_tfdqe"]
-[ext_resource type="Resource" uid="uid://72g4joepn8g7" path="res://dynamics/rigid.tres" id="7_vncb5"]
 [ext_resource type="Texture2D" uid="uid://fh1rsxndkauh" path="res://assets/arrow.png" id="8_ycsct"]
 
 [sub_resource type="Resource" id="Resource_1fuvc"]
@@ -36,8 +35,14 @@ radius = 35.0
 [sub_resource type="Resource" id="Resource_hal72"]
 script = ExtResource("5_5ev3i")
 f = 4.0
-z = 0.4
+z = 0.2
 r = 2.0
+
+[sub_resource type="Resource" id="Resource_1hw62"]
+script = ExtResource("5_5ev3i")
+f = 25.0
+z = 1.0
+r = 1.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
@@ -103,7 +108,8 @@ z_index = 10
 position = Vector2(0, -22)
 texture = ExtResource("5_tfdqe")
 scale_dynamics = SubResource("Resource_hal72")
-rotation_dynamics = ExtResource("7_vncb5")
+rotation_dynamics_enabled = false
+rotation_dynamics = SubResource("Resource_1hw62")
 use_shadow = false
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

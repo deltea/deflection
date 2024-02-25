@@ -60,6 +60,7 @@ func _process(delta: float) -> void:
 
 	if swing_cooldown_timer >= swing_cooldown:
 		can_swing = true
+		bat_sprite.rotation_dynamics_enabled = false
 	else:
 		swing_cooldown_timer += delta
 
@@ -92,6 +93,7 @@ func knockback(direction: Vector2, force: float):
 func swing_bat():
 	can_swing = false
 	swing_cooldown_timer = 0.0
+	bat_sprite.rotation_dynamics_enabled = true
 
 	bat_rotation = -bat_rotation
 	knockback(position - get_global_mouse_position(), 100)

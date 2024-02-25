@@ -4,6 +4,7 @@ var dynamics_solver_scene = preload("res://utils/dynamics_solver.tscn")
 var dynamics_solver_vector_scene = preload("res://utils/dynamics_solver_vector.tscn")
 
 func create_dynamics(dynamics: DynamicsResource):
+	if not dynamics: return null
 	var solver = dynamics_solver_scene.instantiate() as DynamicsSolver
 	solver.f = dynamics.f
 	solver.z = dynamics.z
@@ -12,6 +13,7 @@ func create_dynamics(dynamics: DynamicsResource):
 	return solver
 
 func create_dynamics_vector(dynamics: DynamicsResource):
+	if not dynamics: return null
 	var solver = dynamics_solver_vector_scene.instantiate() as DynamicsSolverVector
 	solver.f = dynamics.f
 	solver.z = dynamics.z
