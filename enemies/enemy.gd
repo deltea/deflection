@@ -28,7 +28,7 @@ func die():
 
 	Clock.slowmo()
 	await sprite.impact_expand(1.5, 0.05)
-	Globals.camera.shake(0.05, 1.0)
+	# Globals.camera.shake(0.05, 1.0)
 
 	var explosion = explosion_scene.instantiate() as CPUParticles2D
 	explosion.position = position
@@ -47,7 +47,7 @@ func drop_cash():
 	Globals.arena.add_child(cash)
 
 func get_hit_by_bullet(bullet: Bullet):
-	Globals.camera.jerk_direction(bullet.position - position, 5.0)
+	Globals.camera.jerk_direction(bullet.position - position, 20.0)
 	bullet.hit_enemy()
 	get_hurt()
 
