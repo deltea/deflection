@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://autoloads/ColorPalette.gd" id="1_1riih"]
 [ext_resource type="Texture2D" uid="uid://bmxrw3ko53c70" path="res://assets/shapes/pixel.png" id="1_hshmj"]
-[ext_resource type="Resource" uid="uid://cqk4mxi016psq" path="res://color-palettes/bumblebee.tres" id="2_7cqcq"]
+[ext_resource type="Resource" uid="uid://du7rwom5na8y7" path="res://color-palettes/cotton-candy.tres" id="2_ee2ni"]
 [ext_resource type="Shader" path="res://shaders/palette-filter.gdshader" id="3_pbqvp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lw4gh"]
@@ -17,7 +17,7 @@ shader_parameter/new_color_accent = Color(1, 0, 0, 1)
 [node name="ColorPalette" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_1riih")
-colors = ExtResource("2_7cqcq")
+colors = ExtResource("2_ee2ni")
 
 [node name="ColorPaletteOverlay" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_lw4gh")
