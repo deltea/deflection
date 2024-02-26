@@ -38,7 +38,7 @@ r = 2.0
 shader = ExtResource("1_qxgbe")
 
 [node name="Arena" type="BackBufferCopy"]
-copy_mode = 0
+copy_mode = 2
 script = ExtResource("1_7g2yt")
 metadata/_edit_vertical_guides_ = [-198.0, 198.0]
 metadata/_edit_horizontal_guides_ = [-118.0, 118.0]
