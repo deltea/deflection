@@ -50,6 +50,6 @@ func reset():
 	y = 0
 	yd = 0
 
-func set_current(new_value: float):
+func set_value(new_value: float):
 	reset()
 	y = new_value

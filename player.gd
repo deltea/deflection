@@ -136,7 +136,7 @@ func deflect_bullet(bullet: Bullet):
 	Clock.hitstop(0.07)
 	knockback(position - get_global_mouse_position(), 200.0)
 	Globals.camera.jerk_direction(position - get_global_mouse_position(), 5.0)
-	bat_sprite.impact_expand(1.5)
+	bat_sprite.impact(1.5)
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area is Bullet:

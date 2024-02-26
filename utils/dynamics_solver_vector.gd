@@ -50,6 +50,6 @@ func reset():
 	y = Vector2.ZERO
 	yd = Vector2.ZERO
 
-func set_current(new_value: Vector2):
+func set_value(new_value: Vector2):
 	reset()
 	y = new_value

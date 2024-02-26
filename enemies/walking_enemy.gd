@@ -28,7 +28,7 @@ func _on_body_entered(body: Node2D) -> void:
 		target_rotation = Vector2.from_angle(target_rotation).bounce(normal).angle()
 
 func _on_fire_timer_timeout() -> void:
-	sprite.impact_expand(1.2)
+	sprite.impact(1.5)
 	var bullet = bullet_scene.instantiate() as Bullet
 	bullet.rotation = target_rotation + PI
 	bullet.position = position + Vector2.from_angle(target_rotation) * bullet_offset

@@ -27,7 +27,7 @@ func die():
 	set_deferred("monitoring", false)
 
 	Clock.slowmo()
-	await sprite.impact_expand(1.5, 0.05)
+	await sprite.impact(1.5)
 	# Globals.camera.shake(0.05, 1.0)
 
 	var explosion = explosion_scene.instantiate() as CPUParticles2D

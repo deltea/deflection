@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	rotate_timer += delta
 
 func fire() -> void:
-	sprite.impact_expand(1.2)
+	sprite.impact(1.5)
 	for i in range(4):
 		var bullet = bullet_scene.instantiate() as Bullet
 		bullet.rotation = sprite.rotation + PI/2 * i

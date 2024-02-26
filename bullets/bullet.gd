@@ -29,7 +29,7 @@ func switch_to_player(autoaim):
 	trail.emitting = true
 	rotation = target_direction.angle()
 	speed = Stats.stats.bullet_speed
-	sprite.impact_expand(1.5)
+	sprite.impact(1.5)
 	sprite.texture = player_bullet_texture
 	reset_health()
 

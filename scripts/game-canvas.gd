@@ -20,4 +20,4 @@ func _process(_delta: float) -> void:
 	player_health.scale = player_health_dynamics_solver.update(Vector2.ONE)
 
 func _on_health_change(_new_health: float):
-	player_health_dynamics_solver.set_current(Vector2.ONE * 1.2)
+	player_health_dynamics_solver.set_value(Vector2.ONE * 1.2)

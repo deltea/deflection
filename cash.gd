@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 
 func pick_up():
 	picked_up = true
-	sprite.impact_expand(2, 0.2)
+	sprite.impact(2.0)
 	sprite.stop_flash()
 
 	await Clock.wait(0.3)

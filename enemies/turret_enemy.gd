@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 
 func _on_fire_timer_timeout() -> void:
 	for i in range(bullet_num):
-		sprite.impact_expand(1.2, 0.05)
+		sprite.impact(1.5)
 		var bullet = bullet_scene.instantiate() as Bullet
 		bullet.rotation = sprite.rotation
 		bullet.position = global_position + Vector2.from_angle(bullet.rotation) * bullet_offset

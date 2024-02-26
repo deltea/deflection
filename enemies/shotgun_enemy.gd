@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	sprite.target_rotation_degrees += rotation_speed * rotation_direction * delta
 
 func _on_fire_timer_timeout() -> void:
-	sprite.impact_expand(1.2, 0.05)
+	sprite.impact(1.5)
 
 	# Super complicated angles
 	var angle = 0.0

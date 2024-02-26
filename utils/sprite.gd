@@ -60,10 +60,14 @@ func _process(_delta: float) -> void:
 		shadow.global_position = global_position
 		shadow.global_scale = global_scale * shadow_scale
 
-func impact_expand(size: float, duration: float = 0.1):
-	target_scale = Vector2.ONE * size
-	await Clock.wait(duration)
-	target_scale = Vector2.ONE
+func impact(size: float):
+	scale_dynamics_solver.set_value(Vector2.ONE * size)
+
+func reset_scale(value: Vector2):
+	scale_dynamics_solver.set_value(value)
+
+func reset_rotation(value: float):
+	rotation_dynamics_solver.set_value(value)
 
 func flash(interval: float = 0.1, duration = 0):
 	flash_timer.wait_time = interval
