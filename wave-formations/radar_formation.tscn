@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5y2gbbyysvll"]
+
+[ext_resource type="PackedScene" uid="uid://dcm73ntjp052v" path="res://wave-formations/wave_formation.tscn" id="1_gddt3"]
+[ext_resource type="PackedScene" uid="uid://biphdvk4ruu4t" path="res://enemies/shotgun_enemy.tscn" id="2_502ny"]
+[ext_resource type="PackedScene" uid="uid://4fb63hrmnp5k" path="res://enemies/walking_enemy.tscn" id="3_5ey4m"]
+[ext_resource type="PackedScene" uid="uid://cv4xxy35v1qe5" path="res://enemies/turret_enemy.tscn" id="4_7lle4"]
+
+[node name="RadarFormation" instance=ExtResource("1_gddt3")]
+
+[node name="ShotgunEnemy" parent="." index="0" instance=ExtResource("2_502ny")]
+
+[node name="WalkingEnemy" parent="." index="1" instance=ExtResource("3_5ey4m")]
+position = Vector2(0, 75)
+
+[node name="WalkingEnemy2" parent="." index="2" instance=ExtResource("3_5ey4m")]
+position = Vector2(0, -75)
+rotation = 3.14159
+
+[node name="TurretEnemy" parent="." index="3" instance=ExtResource("4_7lle4")]
+position = Vector2(-156, 0)
+
+[node name="TurretEnemy2" parent="." index="4" instance=ExtResource("4_7lle4")]
+position = Vector2(156, 0)
