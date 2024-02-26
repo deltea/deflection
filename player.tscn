@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://brrr7qsj7budm"]
+[gd_scene load_steps=17 format=3 uid="uid://brrr7qsj7budm"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_52jmm"]
 [ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="2_ema6y"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b2d6fj5ct4bqv" path="res://camera.tscn" id="4_0rxrs"]
 [ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="5_5ev3i"]
 [ext_resource type="Texture2D" uid="uid://bnaj3dqoiplpt" path="res://assets/bat.png" id="5_tfdqe"]
+[ext_resource type="Texture2D" uid="uid://bypnusmaxas75" path="res://assets/shapes/dotted-line.png" id="7_nawrw"]
 [ext_resource type="Texture2D" uid="uid://fh1rsxndkauh" path="res://assets/arrow.png" id="8_ycsct"]
 
 [sub_resource type="Resource" id="Resource_1fuvc"]
@@ -74,6 +75,17 @@ position = Vector2(0, -15)
 target_position = Vector2(0, -500)
 collision_mask = 5
 collide_with_areas = true
+
+[node name="DottedLine" type="Line2D" parent="ParryArea"]
+visible = false
+z_index = -10
+texture_repeat = 2
+position = Vector2(0, -29)
+points = PackedVector2Array(0, 0, 0, -1000)
+width = 5.0
+default_color = Color(1, 0, 0, 1)
+texture = ExtResource("7_nawrw")
+texture_mode = 1
 
 [node name="Arrow" type="Sprite2D" parent="ParryArea"]
 visible = false

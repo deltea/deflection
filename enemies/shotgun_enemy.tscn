@@ -26,6 +26,6 @@ rotation = 1.57079
 shape = SubResource("CapsuleShape2D_qtltv")
 
 [node name="FireTimer" type="Timer" parent="." index="3"]
-wait_time = 2.0
+wait_time = 1.5
 
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
