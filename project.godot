@@ -17,7 +17,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ColorPalette="*res://autoloads/color_palette.tscn"
 Stats="*res://autoloads/stats.tscn"
 GlobalCanvas="*res://autoloads/global_canvas.tscn"
 WaveManager="*res://autoloads/wave_manager.tscn"
@@ -26,6 +25,7 @@ UpgradeManager="*res://autoloads/upgrade_manager.tscn"
 Clock="*res://autoloads/Clock.gd"
 Globals="*res://autoloads/Globals.gd"
 Events="*res://autoloads/Events.gd"
+ColorPalette="*res://autoloads/color_palette.tscn"
 
 [display]
 

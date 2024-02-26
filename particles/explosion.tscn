@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://c5qxqssf7b5aw" path="res://assets/shapes/circle-big.png" id="2_m2opa"]
 
-[sub_resource type="Curve" id="Curve_1ip5u"]
+[sub_resource type="Curve" id="Curve_5ec3y"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Curve" id="Curve_xibqw"]
+[sub_resource type="Curve" id="Curve_j323b"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.046, 0.503975), 0.0, 0.0, 0, 0, Vector2(0.594, 1), 0.0, 0.0, 0, 0, Vector2(0.87551, 0.518665), -3.10016, -3.10016, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 5
 
@@ -24,6 +24,6 @@ initial_velocity_min = 20.0
 initial_velocity_max = 40.0
 angle_min = -360.0
 angle_max = 360.0
-angle_curve = SubResource("Curve_1ip5u")
+angle_curve = SubResource("Curve_5ec3y")
 scale_amount_min = 0.5
-scale_amount_curve = SubResource("Curve_xibqw")
+scale_amount_curve = SubResource("Curve_j323b")

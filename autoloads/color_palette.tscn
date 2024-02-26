@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dyqqq11wm7sxl"]
 
 [ext_resource type="Script" path="res://autoloads/ColorPalette.gd" id="1_1riih"]
-[ext_resource type="Texture2D" uid="uid://bmxrw3ko53c70" path="res://assets/shapes/pixel.png" id="1_hshmj"]
-[ext_resource type="Resource" uid="uid://cl56aoe735n68" path="res://color-palettes/rose.tres" id="2_fcy31"]
+[ext_resource type="Resource" uid="uid://rq7vsucaojoj" path="res://color-palettes/bittersweet.tres" id="2_urfp2"]
 [ext_resource type="Shader" path="res://shaders/palette-filter.gdshader" id="3_pbqvp"]
+[ext_resource type="Texture2D" uid="uid://jmni87fcmmst" path="res://assets/shapes/square.png" id="4_0hrh4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lw4gh"]
 shader = ExtResource("3_pbqvp")
@@ -17,7 +17,7 @@ shader_parameter/new_color_accent = Color(1, 0, 0, 1)
 [node name="ColorPalette" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_1riih")
-colors = ExtResource("2_fcy31")
+colors = ExtResource("2_urfp2")
 
 [node name="ColorPaletteOverlay" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_lw4gh")
@@ -25,9 +25,7 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -240.0
-offset_right = -239.0
-offset_bottom = 1.0
+offset_right = 240.0
+offset_bottom = 270.0
 grow_horizontal = 2
-scale = Vector2(480, 270)
-texture = ExtResource("1_hshmj")
-stretch_mode = 2
+texture = ExtResource("4_0hrh4")
