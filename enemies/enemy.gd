@@ -26,9 +26,10 @@ func die():
 	Events.enemy_die.emit(self)
 	set_deferred("monitoring", false)
 
-	Clock.slowmo()
-	await sprite.impact(1.5)
-	# Globals.camera.shake(0.05, 1.0)
+	# Clock.slowmo()
+	sprite.impact(1.5)
+	Clock.hitstop(0.05)
+	Globals.camera.shake(0.1, 1.0)
 
 	var explosion = explosion_scene.instantiate() as CPUParticles2D
 	explosion.position = position
@@ -47,7 +48,7 @@ func drop_cash():
 	Globals.arena.call_deferred("add_child", cash)
 
 func get_hit_by_bullet(bullet: Bullet):
-	Globals.camera.jerk_direction(bullet.position - position, 20.0)
+	Globals.camera.jerk_direction(bullet.position - position, 5)#20.0)
 	bullet.hit_enemy()
 	get_hurt()
 
