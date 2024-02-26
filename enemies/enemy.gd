@@ -44,7 +44,7 @@ func drop_cash():
 	var cash = cash_scene.instantiate() as Cash
 	cash.position = position
 	cash.starting_direction = Vector2.from_angle(randf_range(0, PI*2))
-	Globals.arena.add_child(cash)
+	Globals.arena.call_deferred("add_child", cash)
 
 func get_hit_by_bullet(bullet: Bullet):
 	Globals.camera.jerk_direction(bullet.position - position, 20.0)

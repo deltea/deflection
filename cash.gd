@@ -31,10 +31,12 @@ func _process(delta: float) -> void:
 
 func pick_up():
 	picked_up = true
-	sprite.impact(2.0)
 	sprite.stop_flash()
+	sprite.target_scale = Vector2.ONE * 2.0
+	await Clock.wait(0.2)
+	sprite.target_scale = Vector2.ZERO
 
-	await Clock.wait(0.3)
+	await Clock.wait(0.05)
 
 	queue_free()
 	Events.get_cash.emit()

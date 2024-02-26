@@ -1,9 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://beixccx0gmk7s"]
+[gd_scene load_steps=8 format=3 uid="uid://beixccx0gmk7s"]
 
 [ext_resource type="Script" path="res://cash.gd" id="1_b21sb"]
 [ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="2_vqfvt"]
 [ext_resource type="Texture2D" uid="uid://ba5sutp1gkm81" path="res://assets/cash.png" id="3_q35rx"]
 [ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="5_cb30y"]
+
+[sub_resource type="Resource" id="Resource_xtx74"]
+script = ExtResource("5_cb30y")
+f = 4.0
+z = 0.2
+r = 2.0
 
 [sub_resource type="Resource" id="Resource_foiu5"]
 script = ExtResource("5_cb30y")
@@ -19,6 +25,7 @@ script = ExtResource("1_b21sb")
 
 [node name="SpritePlus" parent="." instance=ExtResource("2_vqfvt")]
 texture = ExtResource("3_q35rx")
+scale_dynamics = SubResource("Resource_xtx74")
 rotation_dynamics = SubResource("Resource_foiu5")
 use_shadow = false
 
