@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq1aytxa0ontb"]
+
+[ext_resource type="PackedScene" uid="uid://dcm73ntjp052v" path="res://wave-formations/wave_formation.tscn" id="1_4if4m"]
+[ext_resource type="PackedScene" uid="uid://biphdvk4ruu4t" path="res://enemies/shotgun_enemy.tscn" id="2_6sli6"]
+
+[node name="ShotgunFormation" instance=ExtResource("1_4if4m")]
+
+[node name="ShotgunEnemy" parent="." index="0" instance=ExtResource("2_6sli6")]
+position = Vector2(-108, 55)
+rotation_speed = 100.0
+
+[node name="ShotgunEnemy2" parent="." index="1" instance=ExtResource("2_6sli6")]
+position = Vector2(108, 55)
+rotation_speed = 100.0
+
+[node name="ShotgunEnemy3" parent="." index="2" instance=ExtResource("2_6sli6")]
+position = Vector2(0, -65)
+rotation_speed = 100.0

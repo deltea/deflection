@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://g2f6mwxx5irq"]
+[gd_scene load_steps=5 format=3 uid="uid://g2f6mwxx5irq"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_jfmhy"]
 [ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="1_ucv0w"]
 [ext_resource type="Script" path="res://scripts/autoaim_area.gd" id="3_nsqr4"]
+[ext_resource type="Shape2D" uid="uid://jvv35w3yv33o" path="res://autoaim-shape.tres" id="4_xuy83"]
 
 [node name="Enemy" type="Area2D"]
 collision_layer = 4
@@ -15,6 +16,7 @@ script = ExtResource("1_jfmhy")
 script = ExtResource("3_nsqr4")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="AutoaimArea"]
+shape = ExtResource("4_xuy83")
 debug_color = Color(0.7, 0.380625, 0, 0.42)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]

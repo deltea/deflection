@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cv77bxtlv1mt3"]
+[gd_scene load_steps=10 format=3 uid="uid://cv77bxtlv1mt3"]
 
 [ext_resource type="Script" path="res://scripts/game-canvas.gd" id="1_eg8x0"]
 [ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="2_e72hn"]
@@ -6,12 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://chdmdrykeo0ki" path="res://assets/ui/progress-bar-border.png" id="3_ko61e"]
 [ext_resource type="Texture2D" uid="uid://0r1iw31bdaho" path="res://assets/ui/circle-progress-background.png" id="4_u7aal"]
 [ext_resource type="Texture2D" uid="uid://unmtfbcces0r" path="res://assets/ui/circle-progress-4.png" id="5_6i86p"]
+[ext_resource type="FontFile" uid="uid://bwdtpcaufp8ib" path="res://assets/fonts/m6x11plus.ttf" id="7_rin2p"]
 
 [sub_resource type="Resource" id="Resource_vs4p6"]
 script = ExtResource("2_e72hn")
 f = 4.0
 z = 0.2
 r = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_uvo3i"]
+font = ExtResource("7_rin2p")
+font_size = 18
 
 [node name="Canvas" type="CanvasLayer"]
 follow_viewport_enabled = true
@@ -60,3 +65,11 @@ texture_over = ExtResource("5_6i86p")
 texture_progress = ExtResource("4_u7aal")
 tint_under = Color(0.152941, 0.160784, 0.27451, 1)
 tint_progress = Color(0.929412, 0.627451, 0.192157, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 195.0
+offset_top = 71.0
+offset_right = 247.0
+offset_bottom = 94.0
+text = "HElooooo"
+label_settings = SubResource("LabelSettings_uvo3i")

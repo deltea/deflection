@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://biphdvk4ruu4t"]
+
+[ext_resource type="PackedScene" uid="uid://g2f6mwxx5irq" path="res://enemies/enemy.tscn" id="1_638na"]
+[ext_resource type="Texture2D" uid="uid://bbajsm5k35pnj" path="res://assets/enemies/shotgun.png" id="2_63nxt"]
+[ext_resource type="Script" path="res://enemies/shotgun_enemy.gd" id="2_of2tq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qtltv"]
+radius = 12.0
+height = 36.0
+
+[node name="ShotgunEnemy" instance=ExtResource("1_638na")]
+script = ExtResource("2_of2tq")
+rotation_speed = 80.0
+bullet_num = 3
+bullet_spread = 50.0
+bullet_offset = 16.0
+bullet_speed = 100.0
+
+[node name="SpritePlus" parent="." index="0"]
+texture = ExtResource("2_63nxt")
+shadow_offset = Vector2(0, 16)
+shadow_scale = Vector2(0.8, 0.6)
+
+[node name="CollisionShape" parent="." index="2"]
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_qtltv")
+
+[node name="FireTimer" type="Timer" parent="." index="3"]
+wait_time = 2.0
+
+[connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]
