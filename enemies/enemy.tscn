@@ -6,11 +6,13 @@
 [ext_resource type="Shape2D" uid="uid://jvv35w3yv33o" path="res://autoaim-shape.tres" id="4_xuy83"]
 
 [node name="Enemy" type="Area2D"]
+z_index = 20
 collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_jfmhy")
 
 [node name="SpritePlus" parent="." instance=ExtResource("1_ucv0w")]
+z_index = 20
 
 [node name="AutoaimArea" type="Area2D" parent="."]
 script = ExtResource("3_nsqr4")

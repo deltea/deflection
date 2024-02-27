@@ -42,6 +42,7 @@ func destroy():
 	queue_free()
 
 func bounce(normal: Vector2):
+	print(normal)
 	rotation = Vector2.from_angle(rotation).bounce(normal).angle()
 
 func hit_enemy():
@@ -53,7 +54,8 @@ func reset_health():
 func _on_body_entered(body: Node2D) -> void:
 	if body is Wall:
 		health -= 1
-		if health > 0 and is_player_bullet: bounce(Vector2.from_angle(body.rotation - PI/2))
+		if health > 0 and is_player_bullet:
+			bounce(Vector2.from_angle(body.rotation - PI/2))
 
 func _on_blink_timer_timeout() -> void:
 	if not texture_1 or not texture_2 or is_player_bullet: return

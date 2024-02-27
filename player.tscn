@@ -46,7 +46,7 @@ z = 1.0
 r = 1.0
 
 [node name="Player" type="CharacterBody2D"]
-z_index = 10
+z_index = 30
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_52jmm")
@@ -78,7 +78,6 @@ collide_with_areas = true
 
 [node name="DottedLine" type="Line2D" parent="ParryArea"]
 visible = false
-z_index = -10
 texture_repeat = 2
 position = Vector2(0, -29)
 points = PackedVector2Array(0, 0, 0, -1000)
@@ -93,7 +92,6 @@ position = Vector2(0, -17)
 texture = ExtResource("8_ycsct")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="ParryArea"]
-z_index = -1
 position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_s8ah2")
 debug_color = Color(0, 0.701961, 0.0313726, 0.419608)
@@ -103,7 +101,6 @@ collision_layer = 0
 collision_mask = 12
 
 [node name="CollisionShape" type="CollisionShape2D" parent="Hitbox"]
-z_index = 10
 shape = SubResource("CircleShape2D_du8ss")
 debug_color = Color(0.701961, 0, 0, 0.419608)
 
@@ -114,7 +111,6 @@ shape = SubResource("CircleShape2D_whm7d")
 
 [node name="Bat" type="Node2D" parent="."]
 top_level = true
-z_index = 10
 
 [node name="BatSprite" parent="Bat" instance=ExtResource("2_ema6y")]
 position = Vector2(0, -22)

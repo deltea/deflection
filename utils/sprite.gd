@@ -11,7 +11,7 @@ class_name Sprite extends Sprite2D
 @export var shadow_texture: Texture2D
 @export var shadow_offset = Vector2(0, 0)
 @export var shadow_scale = Vector2.ONE
-@export var shadow_ordering = -20
+@export var shadow_ordering = 0
 
 @onready var flash_timer: Timer = $FlashTimer
 

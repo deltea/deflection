@@ -8,16 +8,21 @@
 [node name="RadarFormation" instance=ExtResource("1_gddt3")]
 
 [node name="ShotgunEnemy" parent="." index="0" instance=ExtResource("2_502ny")]
+z_index = 0
 
 [node name="WalkingEnemy" parent="." index="1" instance=ExtResource("3_5ey4m")]
+z_index = 0
 position = Vector2(0, 75)
 
 [node name="WalkingEnemy2" parent="." index="2" instance=ExtResource("3_5ey4m")]
+z_index = 0
 position = Vector2(0, -75)
 rotation = 3.14159
 
 [node name="TurretEnemy" parent="." index="3" instance=ExtResource("4_7lle4")]
+z_index = 0
 position = Vector2(-156, 0)
 
 [node name="TurretEnemy2" parent="." index="4" instance=ExtResource("4_7lle4")]
+z_index = 0
 position = Vector2(156, 0)
