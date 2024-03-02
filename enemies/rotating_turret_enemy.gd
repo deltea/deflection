@@ -25,7 +25,7 @@ func fire() -> void:
 		bullet.rotation = sprite.rotation + PI/2 * i
 		bullet.position = global_position + Vector2.from_angle(bullet.rotation) * bullet_offset
 		bullet.speed = bullet_speed
-		Globals.arena.add_child(bullet)
+		Globals.current_room.add_child(bullet)
 
 func turn() -> void:
 	sprite.target_rotation_degrees += 45.0

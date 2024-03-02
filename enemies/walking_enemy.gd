@@ -33,4 +33,4 @@ func _on_fire_timer_timeout() -> void:
 	bullet.rotation = target_rotation + PI
 	bullet.position = position + Vector2.from_angle(target_rotation) * bullet_offset
 	bullet.speed = bullet_speed
-	Globals.arena.add_child(bullet)
+	Globals.current_room.add_child(bullet)

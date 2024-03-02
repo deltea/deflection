@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dlfa7daaklqxk"]
 
-[ext_resource type="Script" path="res://scripts/arena.gd" id="1_7g2yt"]
+[ext_resource type="Script" path="res://scripts/room.gd" id="1_1oiln"]
 [ext_resource type="Shader" path="res://shaders/mask.gdshader" id="1_qxgbe"]
 [ext_resource type="PackedScene" uid="uid://brrr7qsj7budm" path="res://scenes/player.tscn" id="1_r5hwi"]
 [ext_resource type="Shader" path="res://shaders/swirl_background.gdshader" id="2_5obaw"]
@@ -20,37 +20,39 @@ shader_parameter/size = 20.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_drx63"]
 shader = ExtResource("1_qxgbe")
 
-[node name="Arena" type="BackBufferCopy"]
-copy_mode = 2
-script = ExtResource("1_7g2yt")
+[node name="ArenaRoom" type="Node2D"]
+script = ExtResource("1_1oiln")
 metadata/_edit_vertical_guides_ = [-198.0, 198.0]
 metadata/_edit_horizontal_guides_ = [-118.0, 118.0]
 
 [node name="Canvas" parent="." instance=ExtResource("2_7atqw")]
 
-[node name="Player" parent="." instance=ExtResource("1_r5hwi")]
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2
 
-[node name="SwirlyBackground" type="Sprite2D" parent="."]
+[node name="Player" parent="BackBufferCopy" instance=ExtResource("1_r5hwi")]
+
+[node name="SwirlyBackground" type="Sprite2D" parent="BackBufferCopy"]
 z_index = -20
 material = SubResource("ShaderMaterial_wqgdq")
 position = Vector2(1, 6)
 scale = Vector2(2.17778, 2.17778)
 texture = ExtResource("3_xxcna")
 
-[node name="Floor" type="Node2D" parent="."]
+[node name="Floor" type="Node2D" parent="BackBufferCopy"]
 
-[node name="ArenaBackground" type="Sprite2D" parent="Floor"]
+[node name="ArenaBackground" type="Sprite2D" parent="BackBufferCopy/Floor"]
 self_modulate = Color(0, 0, 0, 1)
 position = Vector2(-1.78814e-05, 7.15256e-07)
 scale = Vector2(25, 15)
 texture = ExtResource("3_ka4cv")
 
-[node name="LeftWall" parent="Floor" instance=ExtResource("12_c0wqa")]
+[node name="LeftWall" parent="BackBufferCopy/Floor" instance=ExtResource("12_c0wqa")]
 position = Vector2(-200, 0)
 rotation = 1.5708
 scale = Vector2(61, 1)
 
-[node name="LeftWallMask" type="Sprite2D" parent="Floor/LeftWall"]
+[node name="LeftWallMask" type="Sprite2D" parent="BackBufferCopy/Floor/LeftWall"]
 z_index = 1000
 material = SubResource("ShaderMaterial_drx63")
 position = Vector2(3.0103e-08, 42)
@@ -58,12 +60,12 @@ rotation = -1.5708
 scale = Vector2(5, 0.655738)
 texture = ExtResource("3_ka4cv")
 
-[node name="RightWall" parent="Floor" instance=ExtResource("12_c0wqa")]
+[node name="RightWall" parent="BackBufferCopy/Floor" instance=ExtResource("12_c0wqa")]
 position = Vector2(200, 0)
 rotation = -1.5708
 scale = Vector2(61, 1)
 
-[node name="RightWallMask" type="Sprite2D" parent="Floor/RightWall"]
+[node name="RightWallMask" type="Sprite2D" parent="BackBufferCopy/Floor/RightWall"]
 z_index = 1000
 material = SubResource("ShaderMaterial_drx63")
 position = Vector2(-0.0655738, 42)
@@ -72,22 +74,22 @@ scale = Vector2(5, 0.655738)
 skew = -0.000151992
 texture = ExtResource("3_ka4cv")
 
-[node name="TopWall" parent="Floor" instance=ExtResource("12_c0wqa")]
+[node name="TopWall" parent="BackBufferCopy/Floor" instance=ExtResource("12_c0wqa")]
 position = Vector2(0, -120)
 scale = Vector2(101, 1)
 
-[node name="TopWallMask" type="Sprite2D" parent="Floor/TopWall"]
+[node name="TopWallMask" type="Sprite2D" parent="BackBufferCopy/Floor/TopWall"]
 z_index = 1000
 material = SubResource("ShaderMaterial_drx63")
 position = Vector2(1.51073e-07, -42)
 scale = Vector2(0.39604, 5)
 texture = ExtResource("3_ka4cv")
 
-[node name="BottomWall" parent="Floor" instance=ExtResource("12_c0wqa")]
+[node name="BottomWall" parent="BackBufferCopy/Floor" instance=ExtResource("12_c0wqa")]
 position = Vector2(0, 120)
 scale = Vector2(101, 1)
 
-[node name="BottomWallMask" type="Sprite2D" parent="Floor/BottomWall"]
+[node name="BottomWallMask" type="Sprite2D" parent="BackBufferCopy/Floor/BottomWall"]
 z_index = 1000
 material = SubResource("ShaderMaterial_drx63")
 position = Vector2(2.59341e-12, 42)

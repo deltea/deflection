@@ -18,7 +18,7 @@ func next_wave():
 	var formation_scene = only_one_formation if only_one_formation else formation_scenes.pick_random()
 	var formation = formation_scene.instantiate() as WaveFormation
 	formation.global_position = Vector2.ZERO
-	Globals.arena.add_child(formation)
+	Globals.current_room.add_child(formation)
 	current_formation = formation
 	enemies = formation.get_children().filter(func(child): return child is Enemy)
 

@@ -21,5 +21,5 @@ func _on_fire_timer_timeout() -> void:
 		bullet.rotation = sprite.rotation
 		bullet.position = global_position + Vector2.from_angle(bullet.rotation) * bullet_offset
 		bullet.speed = bullet_speed
-		Globals.arena.add_child(bullet)
+		Globals.current_room.add_child(bullet)
 		await Clock.wait(bullet_delay)
