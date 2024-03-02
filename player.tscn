@@ -46,7 +46,7 @@ z = 1.0
 r = 1.0
 
 [node name="Player" type="CharacterBody2D"]
-z_index = 30
+z_index = 50
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_52jmm")
@@ -77,6 +77,7 @@ collision_mask = 4
 collide_with_areas = true
 
 [node name="Arrow" type="Sprite2D" parent="ParryArea"]
+visible = false
 position = Vector2(0, -17)
 texture = ExtResource("8_ycsct")
 
@@ -113,6 +114,7 @@ shape = SubResource("CircleShape2D_whm7d")
 
 [node name="Bat" type="Node2D" parent="."]
 top_level = true
+z_index = 10
 
 [node name="BatSprite" parent="Bat" instance=ExtResource("2_ema6y")]
 position = Vector2(0, -22)
