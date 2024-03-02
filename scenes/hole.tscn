@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://shaders/mask.gdshader" id="1_7aote"]
 [ext_resource type="Texture2D" uid="uid://jmni87fcmmst" path="res://assets/shapes/square.png" id="2_wojto"]
-[ext_resource type="PackedScene" uid="uid://cckoq7nwhivl5" path="res://wall.tscn" id="3_uh4xt"]
+[ext_resource type="PackedScene" uid="uid://cckoq7nwhivl5" path="res://scenes/wall.tscn" id="3_uh4xt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_43vkk"]
 shader = ExtResource("1_7aote")

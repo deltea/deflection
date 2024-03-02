@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b2d6fj5ct4bqv"]
 
-[ext_resource type="Script" path="res://camera.gd" id="1_ryjp0"]
+[ext_resource type="Script" path="res://scenes/camera.gd" id="1_ryjp0"]
 
 [node name="Camera" type="Camera2D"]
 ignore_rotation = false

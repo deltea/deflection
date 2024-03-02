@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://brrr7qsj7budm"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_52jmm"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_52jmm"]
 [ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="2_ema6y"]
 [ext_resource type="Texture2D" uid="uid://cjgq7gxxdo60o" path="res://assets/player.png" id="3_ralyu"]
-[ext_resource type="PackedScene" uid="uid://b2d6fj5ct4bqv" path="res://camera.tscn" id="4_0rxrs"]
+[ext_resource type="PackedScene" uid="uid://b2d6fj5ct4bqv" path="res://scenes/camera.tscn" id="4_0rxrs"]
 [ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="5_5ev3i"]
 [ext_resource type="Texture2D" uid="uid://bnaj3dqoiplpt" path="res://assets/bat.png" id="5_tfdqe"]
 [ext_resource type="Texture2D" uid="uid://bypnusmaxas75" path="res://assets/shapes/dotted-line.png" id="7_nawrw"]

@@ -7,7 +7,7 @@ class_name Enemy extends Area2D
 var health = 1
 
 var explosion_scene = preload("res://particles/explosion.tscn")
-var cash_scene = preload("res://cash.tscn")
+var cash_scene = preload("res://scenes/cash.tscn")
 var bullet_scene = preload("res://bullets/bullet.tscn")
 
 func _ready() -> void:

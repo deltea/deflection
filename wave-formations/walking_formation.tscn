@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dcm73ntjp052v" path="res://wave-formations/wave_formation.tscn" id="1_htpj6"]
 [ext_resource type="PackedScene" uid="uid://4fb63hrmnp5k" path="res://enemies/walking_enemy.tscn" id="2_qrllj"]
-[ext_resource type="PackedScene" uid="uid://cj7m6n3i5w4v2" path="res://hole.tscn" id="3_cjx26"]
+[ext_resource type="PackedScene" uid="uid://cj7m6n3i5w4v2" path="res://scenes/hole.tscn" id="3_cjx26"]
 
 [node name="WalkingFormation" instance=ExtResource("1_htpj6")]
 
