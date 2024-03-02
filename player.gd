@@ -18,6 +18,8 @@ class_name Player extends CharacterBody2D
 @onready var hitbox: Area2D = $Hitbox
 @onready var auto_aim_ray: RayCast2D = $ParryArea/AutoAimRay
 @onready var aim_arrow: Sprite2D = $ParryArea/Arrow
+@onready var world_ray: RayCast2D = $ParryArea/Arrow/WorldRay
+@onready var aim_line: Line2D = $ParryArea/Arrow/AimLine
 
 var mouse_angle: float
 var can_move = true
@@ -51,6 +53,9 @@ func _process(delta: float) -> void:
 	bat.rotation = mouse_angle + bat_rotation_dynamics_solver.update(deg_to_rad(bat_rotation))
 	parry_area.rotation = mouse_angle
 	bat_sprite.target_rotation_degrees = bat.rotation_degrees
+
+	aim_line.set_point_position(0, aim_arrow.global_position + Vector2(0, -12).rotated(parry_area.rotation))
+	aim_line.set_point_position(1, world_ray.get_collision_point())
 
 	if dash_timer >= dash_duration:
 		toggle_dash(false)
