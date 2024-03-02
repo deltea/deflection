@@ -77,7 +77,6 @@ collision_mask = 5
 collide_with_areas = true
 
 [node name="DottedLine" type="Line2D" parent="ParryArea"]
-visible = false
 texture_repeat = 2
 position = Vector2(0, -29)
 points = PackedVector2Array(0, 0, 0, -1000)
@@ -87,7 +86,6 @@ texture = ExtResource("7_nawrw")
 texture_mode = 1
 
 [node name="Arrow" type="Sprite2D" parent="ParryArea"]
-visible = false
 position = Vector2(0, -17)
 texture = ExtResource("8_ycsct")
 

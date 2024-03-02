@@ -9,4 +9,4 @@ bullet_speed = 500.0
 health_decrease = 2.0
 hurt_health_decrease = 15.0
 enemy_kill_health_increase = 10.0
-bullet_bounce = 5
+bullet_bounce = 0

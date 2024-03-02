@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dyqqq11wm7sxl"]
 
 [ext_resource type="Script" path="res://autoloads/ColorPalette.gd" id="1_1riih"]
-[ext_resource type="Resource" uid="uid://dakkbburjrvag" path="res://color-palettes/brulee.tres" id="2_58vok"]
+[ext_resource type="Resource" uid="uid://b74gv3hif0hms" path="res://color-palettes/strawberry.tres" id="2_kpu0p"]
 [ext_resource type="Shader" path="res://shaders/palette-filter.gdshader" id="3_pbqvp"]
 [ext_resource type="Texture2D" uid="uid://jmni87fcmmst" path="res://assets/shapes/square.png" id="4_0hrh4"]
 
@@ -17,7 +17,7 @@ shader_parameter/new_color_accent = Color(1, 0, 0, 1)
 [node name="ColorPalette" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_1riih")
-colors = ExtResource("2_58vok")
+colors = ExtResource("2_kpu0p")
 
 [node name="ColorPaletteOverlay" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_lw4gh")

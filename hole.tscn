@@ -13,23 +13,24 @@ z_index = 40
 [node name="Mask" type="Sprite2D" parent="."]
 z_index = 1000
 material = SubResource("ShaderMaterial_43vkk")
+scale = Vector2(2.25, 2.25)
 texture = ExtResource("2_wojto")
 
 [node name="RightWall" parent="." instance=ExtResource("3_uh4xt")]
-position = Vector2(10, -2.38419e-07)
+position = Vector2(20, 0)
 rotation = 4.71238
-scale = Vector2(6, 1)
+scale = Vector2(11, 1)
 
 [node name="LeftWall" parent="." instance=ExtResource("3_uh4xt")]
-position = Vector2(-10, 0)
+position = Vector2(-20, 0)
 rotation = 1.57079
-scale = Vector2(6, 1)
+scale = Vector2(11, 1)
 
 [node name="TopWall" parent="." instance=ExtResource("3_uh4xt")]
-position = Vector2(0, -10)
-scale = Vector2(6, 1)
+position = Vector2(0, -20)
+scale = Vector2(11, 1)
 
 [node name="BottomWall" parent="." instance=ExtResource("3_uh4xt")]
-position = Vector2(0, 10)
+position = Vector2(0, 20)
 rotation = 3.14159
-scale = Vector2(6, 1)
+scale = Vector2(11, 1)
