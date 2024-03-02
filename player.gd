@@ -69,7 +69,7 @@ func _process(delta: float) -> void:
 	else:
 		swing_cooldown_timer += delta
 
-	health -= Stats.stats.health_decrease * delta
+	health -= Stats.health_decrease * delta
 	if health <= 0 and not is_dead:
 		die()
 
@@ -80,7 +80,7 @@ func _physics_process(delta: float) -> void:
 	sprite.target_rotation_degrees = sin(Clock.time * walk_tilt_speed * delta) * walk_tilt if input else 0.0
 
 	if can_move:
-		velocity = input * Stats.stats.movement_speed * delta + impulse_velocity + dash_impulse_velocity
+		velocity = input * Stats.movement_speed * delta + impulse_velocity + dash_impulse_velocity
 	else:
 		velocity = Vector2.ZERO
 
@@ -121,7 +121,7 @@ func get_hurt(bullet: Bullet):
 	Globals.camera.shake(0.05, 3)
 	Globals.camera.impact()
 	knockback(position - bullet.position, 100)
-	health -= Stats.stats.hurt_health_decrease
+	health -= Stats.hurt_health_decrease
 	Events.health_change.emit(health)
 
 func die():
@@ -151,7 +151,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		get_hurt(bullet)
 
 func _on_enemy_die(_enemy: Enemy):
-	health += Stats.stats.enemy_kill_health_increase
+	health += Stats.enemy_kill_health_increase
 	Events.health_change.emit(health)
 
 func _on_pickup_area_area_entered(area: Area2D) -> void:

@@ -28,7 +28,7 @@ func switch_to_player(autoaim):
 	is_player_bullet = true
 	trail.emitting = true
 	rotation = target_direction.angle()
-	speed = Stats.stats.bullet_speed
+	speed = Stats.bullet_speed
 	sprite.impact(1.5)
 	sprite.texture = player_bullet_texture
 	reset_health()
@@ -49,7 +49,7 @@ func hit_enemy():
 	combo += 1
 
 func reset_health():
-	health = Stats.stats.bullet_bounce + 1
+	health = Stats.bullet_bounce + 1
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Wall:
