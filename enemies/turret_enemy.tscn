@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cv4xxy35v1qe5"]
+[gd_scene load_steps=7 format=3 uid="uid://cv4xxy35v1qe5"]
 
 [ext_resource type="PackedScene" uid="uid://g2f6mwxx5irq" path="res://enemies/enemy.tscn" id="1_s86gg"]
 [ext_resource type="Texture2D" uid="uid://dxyy644tmjnos" path="res://assets/enemies/turret.png" id="2_61vsm"]
@@ -10,9 +10,6 @@ script = ExtResource("3_jl21p")
 f = 4.0
 z = 1.0
 r = 2.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_53bwo"]
-radius = 30.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4flu5"]
 radius = 11.0
@@ -31,9 +28,6 @@ rotation_dynamics_enabled = false
 rotation_dynamics = SubResource("Resource_lbygh")
 shadow_offset = Vector2(0, 16)
 shadow_scale = Vector2(0.8, 0.6)
-
-[node name="CollisionShape" parent="AutoaimArea" index="0"]
-shape = SubResource("CircleShape2D_53bwo")
 
 [node name="FireTimer" type="Timer" parent="." index="2"]
 
