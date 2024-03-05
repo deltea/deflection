@@ -41,10 +41,6 @@ func switch_to_player(autoaim):
 func destroy():
 	queue_free()
 
-func bounce(normal: Vector2):
-	print(normal)
-	rotation = Vector2.from_angle(rotation).bounce(normal).angle()
-
 func hit_enemy():
 	combo += 1
 
@@ -55,10 +51,26 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Wall:
 		var wall = body as Wall
 		health -= 1
-		if health > 0:
-			if is_player_bullet: bounce(Vector2.from_angle(body.rotation - PI/2))
-		else:
-			if wall.destroy_bullets: destroy()
+		if wall.destroy_bullets: destroy()
+		elif health > 0 and is_player_bullet:
+			const normals = [
+				Vector2(0, 1),
+				Vector2(0, -1),
+				Vector2(1, 0),
+				Vector2(-1, 0)
+			]
+
+			var max_dot = -INF
+			var hit_side = null
+			var direction = (body.global_position - global_position).normalized()
+
+			for normal in normals:
+				var dot_value = direction.dot(normal)
+				if dot_value > max_dot:
+					max_dot = dot_value
+					hit_side = normal
+
+			rotation = Vector2.from_angle(rotation).bounce(hit_side).angle()
 
 func _on_blink_timer_timeout() -> void:
 	if not texture_1 or not texture_2 or is_player_bullet: return

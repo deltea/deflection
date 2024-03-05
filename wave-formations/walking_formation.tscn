@@ -24,32 +24,10 @@ rotation = 2.35619
 
 [node name="Hole" parent="." index="4" instance=ExtResource("3_cjx26")]
 position = Vector2(-96, 0)
-
-[node name="RightWall" parent="Hole" index="1"]
-destroy_bullets = true
-
-[node name="LeftWall" parent="Hole" index="2"]
-destroy_bullets = true
-
-[node name="TopWall" parent="Hole" index="3"]
-destroy_bullets = true
-
-[node name="BottomWall" parent="Hole" index="4"]
 destroy_bullets = true
 
 [node name="Hole2" parent="." index="5" instance=ExtResource("3_cjx26")]
 position = Vector2(96, 0)
-
-[node name="RightWall" parent="Hole2" index="1"]
-destroy_bullets = true
-
-[node name="LeftWall" parent="Hole2" index="2"]
-destroy_bullets = true
-
-[node name="TopWall" parent="Hole2" index="3"]
-destroy_bullets = true
-
-[node name="BottomWall" parent="Hole2" index="4"]
 destroy_bullets = true
 
 [editable path="Hole"]

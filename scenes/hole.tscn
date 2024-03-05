@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj7m6n3i5w4v2"]
+[gd_scene load_steps=6 format=3 uid="uid://cj7m6n3i5w4v2"]
 
 [ext_resource type="Shader" path="res://shaders/mask.gdshader" id="1_7aote"]
+[ext_resource type="Script" path="res://scripts/wall.gd" id="1_ovuq2"]
 [ext_resource type="Texture2D" uid="uid://jmni87fcmmst" path="res://assets/shapes/square.png" id="2_wojto"]
-[ext_resource type="PackedScene" uid="uid://cckoq7nwhivl5" path="res://scenes/wall.tscn" id="3_uh4xt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_43vkk"]
 shader = ExtResource("1_7aote")
 
-[node name="Hole" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6js6"]
+size = Vector2(36, 36)
+
+[node name="Hole" type="StaticBody2D"]
 z_index = 40
+collision_mask = 0
+script = ExtResource("1_ovuq2")
 
 [node name="Mask" type="Sprite2D" parent="."]
 z_index = 1000
@@ -16,21 +21,9 @@ material = SubResource("ShaderMaterial_43vkk")
 scale = Vector2(2.25, 2.25)
 texture = ExtResource("2_wojto")
 
-[node name="RightWall" parent="." instance=ExtResource("3_uh4xt")]
-position = Vector2(20, 0)
-rotation = 4.71238
-scale = Vector2(11, 1)
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v6js6")
 
-[node name="LeftWall" parent="." instance=ExtResource("3_uh4xt")]
-position = Vector2(-20, 0)
-rotation = 1.57079
-scale = Vector2(11, 1)
-
-[node name="TopWall" parent="." instance=ExtResource("3_uh4xt")]
-position = Vector2(0, -20)
-scale = Vector2(11, 1)
-
-[node name="BottomWall" parent="." instance=ExtResource("3_uh4xt")]
-position = Vector2(0, 20)
-rotation = 3.14159
-scale = Vector2(11, 1)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.75, 2.75)
+texture = ExtResource("2_wojto")

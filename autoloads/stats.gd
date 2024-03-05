@@ -5,7 +5,7 @@ const BULLET_SPEED = 500.0
 const HEALTH_DECREASE = 2.0
 const HURT_HEALTH_DECREASE = 15.0
 const ENEMY_KILL_HEALTH_INCREASE = 10.0
-const BULLET_BOUNCE = 0
+const BULLET_BOUNCE = 1
 
 var movement_speed = MOVEMENT_SPEED
 var bullet_speed = BULLET_SPEED
