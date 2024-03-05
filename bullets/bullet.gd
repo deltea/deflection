@@ -51,8 +51,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Wall:
 		var wall = body as Wall
 		health -= 1
-		if wall.destroy_bullets: destroy()
-		elif health > 0 and is_player_bullet:
+		if health > 0 and is_player_bullet:
 			const normals = [
 				Vector2(0, 1),
 				Vector2(0, -1),
@@ -71,6 +70,7 @@ func _on_body_entered(body: Node2D) -> void:
 					hit_side = normal
 
 			rotation = Vector2.from_angle(rotation).bounce(hit_side).angle()
+		elif wall.destroy_bullets: destroy()
 
 func _on_blink_timer_timeout() -> void:
 	if not texture_1 or not texture_2 or is_player_bullet: return
