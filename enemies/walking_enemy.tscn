@@ -36,5 +36,4 @@ position = Vector2(1, 0)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_kh88g")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]

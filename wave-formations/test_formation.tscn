@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://d04ju0370at7i"]
+
+[ext_resource type="PackedScene" uid="uid://dcm73ntjp052v" path="res://wave-formations/wave_formation.tscn" id="1_sjavn"]
+[ext_resource type="PackedScene" uid="uid://cv4xxy35v1qe5" path="res://enemies/turret_enemy.tscn" id="2_ddnp3"]
+[ext_resource type="PackedScene" uid="uid://cckoq7nwhivl5" path="res://scenes/wall.tscn" id="3_rg0g7"]
+
+[node name="TestFormation" instance=ExtResource("1_sjavn")]
+
+[node name="TurretEnemy" parent="." index="0" instance=ExtResource("2_ddnp3")]
+position = Vector2(-161, 0)
+
+[node name="Wall" parent="." index="1" instance=ExtResource("3_rg0g7")]
+scale = Vector2(2, 20)

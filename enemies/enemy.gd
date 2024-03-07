@@ -48,12 +48,13 @@ func drop_cash():
 	Globals.current_room.call_deferred("add_child", cash)
 
 func get_hit_by_bullet(bullet: Bullet):
-	Globals.camera.jerk_direction(bullet.position - position, 5)#20.0)
+	Globals.camera.jerk_direction(bullet.position - position, 5)
 	bullet.hit_enemy()
 	get_hurt()
 
-func _on_area_entered(area: Area2D) -> void:
-	if area is Bullet:
-		var bullet = area as Bullet
+func _on_body_entered(body: Node2D) -> void:
+	if body is Bullet:
+		var bullet = body as Bullet
 		if bullet.is_player_bullet:
 			get_hit_by_bullet(bullet)
+			print("hit")

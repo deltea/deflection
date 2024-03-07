@@ -9,5 +9,5 @@
 
 [node name="WaveManager" type="Node"]
 script = ExtResource("1_0b84j")
-only_one_formation = ExtResource("5_8p6xa")
+test_formation = ExtResource("5_8p6xa")
 formation_scenes = Array[PackedScene]([ExtResource("5_j0hd8"), ExtResource("3_rnsi5"), ExtResource("4_gdjlp"), ExtResource("5_8p6xa"), ExtResource("6_5do0r")])

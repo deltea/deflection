@@ -16,13 +16,14 @@ func _ready() -> void:
 
 func start():
 	set_physics_process(true)
-	target_rotation = rotation#randf_range(0, PI*2)
+	target_rotation = rotation
 
 func _physics_process(delta: float) -> void:
 	sprite.target_rotation_degrees = rad_to_deg(target_rotation)
 	position += Vector2.from_angle(target_rotation) * speed * delta
 
 func _on_body_entered(body: Node2D) -> void:
+	super._on_body_entered(body)
 	if body is Wall:
 		var normal = Vector2.from_angle(body.rotation - PI/2)
 		target_rotation = Vector2.from_angle(target_rotation).bounce(normal).angle()

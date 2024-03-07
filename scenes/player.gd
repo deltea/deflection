@@ -103,7 +103,7 @@ func swing_bat():
 	bat_rotation = -bat_rotation
 	knockback(position - get_global_mouse_position(), 100)
 
-	var bullets = parry_area.get_overlapping_areas().filter(func(area): return area is Bullet)
+	var bullets = parry_area.get_overlapping_bodies().filter(func(area): return area is Bullet)
 	for bullet in bullets:
 		deflect_bullet(bullet)
 
@@ -143,9 +143,9 @@ func deflect_bullet(bullet: Bullet):
 	Globals.camera.jerk_direction(position - get_global_mouse_position(), 5.0)
 	bat_sprite.impact(1.5)
 
-func _on_hitbox_area_entered(area: Area2D) -> void:
-	if area is Bullet:
-		var bullet = area as Bullet
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body is Bullet:
+		var bullet = body as Bullet
 		if bullet.is_player_bullet: return
 
 		get_hurt(bullet)

@@ -1,4 +1,4 @@
-class_name Bullet extends Area2D
+class_name Bullet extends CharacterBody2D
 
 @export var texture_1: Texture2D
 @export var texture_2: Texture2D
@@ -7,6 +7,7 @@ class_name Bullet extends Area2D
 @onready var sprite: Sprite = $SpritePlus
 @onready var blink_timer: Timer = $BlinkTimer
 @onready var trail: Trail = $Trail
+@onready var area: Area2D = $Area
 
 var is_player_bullet = false
 var speed = 0.0
@@ -18,7 +19,16 @@ func _ready() -> void:
 	trail.emitting = false
 
 func _physics_process(delta: float) -> void:
-	position += Vector2.from_angle(rotation) * speed * delta
+	velocity = Vector2.from_angle(rotation) * speed
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		if collision.get_collider() is Wall:
+			var wall = collision.get_collider() as Wall
+			health -= 1
+			if health > 0 and is_player_bullet:
+				var normal = Vector2.from_angle(wall.rotation + PI/2)
+				rotation = Vector2.from_angle(rotation).bounce(normal).angle()
+			else: destroy()
 
 func switch_to_player(autoaim):
 	var target_direction = get_global_mouse_position() - global_position
@@ -34,7 +44,7 @@ func switch_to_player(autoaim):
 	reset_health()
 
 	# Just in case an enemy is touching a bullet
-	var enemies_touching = get_overlapping_areas().filter(func(area): return area is Enemy)
+	var enemies_touching = area.get_overlapping_areas().filter(func(a): return a is Enemy)
 	for enemy in enemies_touching:
 		enemy.get_hit_by_bullet(self)
 
@@ -46,31 +56,6 @@ func hit_enemy():
 
 func reset_health():
 	health = Stats.bullet_bounce + 1
-
-func _on_body_entered(body: Node2D) -> void:
-	if body is Wall:
-		var wall = body as Wall
-		health -= 1
-		if health > 0 and is_player_bullet:
-			const normals = [
-				Vector2(0, 1),
-				Vector2(0, -1),
-				Vector2(1, 0),
-				Vector2(-1, 0)
-			]
-
-			var max_dot = -INF
-			var hit_side = null
-			var direction = (body.global_position - global_position).normalized()
-
-			for normal in normals:
-				var dot_value = direction.dot(normal)
-				if dot_value > max_dot:
-					max_dot = dot_value
-					hit_side = normal
-
-			rotation = Vector2.from_angle(rotation).bounce(hit_side).angle()
-		elif wall.destroy_bullets: destroy()
 
 func _on_blink_timer_timeout() -> void:
 	if not texture_1 or not texture_2 or is_player_bullet: return

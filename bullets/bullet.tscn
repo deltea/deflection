@@ -17,7 +17,7 @@ r = 2.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_gh6fu"]
 radius = 8.0
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="CharacterBody2D"]
 z_index = 20
 collision_layer = 8
 collision_mask = 5
@@ -33,6 +33,13 @@ use_shadow = false
 shadow_offset = Vector2(0, 16)
 shadow_scale = Vector2(0.5, 0.5)
 
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Area"]
+shape = SubResource("CircleShape2D_gh6fu")
+
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gh6fu")
 
@@ -47,6 +54,5 @@ points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 width = 16.0
 length = 5
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier" to="." method="_on_visible_on_screen_notifier_screen_exited"]

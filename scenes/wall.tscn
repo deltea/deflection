@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/wall.gd" id="1_iun74"]
 [ext_resource type="Texture2D" uid="uid://bmxrw3ko53c70" path="res://assets/shapes/pixel.png" id="1_nu3ou"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3t4ah"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4iv1o"]
 size = Vector2(4, 4)
 
 [node name="Wall" type="StaticBody2D"]
@@ -17,4 +17,4 @@ scale = Vector2(4, 4)
 texture = ExtResource("1_nu3ou")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_3t4ah")
+shape = SubResource("RectangleShape2D_4iv1o")

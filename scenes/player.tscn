@@ -124,5 +124,5 @@ rotation_dynamics_enabled = false
 rotation_dynamics = SubResource("Resource_1hw62")
 use_shadow = false
 
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="area_entered" from="PickupArea" to="." method="_on_pickup_area_area_entered"]

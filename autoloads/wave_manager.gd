@@ -1,6 +1,6 @@
 extends Node
 
-@export var only_one_formation: PackedScene
+@export var test_formation: PackedScene
 @export var formation_scenes: Array[PackedScene]
 
 var wave = 0
@@ -15,7 +15,7 @@ func _ready() -> void:
 func next_wave():
 	wave += 1
 
-	var formation_scene = only_one_formation if only_one_formation else formation_scenes.pick_random()
+	var formation_scene = test_formation if test_formation else formation_scenes.pick_random()
 	var formation = formation_scene.instantiate() as WaveFormation
 	formation.global_position = Vector2.ZERO
 	Globals.current_room.add_child(formation)
