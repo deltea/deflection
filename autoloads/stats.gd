@@ -7,9 +7,20 @@ const HURT_HEALTH_DECREASE = 15.0
 const ENEMY_KILL_HEALTH_INCREASE = 10.0
 const BULLET_BOUNCE = 1
 
-var movement_speed = MOVEMENT_SPEED
-var bullet_speed = BULLET_SPEED
-var health_decrease = HEALTH_DECREASE
-var hurt_health_decrease = HURT_HEALTH_DECREASE
-var enemy_kill_health_increase = ENEMY_KILL_HEALTH_INCREASE
-var bullet_bounce = BULLET_BOUNCE
+var movement_speed: float
+var bullet_speed: float
+var health_decrease: float
+var hurt_health_decrease: float
+var enemy_kill_health_increase: float
+var bullet_bounce: int
+
+func _ready() -> void:
+	reset_stats()
+
+func reset_stats():
+	movement_speed = MOVEMENT_SPEED
+	bullet_speed = BULLET_SPEED
+	health_decrease = HEALTH_DECREASE
+	hurt_health_decrease = HURT_HEALTH_DECREASE
+	enemy_kill_health_increase = ENEMY_KILL_HEALTH_INCREASE
+	bullet_bounce = BULLET_BOUNCE
