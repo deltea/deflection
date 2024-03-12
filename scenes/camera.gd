@@ -25,9 +25,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	offset = base_offset + (get_global_mouse_position() - global_position) * mouse_strength + jerk
 	zoom = lerp(zoom, target_zoom, zoom_speed * delta)
-	var player_x_tilt = 0 - Globals.player.position.x * player_x_strength
-	rotation_degrees = lerp(rotation_degrees, 0.0 + player_x_tilt, rotation_speed * delta)
 	jerk = jerk.move_toward(target_jerk, jerk_damping_speed * delta)
+	if Globals.player:
+		var player_x_tilt = 0 - Globals.player.position.x * player_x_strength
+		rotation_degrees = lerp(rotation_degrees, 0.0 + player_x_tilt, rotation_speed * delta)
 
 	if shake_duration > 0:
 		position = original_pos + Vector2.from_angle(randf_range(0, PI*2)) * shake_magnitude

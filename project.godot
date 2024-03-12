@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 Stats="*res://autoloads/stats.tscn"
 GlobalCanvas="*res://autoloads/global_canvas.tscn"
-WaveManager="*res://autoloads/wave_manager.tscn"
 Dynamics="*res://autoloads/Dynamics.gd"
 UpgradeManager="*res://autoloads/upgrade_manager.tscn"
 Clock="*res://autoloads/Clock.gd"

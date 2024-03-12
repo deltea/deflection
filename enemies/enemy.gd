@@ -57,4 +57,3 @@ func _on_body_entered(body: Node2D) -> void:
 		var bullet = body as Bullet
 		if bullet.is_player_bullet:
 			get_hit_by_bullet(bullet)
-			print("hit")

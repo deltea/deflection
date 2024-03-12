@@ -70,8 +70,7 @@ func _process(delta: float) -> void:
 		swing_cooldown_timer += delta
 
 	health -= Stats.health_decrease * delta
-	if health <= 0 and not is_dead:
-		die()
+	if health <= 0 and not is_dead: die()
 
 func _physics_process(delta: float) -> void:
 	var input = Input.get_vector("left", "right", "up", "down")

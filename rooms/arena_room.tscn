@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlfa7daaklqxk"]
+[gd_scene load_steps=12 format=3 uid="uid://dlfa7daaklqxk"]
 
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_1oiln"]
 [ext_resource type="Shader" path="res://shaders/mask.gdshader" id="1_qxgbe"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cv77bxtlv1mt3" path="res://scenes/game_canvas.tscn" id="2_7atqw"]
 [ext_resource type="Texture2D" uid="uid://jmni87fcmmst" path="res://assets/shapes/square.png" id="3_ka4cv"]
 [ext_resource type="Texture2D" uid="uid://ogckd3hcjecc" path="res://assets/background.png" id="3_xxcna"]
+[ext_resource type="PackedScene" uid="uid://bwpx3sxj8dsue" path="res://scenes/wave_manager.tscn" id="9_ot6k7"]
 [ext_resource type="PackedScene" uid="uid://cckoq7nwhivl5" path="res://scenes/wall.tscn" id="12_c0wqa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wqgdq"]
@@ -26,6 +27,8 @@ metadata/_edit_vertical_guides_ = [-198.0, 198.0]
 metadata/_edit_horizontal_guides_ = [-118.0, 118.0]
 
 [node name="Canvas" parent="." instance=ExtResource("2_7atqw")]
+
+[node name="WaveManager" parent="." instance=ExtResource("9_ot6k7")]
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
 copy_mode = 2

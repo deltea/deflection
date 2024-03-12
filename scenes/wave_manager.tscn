@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwpx3sxj8dsue"]
 
-[ext_resource type="Script" path="res://autoloads/wave_manager.gd" id="1_0b84j"]
+[ext_resource type="Script" path="res://scenes/wave_manager.gd" id="1_0b84j"]
 [ext_resource type="PackedScene" uid="uid://cjv71jtlrw5fo" path="res://wave-formations/crossfire_formation.tscn" id="3_rnsi5"]
 [ext_resource type="PackedScene" uid="uid://cxsfew3dmpq6b" path="res://wave-formations/diamond_formation.tscn" id="4_gdjlp"]
 [ext_resource type="PackedScene" uid="uid://wxs580xiagis" path="res://wave-formations/walking_formation.tscn" id="5_8p6xa"]
