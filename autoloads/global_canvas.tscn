@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cql4i4r66t2qd" path="res://assets/cursor/pointer.png" id="3_xhbl4"]
 
 [node name="GlobalCanvas" type="CanvasLayer"]
+layer = 10
 script = ExtResource("1_4v56d")
 crosshair_texture = ExtResource("2_w8wht")
 pointer_texture = ExtResource("3_xhbl4")

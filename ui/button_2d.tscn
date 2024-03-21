@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuqtan851ih2v"]
+
+[ext_resource type="Script" path="res://ui/button_2d.gd" id="1_cvwmi"]
+
+[node name="Button2D" type="Area2D"]
+script = ExtResource("1_cvwmi")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

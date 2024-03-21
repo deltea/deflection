@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://b6qtxfqkq6dvo"]
+
+[ext_resource type="Script" path="res://ui/reroll_button.gd" id="1_7brcd"]
+[ext_resource type="PackedScene" uid="uid://cuqtan851ih2v" path="res://ui/button_2d.tscn" id="1_t0yia"]
+[ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="2_ue12u"]
+[ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="3_4iq7d"]
+[ext_resource type="Texture2D" uid="uid://bpm5qiolkvjk1" path="res://assets/upgrade-card-background.png" id="3_54vig"]
+[ext_resource type="FontFile" uid="uid://bwdtpcaufp8ib" path="res://assets/fonts/m6x11.ttf" id="5_jh57b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qunf2"]
+size = Vector2(90, 108)
+
+[sub_resource type="Resource" id="Resource_r5ppl"]
+script = ExtResource("3_4iq7d")
+f = 4.0
+z = 0.4
+r = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_t3yjm"]
+font = ExtResource("5_jh57b")
+font_size = 18
+font_color = Color(1, 0, 0, 1)
+
+[node name="RerollButton" node_paths=PackedStringArray("sprite") instance=ExtResource("1_t0yia")]
+script = ExtResource("1_7brcd")
+sprite = NodePath("Card")
+
+[node name="CollisionShape" parent="." index="0"]
+shape = SubResource("RectangleShape2D_qunf2")
+
+[node name="Card" parent="." index="1" instance=ExtResource("2_ue12u")]
+texture = ExtResource("3_54vig")
+scale_dynamics = SubResource("Resource_r5ppl")
+use_shadow = false
+
+[node name="Label" type="Label" parent="Card" index="1"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 19.0
+text = "Reroll
+$50"
+label_settings = SubResource("LabelSettings_t3yjm")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

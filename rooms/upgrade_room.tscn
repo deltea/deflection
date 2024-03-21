@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://clyhk4wsefdem"]
+[gd_scene load_steps=7 format=3 uid="uid://clyhk4wsefdem"]
 
 [ext_resource type="Script" path="res://rooms/upgrade_room.gd" id="1_grjgu"]
 [ext_resource type="Texture2D" uid="uid://ba5sutp1gkm81" path="res://assets/cash.png" id="3_4vi1g"]
 [ext_resource type="FontFile" uid="uid://cwg2w3dvvbt7d" path="res://assets/fonts/hefty-me.ttf" id="3_jsafx"]
 [ext_resource type="PackedScene" uid="uid://b2d6fj5ct4bqv" path="res://scenes/camera.tscn" id="4_ft7n2"]
+[ext_resource type="PackedScene" uid="uid://b6qtxfqkq6dvo" path="res://ui/reroll_button.tscn" id="5_gku3s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qnovp"]
 font = ExtResource("3_jsafx")
@@ -19,47 +20,23 @@ mouse_mode = 1
 position = Vector2(240, 135)
 mouse_strength = 0.01
 
-[node name="Canvas" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
+[node name="Money" type="Node2D" parent="."]
 
-[node name="Money" type="Control" parent="Canvas"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 40.0
-offset_bottom = 26.0
-
-[node name="Background" type="ColorRect" parent="Canvas/Money"]
-layout_mode = 0
-offset_left = -19.0
-offset_top = -15.0
-offset_right = 129.0
-offset_bottom = 24.0
-color = Color(1, 0, 0, 1)
-
-[node name="CashIcon" type="TextureRect" parent="Canvas/Money"]
-layout_mode = 1
+[node name="MoneyLabel" type="Label" parent="Money"]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -14.0
-offset_right = 10.0
-offset_bottom = 14.0
-grow_vertical = 2
-pivot_offset = Vector2(5, 14)
-texture = ExtResource("3_4vi1g")
-stretch_mode = 3
-
-[node name="MoneyLabel" type="Label" parent="Canvas/Money"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 16.0
-offset_top = -11.0
-offset_right = 35.0
-offset_bottom = 11.0
+offset_left = 26.0
+offset_top = 8.0
+offset_right = 45.0
+offset_bottom = 30.0
 grow_vertical = 2
 text = "16"
 label_settings = SubResource("LabelSettings_qnovp")
+
+[node name="CashIcon" type="Sprite2D" parent="Money"]
+position = Vector2(15, 19)
+texture = ExtResource("3_4vi1g")
+
+[node name="RerollButton" parent="." instance=ExtResource("5_gku3s")]
+position = Vector2(387, 128)

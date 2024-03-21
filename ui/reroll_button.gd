@@ -1,0 +1,1 @@
+class_name RerollButton extends Button2D
