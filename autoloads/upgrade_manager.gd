@@ -26,7 +26,7 @@ func create_upgrade(upgrade_object: UpgradeObject):
 func create_upgrades():
 	create_upgrade(UpgradeObject.new("The Wheel", load("res://assets/upgrades/upgrade.png")))
 	create_upgrade(UpgradeObject.new("The Circle", load("res://assets/upgrades/upgrade-2.png")))
-	create_upgrade(UpgradeObject.new("The Solid Circle", load("res://assets/upgrades/upgrade-3.png")))
+	create_upgrade(UpgradeObject.new("The Basketball", load("res://assets/upgrades/upgrade-3.png")))
 
 func _on_get_cash():
 	current_money += 1
