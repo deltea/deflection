@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6qtxfqkq6dvo"]
+[gd_scene load_steps=11 format=3 uid="uid://b6qtxfqkq6dvo"]
 
 [ext_resource type="Script" path="res://ui/reroll_button.gd" id="1_7brcd"]
 [ext_resource type="PackedScene" uid="uid://cuqtan851ih2v" path="res://ui/button_2d.tscn" id="1_t0yia"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="3_4iq7d"]
 [ext_resource type="Texture2D" uid="uid://bpm5qiolkvjk1" path="res://assets/upgrade-card-background.png" id="3_54vig"]
 [ext_resource type="FontFile" uid="uid://bwdtpcaufp8ib" path="res://assets/fonts/m6x11.ttf" id="5_jh57b"]
+[ext_resource type="PackedScene" uid="uid://cp1wkbc2r2ggu" path="res://scenes/cash_icon.tscn" id="7_b265j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qunf2"]
 size = Vector2(90, 108)
@@ -39,7 +40,11 @@ offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 19.0
 text = "Reroll
-$50"
+  50"
 label_settings = SubResource("LabelSettings_t3yjm")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="CashIcon" parent="." index="2" instance=ExtResource("7_b265j")]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(-10, 11)

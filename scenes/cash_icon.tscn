@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp1wkbc2r2ggu"]
+
+[ext_resource type="Texture2D" uid="uid://ba5sutp1gkm81" path="res://assets/cash.png" id="1_ng08r"]
+[ext_resource type="Script" path="res://scenes/cash_icon.gd" id="2_ediw4"]
+
+[node name="CashIcon" type="Sprite2D"]
+position = Vector2(15, 19)
+texture = ExtResource("1_ng08r")
+script = ExtResource("2_ediw4")
