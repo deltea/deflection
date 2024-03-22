@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://vt5rukbspsqi"]
+
+[ext_resource type="Script" path="res://ui/row.gd" id="2_bxjx5"]
+
+[node name="Row" type="Node2D"]
+self_modulate = Color(1, 1, 1, 0)
+script = ExtResource("2_bxjx5")

@@ -15,7 +15,7 @@ func _on_mouse_exited() -> void:
 	hovering = false
 	if sprite: sprite.target_scale = 1.0 * Vector2.ONE
 
-func _on_input_event(viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	# get_viewport().set_input_as_handled()
 	if event is InputEventMouseButton:
 		pressing = event.pressed

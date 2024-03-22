@@ -1,4 +1,4 @@
-class_name Upgrade extends Button2D
+class_name UpgradeButton extends Button2D
 
 var label: Label
 var icon: Sprite2D
@@ -12,5 +12,6 @@ func set_values(upgrade_object: UpgradeObject):
 	label = $Card/Label
 	icon = $Card/Icon
 
+	name = upgrade_object.name
 	label.text = upgrade_object.name
 	icon.texture = upgrade_object.icon
