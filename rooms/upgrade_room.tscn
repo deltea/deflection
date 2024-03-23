@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://clyhk4wsefdem"]
+[gd_scene load_steps=12 format=3 uid="uid://clyhk4wsefdem"]
 
 [ext_resource type="Script" path="res://rooms/upgrade_room.gd" id="1_grjgu"]
 [ext_resource type="FontFile" uid="uid://cwg2w3dvvbt7d" path="res://assets/fonts/hefty-me.ttf" id="3_jsafx"]
@@ -6,12 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://cp1wkbc2r2ggu" path="res://scenes/cash_icon.tscn" id="4_qutib"]
 [ext_resource type="PackedScene" uid="uid://b6qtxfqkq6dvo" path="res://ui/reroll_button.tscn" id="5_gku3s"]
 [ext_resource type="PackedScene" uid="uid://vt5rukbspsqi" path="res://ui/row.tscn" id="6_0itr5"]
+[ext_resource type="PackedScene" uid="uid://cuqtan851ih2v" path="res://ui/button_2d.tscn" id="7_ranqa"]
+[ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="8_3olj6"]
+[ext_resource type="Texture2D" uid="uid://jmni87fcmmst" path="res://assets/shapes/square.png" id="9_j1k6m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qnovp"]
 font = ExtResource("3_jsafx")
 font_size = 24
 shadow_size = 0
 shadow_offset = Vector2(2, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqv0r"]
+size = Vector2(18, 18)
 
 [node name="UpgradeRoom" type="Node2D"]
 script = ExtResource("1_grjgu")
@@ -43,3 +49,18 @@ position = Vector2(240, 135)
 padding = 90
 
 [node name="RerollButton" parent="UpgradeRow" instance=ExtResource("5_gku3s")]
+
+[node name="Continue" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("7_ranqa")]
+position = Vector2(240, 234)
+sprite = NodePath("SpritePlus")
+
+[node name="CollisionShape" parent="Continue" index="0"]
+shape = SubResource("RectangleShape2D_aqv0r")
+
+[node name="SpritePlus" parent="Continue" instance=ExtResource("8_3olj6")]
+texture = ExtResource("9_j1k6m")
+use_shadow = false
+
+[connection signal="clicked" from="Continue" to="." method="_on_continue_clicked"]
+
+[editable path="Continue"]

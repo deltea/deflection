@@ -58,3 +58,5 @@ texture = ExtResource("6_sttad")
 [node name="Background" type="Sprite2D" parent="Card" index="3"]
 position = Vector2(0, 15)
 texture = ExtResource("7_m7j2l")
+
+[connection signal="clicked" from="." to="." method="_on_clicked"]

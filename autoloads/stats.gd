@@ -5,7 +5,7 @@ const BULLET_SPEED = 500.0
 const HEALTH_DECREASE = 2.0
 const HURT_HEALTH_DECREASE = 15.0
 const ENEMY_KILL_HEALTH_INCREASE = 10.0
-const BULLET_BOUNCE = 1
+const BULLET_BOUNCE = 0
 
 var movement_speed: float
 var bullet_speed: float
@@ -18,6 +18,7 @@ func _ready() -> void:
 	reset_stats()
 
 func reset_stats():
+	print("reset stats!")
 	movement_speed = MOVEMENT_SPEED
 	bullet_speed = BULLET_SPEED
 	health_decrease = HEALTH_DECREASE

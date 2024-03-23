@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dlfa7daaklqxk"]
 
-[ext_resource type="Script" path="res://scripts/room.gd" id="1_1oiln"]
+[ext_resource type="Script" path="res://rooms/arena_room.gd" id="1_2pe8x"]
 [ext_resource type="Shader" path="res://shaders/mask.gdshader" id="1_qxgbe"]
 [ext_resource type="PackedScene" uid="uid://brrr7qsj7budm" path="res://scenes/player.tscn" id="1_r5hwi"]
 [ext_resource type="Shader" path="res://shaders/swirl_background.gdshader" id="2_5obaw"]
@@ -22,7 +22,7 @@ shader_parameter/size = 20.0
 shader = ExtResource("1_qxgbe")
 
 [node name="ArenaRoom" type="Node2D"]
-script = ExtResource("1_1oiln")
+script = ExtResource("1_2pe8x")
 metadata/_edit_vertical_guides_ = [-198.0, 198.0]
 metadata/_edit_horizontal_guides_ = [-118.0, 118.0]
 

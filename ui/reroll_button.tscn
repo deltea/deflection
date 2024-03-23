@@ -49,3 +49,5 @@ label_settings = SubResource("LabelSettings_t3yjm")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[connection signal="clicked" from="." to="." method="_on_clicked"]

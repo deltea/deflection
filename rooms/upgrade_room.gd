@@ -24,3 +24,6 @@ func spawn_upgrades(amount: int):
 		upgrade_button.set_values(random_upgrade)
 		upgrade_row.add_child(upgrade_button)
 		upgrade_row.move_child(upgrade_button, 0)
+
+func _on_continue_clicked() -> void:
+	get_tree().change_scene_to_packed(load("res://rooms/arena_room.tscn"))
