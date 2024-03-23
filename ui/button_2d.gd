@@ -7,6 +7,9 @@ class_name Button2D extends Area2D
 var hovering = false
 var pressing = false
 
+func click():
+	pass
+
 func _on_mouse_entered() -> void:
 	hovering = true
 	if sprite: sprite.target_scale = hover_scale * Vector2.ONE
@@ -19,6 +22,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	# get_viewport().set_input_as_handled()
 	if event is InputEventMouseButton:
 		pressing = event.pressed
+		if not pressing: click()
 		if sprite:
 			var target_scale = press_scale if pressing else hover_scale
 			sprite.target_scale = target_scale * Vector2.ONE

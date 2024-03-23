@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="2_04shd"]
 [ext_resource type="Texture2D" uid="uid://bpm5qiolkvjk1" path="res://assets/upgrade-card-background.png" id="3_wxl83"]
 [ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="4_xtgu2"]
-[ext_resource type="FontFile" uid="uid://bwdtpcaufp8ib" path="res://assets/fonts/m6x11.ttf" id="5_dyajf"]
+[ext_resource type="FontFile" uid="uid://cwg2w3dvvbt7d" path="res://assets/fonts/hefty-me.ttf" id="6_2wx0y"]
 [ext_resource type="Texture2D" uid="uid://dfymo7eahdoqk" path="res://assets/upgrades/upgrade.png" id="6_sttad"]
 [ext_resource type="Texture2D" uid="uid://d2qnx1u4kgg4i" path="res://assets/upgrade-background.png" id="7_m7j2l"]
 
@@ -19,8 +19,7 @@ z = 0.4
 r = 2.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_goiii"]
-font = ExtResource("5_dyajf")
-font_size = 18
+font = ExtResource("6_2wx0y")
 
 [node name="UpgradeButton" node_paths=PackedStringArray("sprite") instance=ExtResource("1_r62fs")]
 script = ExtResource("2_1dydw")
@@ -31,7 +30,7 @@ sprite = NodePath("Card")
 shape = SubResource("RectangleShape2D_nxh4n")
 
 [node name="Card" parent="." index="1" instance=ExtResource("2_04shd")]
-self_modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 0)
 texture = ExtResource("3_wxl83")
 scale_dynamics = SubResource("Resource_ba1ep")
 use_shadow = false
@@ -40,13 +39,16 @@ use_shadow = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -74.5
-offset_top = -39.0
-offset_right = -15.5
-offset_bottom = -16.0
+offset_left = -82.0
+offset_top = -49.0
+offset_right = -8.0
+offset_bottom = -13.0
 grow_horizontal = 2
 text = "The Wheel"
 label_settings = SubResource("LabelSettings_goiii")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Icon" type="Sprite2D" parent="Card" index="2"]
 z_index = 10

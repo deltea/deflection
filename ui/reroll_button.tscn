@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://l4wb63ah2cbn" path="res://utils/sprite.tscn" id="2_ue12u"]
 [ext_resource type="Script" path="res://utils/dynamics_resource.gd" id="3_4iq7d"]
 [ext_resource type="Texture2D" uid="uid://bpm5qiolkvjk1" path="res://assets/upgrade-card-background.png" id="3_54vig"]
-[ext_resource type="FontFile" uid="uid://bwdtpcaufp8ib" path="res://assets/fonts/m6x11.ttf" id="5_jh57b"]
+[ext_resource type="FontFile" uid="uid://cwg2w3dvvbt7d" path="res://assets/fonts/hefty-me.ttf" id="7_4pgje"]
 [ext_resource type="PackedScene" uid="uid://cp1wkbc2r2ggu" path="res://scenes/cash_icon.tscn" id="7_b265j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qunf2"]
@@ -18,8 +18,7 @@ z = 0.4
 r = 2.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_t3yjm"]
-font = ExtResource("5_jh57b")
-font_size = 18
+font = ExtResource("7_4pgje")
 font_color = Color(1, 0, 0, 1)
 
 [node name="RerollButton" node_paths=PackedStringArray("sprite") instance=ExtResource("1_t0yia")]
@@ -30,21 +29,23 @@ sprite = NodePath("Card")
 shape = SubResource("RectangleShape2D_qunf2")
 
 [node name="Card" parent="." index="1" instance=ExtResource("2_ue12u")]
+self_modulate = Color(1, 1, 1, 0)
 texture = ExtResource("3_54vig")
 scale_dynamics = SubResource("Resource_r5ppl")
 use_shadow = false
 
-[node name="Label" type="Label" parent="Card" index="1"]
+[node name="CashIcon" parent="Card" index="0" instance=ExtResource("7_b265j")]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(-9, 8)
+
+[node name="Label" type="Label" parent="Card" index="2"]
 offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 19.0
 text = "Reroll
-  50"
+    50"
 label_settings = SubResource("LabelSettings_t3yjm")
 horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="CashIcon" parent="." index="2" instance=ExtResource("7_b265j")]
-self_modulate = Color(1, 0, 0, 1)
-position = Vector2(-10, 11)

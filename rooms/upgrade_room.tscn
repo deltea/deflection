@@ -34,10 +34,12 @@ offset_bottom = 30.0
 grow_vertical = 2
 text = "16"
 label_settings = SubResource("LabelSettings_qnovp")
+vertical_alignment = 1
 
 [node name="CashIcon" parent="Money" instance=ExtResource("4_qutib")]
 
 [node name="UpgradeRow" parent="." instance=ExtResource("6_0itr5")]
 position = Vector2(240, 135)
+padding = 90
 
 [node name="RerollButton" parent="UpgradeRow" instance=ExtResource("5_gku3s")]
